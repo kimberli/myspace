@@ -12,7 +12,7 @@ $ npm install
 ```
 2. Set up Git hooks.
 ```bash
-$ npx run prepare
+$ npm run prepare
 ```
 3. Populate `.env.local` with the appropriate env variables.
 4. Set up a local development database.
