@@ -60,6 +60,17 @@ const Home: React.FC<HomeProps> = () => {
         />
       </div>
       <div className="absolute bottom-14 flex flex-row items-end">
+        <Image
+          src="/flowers.svg"
+          className="drop-shadow-[12px_12px_12px_rgba(0,0,0,0.1)]"
+          alt="Flowers"
+          width={180}
+          height={200}
+          priority
+        />
+        <span className="w-[700px]" />
+      </div>
+      <div className="absolute bottom-14 flex flex-row items-end">
         <span className="w-[700px]" />
         <Image
           src="/plant.svg"
