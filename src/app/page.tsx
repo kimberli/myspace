@@ -5,6 +5,24 @@ interface HomeProps {}
 const Home: React.FC<HomeProps> = () => {
   return (
     <main className="bg-gradient-to-r from-slate-100 via-emerald-100 to-emerald-200 flex min-h-screen flex-col items-center justify-between p-24">
+      <div className="absolute flex flex-row items-center justify-center gap-6 top-48 h-48 w-full">
+        <Image
+          src="/photo_a.svg"
+          className="drop-shadow-[2px_2px_2px_rgba(0,0,0,0.4)]"
+          alt="Photo A"
+          width={120}
+          height={80}
+          priority
+        />
+        <Image
+          src="/photo_b.svg"
+          className="drop-shadow-[2px_2px_2px_rgba(0,0,0,0.4)]"
+          alt="Photo B"
+          width={130}
+          height={130}
+          priority
+        />
+      </div>
       <div className="absolute bottom-24 h-8 w-full">
         <Image
           className="object-cover object-top"
