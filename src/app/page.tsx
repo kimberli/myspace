@@ -4,7 +4,7 @@ interface HomeProps {}
 
 const Home: React.FC<HomeProps> = () => {
   return (
-    <main className="bg-gradient-to-r from-slate-300 via-emerald-100 to-emerald-200 flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="bg-gradient-to-r from-primary via-primary-light to-primary-dark flex min-h-screen flex-col items-center justify-between p-24">
       <div className="absolute flex flex-row items-center justify-center gap-6 top-16 h-48 w-full">
         <Image
           src="/photo_a.svg"
