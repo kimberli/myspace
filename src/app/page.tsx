@@ -4,8 +4,8 @@ interface HomeProps {}
 
 const Home: React.FC<HomeProps> = () => {
   return (
-    <main className="bg-gradient-to-r from-slate-100 via-emerald-100 to-emerald-200 flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="absolute flex flex-row items-center justify-center gap-6 top-24 h-48 w-full">
+    <main className="bg-gradient-to-r from-slate-300 via-emerald-100 to-emerald-200 flex min-h-screen flex-col items-center justify-between p-24">
+      <div className="absolute flex flex-row items-center justify-center gap-6 top-16 h-48 w-full">
         <Image
           src="/photo_a.svg"
           className="drop-shadow-[2px_2px_2px_rgba(0,0,0,0.4)]"
@@ -27,6 +27,16 @@ const Home: React.FC<HomeProps> = () => {
           className="drop-shadow-[2px_2px_2px_rgba(0,0,0,0.4)]"
           alt="Photo C"
           width={130}
+          height={160}
+          priority
+        />
+      </div>
+      <div className="absolute flex flex-row items-center justify-center gap-6 top-48 w-full">
+        <Image
+          src="/shelf.svg"
+          className="drop-shadow-[8px_8px_4px_rgba(0,0,0,0.2)]"
+          alt="Shelf"
+          width={400}
           height={160}
           priority
         />
@@ -62,7 +72,7 @@ const Home: React.FC<HomeProps> = () => {
       <div className="absolute bottom-14 flex flex-row items-end">
         <Image
           src="/flowers.svg"
-          className="drop-shadow-[12px_12px_12px_rgba(0,0,0,0.1)]"
+          className="drop-shadow-[8px_8px_8px_rgba(0,0,0,0.2)]"
           alt="Flowers"
           width={180}
           height={200}
@@ -70,7 +80,7 @@ const Home: React.FC<HomeProps> = () => {
         />
         <span className="w-[700px]" />
       </div>
-      <div className="absolute bottom-14 flex flex-row items-end">
+      <div className="absolute bottom-16 flex flex-row items-end">
         <span className="w-[700px]" />
         <Image
           src="/plant.svg"
