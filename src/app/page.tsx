@@ -31,13 +31,24 @@ const Home: React.FC<HomeProps> = () => {
           priority
         />
       </div>
-      <div className="absolute flex flex-row items-center justify-center gap-6 top-48 w-full">
+      <div className="absolute flex flex-row items-center justify-center top-44 w-full">
         <Image
           src="/shelf.svg"
           className="drop-shadow-[8px_8px_4px_rgba(0,0,0,0.2)]"
           alt="Shelf"
           width={400}
           height={160}
+          priority
+        />
+      </div>
+      <div className="absolute flex flex-row items-center justify-center gap-6 top-72 w-full">
+        <span className="w-[120px]" />
+        <Image
+          src="/bike.svg"
+          className="drop-shadow-[8px_8px_4px_rgba(0,0,0,0.2)]"
+          alt="Bike"
+          width={100}
+          height={80}
           priority
         />
       </div>
