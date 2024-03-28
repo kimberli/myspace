@@ -1,67 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Created with Vectornator (http://vectornator.io/) -->
-<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 1200 1600" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 800 1200" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
-<radialGradient cx="0" cy="0" gradientTransform="matrix(898.473 1177.1 -1324.23 798.643 428.737 466.038)" gradientUnits="userSpaceOnUse" id="RadialGradient" r="1">
-<stop offset="0" stop-color="#ffffff"/>
-<stop offset="0.55" stop-color="#eeca5a"/>
-<stop offset="1" stop-color="#d4b965"/>
+<radialGradient cx="0" cy="0" gradientTransform="matrix(259.326 384.135 -384.135 259.326 167.81 245.539)" gradientUnits="userSpaceOnUse" id="RadialGradient" r="1">
+<stop offset="0" stop-color="#fffcee"/>
+<stop offset="1" stop-color="#eeca5a"/>
 </radialGradient>
-<linearGradient gradientTransform="matrix(20 0 0 20 1160 800)" gradientUnits="userSpaceOnUse" id="LinearGradient" x1="0" x2="1" y1="0" y2="0">
-<stop offset="0" stop-color="#efda99"/>
-<stop offset="1" stop-color="#ffea9f"/>
-</linearGradient>
-<linearGradient gradientTransform="matrix(-1136.53 2.12635 -2.12635 -1136.53 1165.37 1569.24)" gradientUnits="userSpaceOnUse" id="LinearGradient_2" x1="0" x2="1" y1="0" y2="0">
-<stop offset="0" stop-color="#efda99"/>
-<stop offset="1" stop-color="#ffea9f"/>
-</linearGradient>
-<linearGradient gradientTransform="matrix(-1129.71 -1.16226 1.16226 -1129.71 1163.28 30.1913)" gradientUnits="userSpaceOnUse" id="LinearGradient_3" x1="0" x2="1" y1="0" y2="0">
-<stop offset="0.358333" stop-color="#a99040"/>
-<stop offset="0.74375" stop-color="#ceb461"/>
-</linearGradient>
-<linearGradient gradientTransform="matrix(-2.58033 -1528.85 1528.85 -2.58033 29.1351 1562.28)" gradientUnits="userSpaceOnUse" id="LinearGradient_4" x1="0" x2="1" y1="0" y2="0">
-<stop offset="0.358333" stop-color="#a99040"/>
-<stop offset="0.74375" stop-color="#ceb461"/>
-</linearGradient>
 </defs>
-<clipPath id="ArtboardFrame">
-<rect height="1600" width="1200" x="0" y="0"/>
-</clipPath>
-<g clip-path="url(#ArtboardFrame)" id="Layer-1" vectornator:layerName="Layer 1">
-<path d="M0-8.12049e-14L1200-8.12049e-14L1200 1600L0 1600" fill="url(#RadialGradient)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 4"/>
-<path d="M40 40L40 1560L1160 1560L1160 40L40 40Z" fill="#ffffff" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 5"/>
-<path d="M40 40L48.6379 49.8689L1154.2 47.0778L1160 40L40 40Z" fill="#7f7666" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 7"/>
-<path d="M1180 20L1160 40L1160 1560L1180 1580L1180 20Z" fill="url(#LinearGradient)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 13"/>
-<path d="M20 1580L40 1560L1160 1560L1180 1580L20 1580Z" fill="url(#LinearGradient_2)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 14"/>
-<path d="M20 20L40 40L1160 40L1180 20L20 20Z" fill="url(#LinearGradient_3)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 11"/>
-<path d="M20 20L40 40L40 1560L20 1580L20 20Z" fill="url(#LinearGradient_4)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 12"/>
-<path d="M1160 40L1154.14 45.9237L1155.01 1554.66L1160 1560L1160 40Z" fill="#7f7666" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 15"/>
-<path d="M40 40L49 49.3874L48.6246 1552.83L40 1560L40 40Z" fill="#7f7666" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 16"/>
-<path d="M40 1560L1160 1560L1155.46 1553.89L49 1552.21L40 1560Z" fill="#7f7666" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 17"/>
+<g id="Layer-1" vectornator:layerName="Layer 1">
+<path d="M0 0L800 0L800 1200L0 1200" fill="url(#RadialGradient)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 4"/>
+<path d="M50 1150L750 1150L750 50L50 50" fill="#ffffff" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 5"/>
+<path d="M40.0202 40.0202L760 40L750 49.8244L50 50L40.0202 40.0202Z" fill="#ada08d" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 6"/>
+<path d="M40.534 40.534L39.6933 1159.59L49.9173 1150L50 50L40.534 40.534Z" fill="#ada08d" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 7"/>
+<path d="M39.6471 1159.64L49.9174 1149.18L749.446 1149.51L759.444 1159.89L39.6471 1159.64Z" fill="#d4c9b2" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 9"/>
+<path d="M760.056 1160.49L759.694 39.8919L749.658 49.8245L749.446 1150L760.056 1160.49Z" fill="#a79d88" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 10"/>
 </g>
 <g id="Layer-2" vectornator:layerName="Layer 2">
-<path d="M140 140L1060 140L1060 800L140 800L140 140Z" fill="#f4d7d7" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 1"/>
-<path d="M140 800L1060 800L1060 1460L140 1460L140 800Z" fill="#c5dfe5" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 3"/>
-<path d="M305.6 385.143C305.6 385.143 405.841 351.244 508 366.286C578.702 376.696 640.787 435.93 710.4 441.714C790.654 448.383 822.284 415.455 912.8 422.857C1014.25 431.153 1060 479.429 1060 479.429L1060 800L305.6 800L305.6 385.143Z" fill="#f2ece5" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 6"/>
-<path d="M140 234.286L140 800L986.4 800C986.4 800 926.6 734 802.4 668C678.2 602 574.908 593.018 489.6 536C278 394.571 140 234.286 140 234.286Z" fill="#93b894" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 4"/>
-<path d="M140 309.714L140 800L728.8 800C728.8 800 735.565 781.37 636.8 724.571C609.753 709.017 437.156 656.636 397.6 630.286C357.515 603.583 319.4 554.857 268.8 479.429C218.2 404 140 309.714 140 309.714Z" fill="#719672" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 5"/>
-<path d="M140 1460L508 1460C508 1460 477.361 1403.35 416 1252.57C393.693 1197.76 358.339 997.357 324 932C214.413 723.425 140 705.714 140 705.714" fill="#49654a" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 7"/>
-<g opacity="1" vectornator:layerName="Group 1">
-<path d="M444.604 972.616L434.604 1461.5L454.604 1461.5L444.604 972.616Z" fill="#2d362d" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 8"/>
-<path d="M446.527 969.957L406.527 1138.85L486.527 1138.85L446.527 969.957Z" fill="#2d362d" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 9"/>
-<path d="M445.306 1086.3L400.567 1255.19L490.045 1255.19L445.306 1086.3Z" fill="#2d362d" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 10"/>
-<path d="M445.57 1152.55L398.044 1322L493.096 1322L445.57 1152.55Z" fill="#2d362d" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 11"/>
-<path d="M446.472 1022.58L404.521 1192.58L488.423 1192.58L446.472 1022.58Z" fill="#2d362d" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 12"/>
-<path d="M445.317 1221.9L388.314 1390.23L502.321 1390.23L445.317 1221.9Z" fill="#2d362d" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 13"/>
-</g>
-<g opacity="1" vectornator:layerName="Group 2">
-<path d="M371.042 907.349L361.595 1459.29L380.488 1459.29L371.042 907.349Z" fill="#2d362d" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 8"/>
-<path d="M373.518 904.691L333.518 1073.58L413.518 1073.58L373.518 904.691Z" fill="#2d362d" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 9"/>
-<path d="M372.296 1021.03L327.557 1189.92L417.035 1189.92L372.296 1021.03Z" fill="#2d362d" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 10"/>
-<path d="M372.56 1087.28L325.034 1256.73L420.086 1256.73L372.56 1087.28Z" fill="#2d362d" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 11"/>
-<path d="M373.462 957.313L331.511 1127.32L415.413 1127.32L373.462 957.313Z" fill="#2d362d" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 12"/>
-<path d="M372.307 1156.64L315.304 1324.97L429.311 1324.97L372.307 1156.64Z" fill="#2d362d" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 13"/>
-</g>
+<path d="M150 150L150 1050L650 1050L650 150" fill="#ffdcdd" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 1"/>
+<path d="M560 600L620 600L620.568 1050L560.248 1050L560 600Z" fill="#e9e3e3" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 6"/>
+<path d="M620 600L639.597 590.901L584.5 590.072L570.527 600L620 600Z" fill="#f5f5f5" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 12"/>
+<path d="M620.038 599.982L639.677 590.859L640.032 1050L620.724 1050L620.038 599.982Z" fill="#ccbbbb" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 13"/>
+<path d="M520 360L439.993 535.64L439.76 1050L601.085 1050L600.003 521.537L520 360Z" fill="#9fb5a2" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 2"/>
+<path d="M220 460L400 460L400.513 1050L221.027 1050L220 460Z" fill="#bfbfbf" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 3"/>
+<path d="M180 600L179.822 1050L340.513 1050L340 600L180 600Z" fill="#b49db5" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 4"/>
+<path d="M521.618 363.236L560 540L599.708 520.941L521.618 363.236Z" fill="#758677" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 5"/>
+<path d="M400 460L420 440L420.006 1050L400.502 1050L400 460Z" fill="#a4a4a4" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 7"/>
+<path d="M220 460L240 440L420 440L400.161 459.839L220 460Z" fill="#e9e3e3" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 8"/>
+<path d="M180.86 600L200 580L360 580L340 600L180.86 600Z" fill="#ebdbf1" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 9"/>
+<path d="M339.884 600L360 580L360.914 1050L338.724 1050L339.884 600Z" fill="#87748c" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 10"/>
+<path d="M560 540L559.839 1050L600.98 1050L599.621 520.765L560 540Z" fill="#839686" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 14"/>
 </g>
 </svg>
