@@ -4,7 +4,7 @@ interface HomeProps {}
 
 const Home: React.FC<HomeProps> = () => {
   return (
-    <main className="bg-gradient-to-r from-primary via-primary-light to-primary-dark flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="bg-gradient-to-r from-primary via-primary-light to-primary-dark flex flex-col items-center justify-between p-24 relative min-h-[600px] min-w-[600px] h-screen">
       {/* Wall items consist of the photo array and the bookshelf. */}
       <div className="absolute flex flex-col gap-6 tall:gap-12 bottom-80 w-full">
         {/* Photos should be inline on short screens and alternating on tall screens */}
