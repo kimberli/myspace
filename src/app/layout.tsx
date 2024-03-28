@@ -19,7 +19,9 @@ const RootLayout: React.FC<RootLayoutProps> = ({
 }: RootLayoutProps) => {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} relative min-h-[600px]`}>
+        {children}
+      </body>
     </html>
   );
 };
