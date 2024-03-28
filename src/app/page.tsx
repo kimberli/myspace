@@ -2,57 +2,62 @@ import Image from "next/image";
 
 interface HomeProps {}
 
+const MIN_HEIGHT = "700px";
+const MIN_WIDTH = "320px";
+
 const Home: React.FC<HomeProps> = () => {
+  // We use Tailwind responsive utility classes to adjust element positioning when
+  // the screen is too narrow or too short.
   return (
-    <main className="bg-gradient-to-r from-primary via-primary-light to-primary-dark flex flex-col items-center justify-between p-24 relative min-h-[600px] min-w-[600px] h-screen overflow-x-hidden">
+    <main
+      className={`bg-gradient-to-r from-primary via-primary-light to-primary-dark flex flex-col items-center justify-between p-24 relative h-screen min-h-[${MIN_HEIGHT}] min-w-[${MIN_WIDTH}] overflow-x-hidden`}
+    >
       {/* Wall items consist of the photo array and the bookshelf. */}
-      <div className="absolute flex flex-col gap-6 tall:gap-12 bottom-80 w-full">
+      <div className="absolute flex flex-col tall:gap-4 bottom-60 xxs:bottom-72 xs:bottom-80 w-full">
         {/* Photos should be inline on short screens and alternating on tall screens */}
-        <div className="flex flex-row items-center justify-center gap-10 tall:gap-6 w-full">
-          <div className="relative w-[80px] tall:w-[130px] h-[110px] tall:h-[190px]">
+        <div className="flex flex-col xs:flex-row items-center justify-center gap-6 w-full px-2">
+          <div className="relative right-16 top-64 xs:inset-0 h-[190px] w-[130px]">
             <Image
               src="/photo_a.svg"
               className="drop-shadow-[2px_2px_2px_rgba(0,0,0,0.4)]"
               alt="Photo A"
               fill={true}
-              object-fit="contain"
               priority
             />
           </div>
-          <div className="relative w-[85px] tall:w-[140px] h-[85px] tall:h-[140px]">
+          <div className="relative right-16 top-60 xs:inset-0 w-[140px] h-[140px]">
             <Image
               src="/photo_b.svg"
               className="drop-shadow-[2px_2px_2px_rgba(0,0,0,0.4)]"
               alt="Photo B"
               fill={true}
-              object-fit="contain"
               priority
             />
           </div>
-          <div className="relative w-[80px] tall:w-[140px] h-[120px] tall:h-[180px]">
+          <div className="relative left-20 bottom-12 xs:inset-0 w-[140px] h-[180px]">
             <Image
               src="/photo_c.svg"
               className="drop-shadow-[2px_2px_2px_rgba(0,0,0,0.4)]"
               alt="Photo C"
               fill={true}
-              object-fit="contain"
               priority
             />
           </div>
         </div>
         {/* Bookshelf */}
         <div className="flex flex-row items-center justify-center w-full">
-          <Image
-            src="/shelf.svg"
-            className="drop-shadow-[8px_8px_4px_rgba(0,0,0,0.2)]"
-            alt="Shelf"
-            width={400}
-            height={160}
-            priority
-          />
+          <div className="relative w-[300px] xs:w-[320px] h-[150px] xs:h-[160px]">
+            <Image
+              src="/shelf.svg"
+              className="drop-shadow-[8px_8px_4px_rgba(0,0,0,0.2)]"
+              alt="Shelf"
+              fill={true}
+              priority
+            />
+          </div>
         </div>
         {/* Bike */}
-        <div className="absolute flex flex-row items-center justify-center gap-6 bottom-[2rem] w-full">
+        <div className="absolute flex flex-row items-center justify-center gap-6 bottom-[3.25rem] w-full">
           <Image
             src="/bike.svg"
             className="drop-shadow-[8px_8px_4px_rgba(0,0,0,0.2)] ml-[120px]"
@@ -63,7 +68,7 @@ const Home: React.FC<HomeProps> = () => {
           />
         </div>
       </div>
-      <div className="absolute bottom-24 h-8 w-full">
+      <div className="absolute bottom-20 xs:bottom-24 bottom-24 h-4 xs:h-8 w-full">
         <Image
           className="object-cover object-top"
           src="/wall.svg"
@@ -72,7 +77,7 @@ const Home: React.FC<HomeProps> = () => {
           priority
         />
       </div>
-      <div className="absolute bottom-0 h-24 w-full">
+      <div className="absolute bottom-0 h-20 xs:h-24 w-full">
         <Image
           className="object-cover object-top"
           src="/floor.svg"
