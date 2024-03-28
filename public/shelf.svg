@@ -39,9 +39,9 @@
 <stop offset="0.97623" stop-color="#f3eee9"/>
 </linearGradient>
 <linearGradient gradientTransform="matrix(40.1174 -2.69317e-14 -3.10023e-15 40.1174 161.918 483.463)" gradientUnits="userSpaceOnUse" id="LinearGradient_4" x1="0" x2="1" y1="0" y2="0">
-<stop offset="0" stop-color="#83adb9"/>
+<stop offset="0" stop-color="#6d97a3"/>
 <stop offset="0.317673" stop-color="#9ec0ca"/>
-<stop offset="1" stop-color="#83adb9"/>
+<stop offset="1" stop-color="#6d97a3"/>
 </linearGradient>
 <linearGradient gradientTransform="matrix(18.278 16.0715 -17.7266 16.5714 234.077 345.812)" gradientUnits="userSpaceOnUse" id="LinearGradient_5" x1="0" x2="1" y1="0" y2="0">
 <stop offset="0" stop-color="#fcf8f5"/>
@@ -59,9 +59,9 @@
 <stop offset="0.97623" stop-color="#f3eee9"/>
 </linearGradient>
 <linearGradient gradientTransform="matrix(40.1174 7.38734e-14 5.44012e-15 40.1174 210.143 475.744)" gradientUnits="userSpaceOnUse" id="LinearGradient_6" x1="0" x2="1" y1="0" y2="0">
-<stop offset="0" stop-color="#b983b4"/>
-<stop offset="0.317673" stop-color="#d1a6cd"/>
-<stop offset="1" stop-color="#b983b4"/>
+<stop offset="0" stop-color="#be7373"/>
+<stop offset="0.317673" stop-color="#dc9d9d"/>
+<stop offset="1" stop-color="#be7373"/>
 </linearGradient>
 <linearGradient gradientTransform="matrix(14.8944 13.609 -14.4756 14.0027 277.537 338.117)" gradientUnits="userSpaceOnUse" id="LinearGradient_7" x1="0" x2="1" y1="0" y2="0">
 <stop offset="0" stop-color="#fcf8f5"/>
@@ -79,9 +79,9 @@
 <stop offset="0.97623" stop-color="#f3eee9"/>
 </linearGradient>
 <linearGradient gradientTransform="matrix(30.6616 -0.265772 0.300697 30.6616 254.343 472.265)" gradientUnits="userSpaceOnUse" id="LinearGradient_8" x1="0" x2="1" y1="0" y2="0">
-<stop offset="0" stop-color="#d3b67c"/>
+<stop offset="0" stop-color="#b79d69"/>
 <stop offset="0.317673" stop-color="#eed6a6"/>
-<stop offset="1" stop-color="#d3b67c"/>
+<stop offset="1" stop-color="#b79d69"/>
 </linearGradient>
 <linearGradient gradientTransform="matrix(14.827 10.7452 -12.2086 13.0498 313.074 353.352)" gradientUnits="userSpaceOnUse" id="LinearGradient_9" x1="0" x2="1" y1="0" y2="0">
 <stop offset="0" stop-color="#fcf8f5"/>
@@ -99,9 +99,9 @@
 <stop offset="0.97623" stop-color="#f3eee9"/>
 </linearGradient>
 <linearGradient gradientTransform="matrix(29.4259 -5.5635e-14 2.63124e-14 27.548 292.304 478.659)" gradientUnits="userSpaceOnUse" id="LinearGradient_10" x1="0" x2="1" y1="0" y2="0">
-<stop offset="0" stop-color="#7ca1d3"/>
+<stop offset="0" stop-color="#597dac"/>
 <stop offset="0.317673" stop-color="#a5c3ea"/>
-<stop offset="1" stop-color="#7ca1d3"/>
+<stop offset="1" stop-color="#597dac"/>
 </linearGradient>
 <linearGradient gradientTransform="matrix(18.8495 11.9906 -12.7203 17.7682 347.782 314.304)" gradientUnits="userSpaceOnUse" id="LinearGradient_11" x1="0" x2="1" y1="0" y2="0">
 <stop offset="0" stop-color="#fcf8f5"/>
@@ -119,9 +119,9 @@
 <stop offset="1" stop-color="#f3eee9"/>
 </linearGradient>
 <linearGradient gradientTransform="matrix(37.281 -1.23685e-13 2.17781e-14 39.9283 328.545 457.93)" gradientUnits="userSpaceOnUse" id="LinearGradient_12" x1="0" x2="1" y1="0" y2="0">
-<stop offset="0" stop-color="#a2847d"/>
+<stop offset="0" stop-color="#886b64"/>
 <stop offset="0.317673" stop-color="#bfaaa5"/>
-<stop offset="1" stop-color="#a2847d"/>
+<stop offset="1" stop-color="#886b64"/>
 </linearGradient>
 <linearGradient gradientTransform="matrix(13.6754 13.4637 -9.44079 17.0654 382.535 345.57)" gradientUnits="userSpaceOnUse" id="LinearGradient_13" x1="0" x2="1" y1="0" y2="0">
 <stop offset="0" stop-color="#fcf8f5"/>
@@ -159,44 +159,44 @@
 <path d="M190.556 370.189L161.918 379.442L156.497 578.755L172.792 586.832L191.588 557.296L190.556 370.189Z" fill="#464342" fill-opacity="0.298126" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 1"/>
 </g>
 <g id="Blue-book" vectornator:layerName="Blue book">
-<path d="M161.973 379.233L181.041 364.329L180.72 563.964L162.09 579.923L161.973 379.233Z" fill="#83adb9" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 10"/>
+<path d="M161.973 379.233L181.041 364.329L180.72 563.964L162.09 579.923L161.973 379.233Z" fill="#6d97a3" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 10"/>
 <path d="M163.904 381.585C163.904 381.585 165.406 383.215 173.148 385.247C182.701 387.755 190.26 384.117 192.163 383.545C196.371 382.279 201.918 379.425 201.918 379.425L216.343 368.151L180.832 368.774L163.904 381.585Z" fill="url(#LinearGradient_3)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 7"/>
-<path d="M201.918 379.425L220.987 364.521L220.666 564.156L202.036 580.115L201.918 379.425Z" fill="#83adb9" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 8"/>
+<path d="M201.918 379.425L220.987 364.521L220.666 564.156L202.036 580.115L201.918 379.425Z" fill="#6d97a3" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 8"/>
 <path d="M161.918 379.442L162.036 580.132C162.036 580.132 163.331 584.124 172.792 586.832C184.339 590.138 202.036 580.115 202.036 580.115L201.918 379.425C201.918 379.425 186.664 388.091 173.148 385.247C163.45 383.207 161.918 379.442 161.918 379.442Z" fill="url(#LinearGradient_4)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 9"/>
 </g>
 <g id="Shadow-2" vectornator:layerName="Shadow 2">
 <path d="M235.167 368.917L210.143 362.963L202.036 580.115L221.016 587.819L234.87 558.746L235.167 368.917Z" fill="#464342" fill-opacity="0.298126" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 1"/>
 </g>
-<g id="Purple-book" vectornator:layerName="Purple book">
-<path d="M210.197 362.859L229.266 346.699L228.944 563.147L210.314 580.45L210.197 362.859Z" fill="#b983b4" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 10"/>
+<g id="Red-book" vectornator:layerName="Red book">
+<path d="M210.197 362.859L229.266 346.699L228.944 563.147L210.314 580.45L210.197 362.859Z" fill="#be7373" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 10"/>
 <path d="M212.129 365.286C212.129 365.286 213.631 367.054 221.372 369.257C230.925 371.976 238.485 368.032 240.388 367.411C244.595 366.039 250.143 362.945 250.143 362.945L264.568 350.721L229.235 351.393L212.129 365.286Z" fill="url(#LinearGradient_5)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 11"/>
-<path d="M250.143 362.945L269.211 346.786L268.89 563.233L250.26 580.536L250.143 362.945Z" fill="#b983b4" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 12"/>
+<path d="M250.143 362.945L269.211 346.786L268.89 563.233L250.26 580.536L250.143 362.945Z" fill="#be7373" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 12"/>
 <path d="M210.143 362.963L210.26 580.554C210.26 580.554 211.555 584.882 221.016 587.819C232.563 591.403 250.26 580.536 250.26 580.536L250.143 362.945C250.143 362.945 234.889 372.34 221.372 369.257C211.675 367.045 210.143 362.963 210.143 362.963Z" fill="url(#LinearGradient_6)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 13"/>
 </g>
 <g id="Shadow-3" vectornator:layerName="Shadow 3">
 <path d="M284.588 357.928L254.343 355.315L245.109 580.21L265.217 588.481L283.533 573.45L284.588 357.928Z" fill="#464342" fill-opacity="0.298126" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 1"/>
 </g>
 <g id="Yellow-book" vectornator:layerName="Yellow book">
-<path d="M254.397 355.575L272.31 338.162L272.388 565.935L254.515 581.207L254.397 355.575Z" fill="#d3b67c" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 15"/>
+<path d="M254.397 355.575L272.31 338.162L272.388 565.935L254.515 581.207L254.397 355.575Z" fill="#b79d69" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 15"/>
 <path d="M256.893 358.237C256.893 358.237 256.568 359.608 264.404 361.546C268.433 362.542 270.669 362.04 274.406 361.68C278.827 361.254 284.446 357.688 284.446 357.688L299.204 343.249L272.353 343.206L256.893 358.237Z" fill="url(#LinearGradient_7)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 11"/>
 <path d="M254.343 355.315L254.461 580.947C254.461 580.947 255.507 586.359 265.217 588.481C274.649 590.543 285.831 581.996 285.831 581.996L285.714 356.363C285.714 356.363 275.881 364.125 265.573 361.842C255.843 359.687 254.343 355.315 254.343 355.315Z" fill="url(#LinearGradient_8)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 13"/>
-<path d="M285.714 356.363L303.626 338.951L303.704 566.724L285.831 581.996L285.714 356.363Z" fill="#d3b67c" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 14"/>
+<path d="M285.714 356.363L303.626 338.951L303.704 566.724L285.831 581.996L285.714 356.363Z" fill="#b79d69" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 14"/>
 </g>
 <g id="Shadow-4" vectornator:layerName="Shadow 4">
 <path d="M300.73 365.225L292.304 369.514L285.829 578.33L298.645 586.678L300.478 577.831L300.73 365.225Z" fill="#464342" fill-opacity="0.298126" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 1"/>
 </g>
 <g id="Blue-book-2" vectornator:layerName="Blue book 2">
-<path d="M292.358 369.471L307.494 353.882L307.259 562.711L292.472 579.404L292.358 369.471Z" fill="#7ca1d3" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 10"/>
+<path d="M292.358 369.471L307.494 353.882L307.259 562.711L292.472 579.404L292.358 369.471Z" fill="#597dac" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 10"/>
 <path d="M294.29 371.77C294.29 371.77 294.529 373.533 302.365 375.347C306.394 376.279 307.501 376.128 311.229 375.715C317.912 374.974 321.73 370.971 321.73 370.971L333.63 358.57L307.491 358.354L294.29 371.77Z" fill="url(#LinearGradient_9)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 11"/>
-<path d="M321.087 371.489L336.139 353.92L335.988 564.73L321.201 581.422L321.087 371.489Z" fill="#7ca1d3" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 14"/>
+<path d="M321.087 371.489L336.139 353.92L335.988 564.73L321.201 581.422L321.087 371.489Z" fill="#597dac" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 14"/>
 <path d="M292.304 369.514L292.422 580.746C292.422 580.746 296.194 587.644 303.178 587.799C313.667 588.032 321.201 581.422 321.201 581.422L321.73 370.971C321.73 370.971 313.842 377.762 303.534 375.624C293.804 373.607 292.304 369.514 292.304 369.514Z" fill="url(#LinearGradient_10)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 13"/>
 </g>
 <g id="Layer-5" vectornator:layerName="Layer 5">
 <path d="M348.887 347.647L329.494 346.175L321.218 574.704L333.53 584.217L358.239 566.569L348.887 347.647Z" fill="#464342" fill-opacity="0.298126" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 1"/>
 </g>
 <g id="Brown-book" vectornator:layerName="Brown book">
-<path d="M329.494 329.066L344.911 308.325L344.864 558.241L328.596 578.6L329.494 329.066Z" fill="#a2847d" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 10"/>
-<path d="M364.257 330.226L381.243 308.015L381.197 557.93L364.95 578.456L364.257 330.226Z" fill="#a2847d" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 14"/>
+<path d="M329.494 329.066L344.911 308.325L344.864 558.241L328.596 578.6L329.494 329.066Z" fill="#886b64" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 10"/>
+<path d="M364.257 330.226L381.243 308.015L381.197 557.93L364.95 578.456L364.257 330.226Z" fill="#886b64" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 14"/>
 <path d="M332.494 333.98C332.494 333.98 332.85 337.685 340.686 339.628C344.715 340.627 345.144 341.548 351.429 338.83C357.714 336.112 365.826 328.756 365.826 328.756L376.031 315.027L344.909 315.96L332.494 333.98Z" fill="url(#LinearGradient_11)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 11"/>
 <path d="M329.494 329.066L328.545 580.039C328.545 580.039 332.289 586.321 341.836 585.66C351.383 584.999 364.95 578.456 364.95 578.456L365.826 328.756C365.826 328.756 354.371 335.421 344.906 335.704C335.441 335.987 329.494 329.066 329.494 329.066Z" fill="url(#LinearGradient_12)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 13"/>
 </g>
