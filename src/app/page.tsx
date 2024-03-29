@@ -13,7 +13,7 @@ const Home: React.FC<HomeProps> = () => {
       className={`bg-gradient-to-r from-primary via-primary-light to-primary-dark flex flex-col items-center justify-between p-24 relative h-screen min-h-[${MIN_HEIGHT}] min-w-[${MIN_WIDTH}] overflow-x-hidden`}
     >
       {/* Wall items consist of the photo array and the bookshelf. */}
-      <div className="absolute flex flex-col tall:gap-4 bottom-60 xxs:bottom-72 xs:bottom-80 w-full">
+      <div className="absolute flex flex-col tall:gap-4 bottom-56 xxs:bottom-72 xs:bottom-80 w-full">
         {/* Photos should be inline on short screens and alternating on tall screens */}
         <div className="flex flex-col xs:flex-row items-center justify-center gap-6 w-full px-2">
           <div className="relative right-16 top-64 xs:inset-0 h-[190px] w-[130px]">
@@ -45,7 +45,7 @@ const Home: React.FC<HomeProps> = () => {
           </div>
         </div>
         {/* Bookshelf */}
-        <div className="flex flex-row items-center justify-center w-full">
+        <div className="flex flex-col items-center justify-center w-full">
           <div className="relative w-[300px] xs:w-[320px] h-[150px] xs:h-[160px]">
             <Image
               src="/shelf.svg"
@@ -55,17 +55,18 @@ const Home: React.FC<HomeProps> = () => {
               priority
             />
           </div>
-        </div>
-        {/* Bike */}
-        <div className="absolute flex flex-row items-center justify-center gap-6 bottom-[3.25rem] w-full">
-          <Image
-            src="/bike.svg"
-            className="drop-shadow-[8px_8px_4px_rgba(0,0,0,0.2)] ml-[120px]"
-            alt="Bike"
-            width={100}
-            height={80}
-            priority
-          />
+          {/* Shelf items */}
+          <div className="absolute flex flex-row items-end justify-center gap-20 bottom-[3.25rem] w-full">
+            <Image
+              src="/books.svg"
+              className="drop-shadow-[2px_2px_4px_rgba(0,0,0,0.2)]"
+              alt="Books"
+              width={100}
+              height={80}
+              priority
+            />
+            <Image src="/bike.svg" alt="Bike" width={80} height={80} priority />
+          </div>
         </div>
       </div>
       <div className="absolute bottom-20 xs:bottom-24 bottom-24 h-4 xs:h-8 w-full">
