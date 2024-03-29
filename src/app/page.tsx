@@ -2,15 +2,12 @@ import Image from "next/image";
 
 interface HomeProps {}
 
-const MIN_HEIGHT = "700px";
-const MIN_WIDTH = "320px";
-
 const Home: React.FC<HomeProps> = () => {
   // We use Tailwind responsive utility classes to adjust element positioning when
   // the screen is too narrow or too short.
   return (
     <main
-      className={`bg-gradient-to-r from-primary via-primary-light to-primary-dark flex flex-col items-center justify-between p-24 relative h-dvh min-h-[${MIN_HEIGHT}] min-w-[${MIN_WIDTH}] overflow-x-hidden`}
+      className={`bg-gradient-to-r from-primary via-primary-light to-primary-dark flex flex-col items-center justify-between p-24 relative h-dvh min-h-[700px] min-w-[320px] overflow-x-hidden`}
     >
       {/* Wall items consist of the photo array and the bookshelf. */}
       <div className="absolute flex flex-col tall:gap-4 bottom-56 xxs:bottom-72 xs:bottom-80 w-full">
