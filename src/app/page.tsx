@@ -86,19 +86,6 @@ const Home: React.FC<HomeProps> = () => {
           priority
         />
       </div>
-      {/* Don't display the side table when the screen is too narrow. */}
-      <div className="absolute bottom-14 hidden md:flex flex-row">
-        <div className="relative w-[180px] h-[200px] mr-[650px]">
-          <Image
-            src="/flowers.svg"
-            className="drop-shadow-[8px_8px_8px_rgba(0,0,0,0.2)] mr-[650px]"
-            alt="Flowers"
-            fill={true}
-            object-fit="contain"
-            priority
-          />
-        </div>
-      </div>
       <div className="absolute bottom-16 flex flex-row items-center justify-center">
         <div className="relative w-[250px] h-[400px] ml-[625px]">
           <Image
@@ -120,6 +107,19 @@ const Home: React.FC<HomeProps> = () => {
           height={200}
           priority
         />
+      </div>
+      {/* Move the side table in front of the couch when the screen is too narrow. */}
+      <div className="absolute bottom-6 sm:bottom-14 flex-row">
+        <div className="relative w-[120px] h-[130px] xxs:w-[150px] xxs:h-[160px] xs:w-[180px] xs:h-[200px] mr-[250px] sm:mr-[620px]">
+          <Image
+            src="/flowers.svg"
+            className="drop-shadow-[8px_8px_8px_rgba(0,0,0,0.2)]"
+            alt="Flowers"
+            fill={true}
+            object-fit="contain"
+            priority
+          />
+        </div>
       </div>
     </main>
   );
