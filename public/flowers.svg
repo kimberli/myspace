@@ -3,144 +3,163 @@
 <!-- Created with Vectornator (http://vectornator.io/) -->
 <svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 800 1000" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
-<linearGradient gradientTransform="matrix(559.527 0 0 559.527 120 421.128)" gradientUnits="userSpaceOnUse" id="LinearGradient" x1="0" x2="1" y1="0" y2="0">
-<stop offset="0" stop-color="#e7dcd7"/>
-<stop offset="1" stop-color="#dbc5b8"/>
+<linearGradient gradientTransform="matrix(520 0 0 520 140 893.229)" gradientUnits="userSpaceOnUse" id="LinearGradient" x1="0" x2="1" y1="0" y2="0">
+<stop offset="0" stop-color="#74591e"/>
+<stop offset="0.267897" stop-color="#96762e"/>
+<stop offset="1" stop-color="#432c04"/>
 </linearGradient>
 <linearGradient gradientTransform="matrix(559.527 0 0 559.527 120 448.253)" gradientUnits="userSpaceOnUse" id="LinearGradient_2" x1="0" x2="1" y1="0" y2="0">
-<stop offset="0" stop-color="#e7dcd7"/>
-<stop offset="1" stop-color="#dbc5b8"/>
+<stop offset="0" stop-color="#dfcdc5"/>
+<stop offset="1" stop-color="#9a877c"/>
 </linearGradient>
-<linearGradient gradientTransform="matrix(-169.031 -72.4421 72.4421 -169.031 510.7 701.053)" gradientUnits="userSpaceOnUse" id="LinearGradient_3" x1="0" x2="1" y1="0" y2="0">
-<stop offset="0" stop-color="#c8b6af"/>
-<stop offset="0.377083" stop-color="#ceb9b0"/>
-<stop offset="1" stop-color="#ac9182"/>
+<linearGradient gradientTransform="matrix(520 0 0 520 140 926.426)" gradientUnits="userSpaceOnUse" id="LinearGradient_3" x1="0" x2="1" y1="0" y2="0">
+<stop offset="0" stop-color="#775919"/>
+<stop offset="0.138563" stop-color="#836522"/>
+<stop offset="0.258861" stop-color="#9e7e37"/>
+<stop offset="0.5255" stop-color="#77500d"/>
+<stop offset="1" stop-color="#6e4705"/>
 </linearGradient>
-<linearGradient gradientTransform="matrix(-80.8738 19.2348 -19.2348 -80.8738 497.61 849.673)" gradientUnits="userSpaceOnUse" id="LinearGradient_4" x1="0" x2="1" y1="0" y2="0">
-<stop offset="0" stop-color="#ad9693"/>
-<stop offset="1" stop-color="#c9b7af"/>
-</linearGradient>
-<linearGradient gradientTransform="matrix(-57.5 -124.162 487.444 -57.5 426.629 354.144)" gradientUnits="userSpaceOnUse" id="LinearGradient_5" x1="0" x2="1" y1="0" y2="0">
+<linearGradient gradientTransform="matrix(65.1772 3.41662 -13.4132 65.1772 275.382 295.813)" gradientUnits="userSpaceOnUse" id="LinearGradient_4" x1="0" x2="1" y1="0" y2="0">
 <stop offset="0" stop-color="#ebaea9"/>
 <stop offset="1" stop-color="#c8a1a1"/>
 </linearGradient>
-<linearGradient gradientTransform="matrix(-38.2888 -14.1572 0.71263 -38.2888 424.111 220.766)" gradientUnits="userSpaceOnUse" id="LinearGradient_6" x1="0" x2="1" y1="0" y2="0">
-<stop offset="0" stop-color="#7c7572"/>
+<linearGradient gradientTransform="matrix(-0.747162 -30.0649 1.51338 -0.747162 305.083 227.885)" gradientUnits="userSpaceOnUse" id="LinearGradient_5" x1="0" x2="1" y1="0" y2="0">
+<stop offset="0" stop-color="#ac9c9c"/>
 <stop offset="1" stop-color="#725d5d"/>
 </linearGradient>
-<linearGradient gradientTransform="matrix(-8.73103 -53.4339 53.4339 -8.73103 457.132 134.631)" gradientUnits="userSpaceOnUse" id="LinearGradient_7" x1="0" x2="1" y1="0" y2="0">
+<linearGradient gradientTransform="matrix(-8.73103 -53.4339 53.4339 -8.73103 365.547 128.55)" gradientUnits="userSpaceOnUse" id="LinearGradient_6" x1="0" x2="1" y1="0" y2="0">
 <stop offset="0" stop-color="#f9eee2"/>
 <stop offset="0.385417" stop-color="#ffffff"/>
 <stop offset="1" stop-color="#d5b8a3"/>
 </linearGradient>
-<linearGradient gradientTransform="matrix(34.1901 38.9523 -38.9523 34.1901 463.067 85.1704)" gradientUnits="userSpaceOnUse" id="LinearGradient_8" x1="0" x2="1" y1="0" y2="0">
+<linearGradient gradientTransform="matrix(34.1901 38.9523 -38.9523 34.1901 371.483 79.09)" gradientUnits="userSpaceOnUse" id="LinearGradient_7" x1="0" x2="1" y1="0" y2="0">
 <stop offset="0" stop-color="#f9eee2"/>
 <stop offset="0.385417" stop-color="#ffffff"/>
 <stop offset="1" stop-color="#d5b8a3"/>
 </linearGradient>
-<linearGradient gradientTransform="matrix(37.7312 4.15165 -4.15165 37.7312 461.407 68.1042)" gradientUnits="userSpaceOnUse" id="LinearGradient_9" x1="0" x2="1" y1="0" y2="0">
+<linearGradient gradientTransform="matrix(37.7312 4.15165 -4.15165 37.7312 369.822 62.0238)" gradientUnits="userSpaceOnUse" id="LinearGradient_8" x1="0" x2="1" y1="0" y2="0">
 <stop offset="0" stop-color="#f9eee2"/>
 <stop offset="0.385417" stop-color="#ffffff"/>
 <stop offset="1" stop-color="#d5b8a3"/>
 </linearGradient>
-<linearGradient gradientTransform="matrix(-7.22144 45.8774 -45.8774 -7.22144 460.23 34.3405)" gradientUnits="userSpaceOnUse" id="LinearGradient_10" x1="0" x2="1" y1="0" y2="0">
+<linearGradient gradientTransform="matrix(-7.22144 45.8774 -45.8774 -7.22144 368.645 28.2601)" gradientUnits="userSpaceOnUse" id="LinearGradient_9" x1="0" x2="1" y1="0" y2="0">
 <stop offset="0" stop-color="#f9eee2"/>
 <stop offset="0.385417" stop-color="#ffffff"/>
 <stop offset="1" stop-color="#d5b8a3"/>
 </linearGradient>
-<linearGradient gradientTransform="matrix(33.0911 19.6593 -19.6593 33.0911 410.122 49.9102)" gradientUnits="userSpaceOnUse" id="LinearGradient_11" x1="0" x2="1" y1="0" y2="0">
+<linearGradient gradientTransform="matrix(33.0911 19.6593 -19.6593 33.0911 318.537 43.8298)" gradientUnits="userSpaceOnUse" id="LinearGradient_10" x1="0" x2="1" y1="0" y2="0">
 <stop offset="0" stop-color="#f9eee2"/>
 <stop offset="0.385417" stop-color="#ffffff"/>
 <stop offset="1" stop-color="#d5b8a3"/>
 </linearGradient>
-<linearGradient gradientTransform="matrix(28.3289 -42.6155 42.6155 28.3289 410.99 116.106)" gradientUnits="userSpaceOnUse" id="LinearGradient_12" x1="0" x2="1" y1="0" y2="0">
+<linearGradient gradientTransform="matrix(28.3289 -42.6155 42.6155 28.3289 319.406 110.026)" gradientUnits="userSpaceOnUse" id="LinearGradient_11" x1="0" x2="1" y1="0" y2="0">
 <stop offset="0" stop-color="#f9eee2"/>
 <stop offset="0.385417" stop-color="#ffffff"/>
 <stop offset="1" stop-color="#d5b8a3"/>
 </linearGradient>
-<radialGradient cx="0" cy="0" gradientTransform="matrix(2.00634 14.8469 -14.8469 2.00634 450.029 66.2274)" gradientUnits="userSpaceOnUse" id="RadialGradient" r="1">
+<radialGradient cx="0" cy="0" gradientTransform="matrix(2.00634 14.8469 -14.8469 2.00634 358.445 60.1471)" gradientUnits="userSpaceOnUse" id="RadialGradient" r="1">
 <stop offset="0" stop-color="#e9d15d"/>
 <stop offset="1" stop-color="#b08838"/>
 </radialGradient>
-<linearGradient gradientTransform="matrix(38.193 0 0 38.193 360.277 60.7267)" gradientUnits="userSpaceOnUse" id="LinearGradient_13" x1="0" x2="1" y1="0" y2="0">
+<linearGradient gradientTransform="matrix(38.193 0 0 38.193 268.693 54.6464)" gradientUnits="userSpaceOnUse" id="LinearGradient_12" x1="0" x2="1" y1="0" y2="0">
 <stop offset="0" stop-color="#f9eee2"/>
 <stop offset="0.385417" stop-color="#ffffff"/>
 <stop offset="1" stop-color="#d5b8a3"/>
 </linearGradient>
-<linearGradient gradientTransform="matrix(20.5572 -27.127 27.127 20.5572 355.473 50.7927)" gradientUnits="userSpaceOnUse" id="LinearGradient_14" x1="0" x2="1" y1="0" y2="0">
+<linearGradient gradientTransform="matrix(20.5572 -27.127 27.127 20.5572 263.888 44.7124)" gradientUnits="userSpaceOnUse" id="LinearGradient_13" x1="0" x2="1" y1="0" y2="0">
 <stop offset="0" stop-color="#f9eee2"/>
 <stop offset="0.385417" stop-color="#ffffff"/>
 <stop offset="1" stop-color="#d5b8a3"/>
 </linearGradient>
-<linearGradient gradientTransform="matrix(24.3719 23.9481 -23.9481 24.3719 324.319 35.3218)" gradientUnits="userSpaceOnUse" id="LinearGradient_15" x1="0" x2="1" y1="0" y2="0">
+<linearGradient gradientTransform="matrix(24.3719 23.9481 -23.9481 24.3719 232.734 29.2415)" gradientUnits="userSpaceOnUse" id="LinearGradient_14" x1="0" x2="1" y1="0" y2="0">
 <stop offset="0" stop-color="#f9eee2"/>
 <stop offset="0.385417" stop-color="#ffffff"/>
 <stop offset="1" stop-color="#d5b8a3"/>
 </linearGradient>
-<linearGradient gradientTransform="matrix(-1.41175 -38.3526 38.3526 -1.41175 346.342 108.04)" gradientUnits="userSpaceOnUse" id="LinearGradient_16" x1="0" x2="1" y1="0" y2="0">
+<linearGradient gradientTransform="matrix(-1.41175 -38.3526 38.3526 -1.41175 254.757 101.96)" gradientUnits="userSpaceOnUse" id="LinearGradient_15" x1="0" x2="1" y1="0" y2="0">
 <stop offset="0" stop-color="#f9eee2"/>
 <stop offset="0.385417" stop-color="#ffffff"/>
 <stop offset="1" stop-color="#d5b8a3"/>
 </linearGradient>
-<linearGradient gradientTransform="matrix(21.193 26.0674 -26.0674 21.193 358.864 77.072)" gradientUnits="userSpaceOnUse" id="LinearGradient_17" x1="0" x2="1" y1="0" y2="0">
+<linearGradient gradientTransform="matrix(21.193 26.0674 -26.0674 21.193 267.279 70.9916)" gradientUnits="userSpaceOnUse" id="LinearGradient_16" x1="0" x2="1" y1="0" y2="0">
 <stop offset="0" stop-color="#f9eee2"/>
 <stop offset="0.385417" stop-color="#ffffff"/>
 <stop offset="1" stop-color="#d5b8a3"/>
 </linearGradient>
-<linearGradient gradientTransform="matrix(34.6402 0 0 34.6402 314.144 72.839)" gradientUnits="userSpaceOnUse" id="LinearGradient_18" x1="0" x2="1" y1="0" y2="0">
+<linearGradient gradientTransform="matrix(34.6402 0 0 34.6402 222.559 66.7587)" gradientUnits="userSpaceOnUse" id="LinearGradient_17" x1="0" x2="1" y1="0" y2="0">
 <stop offset="0" stop-color="#f9eee2"/>
 <stop offset="0.385417" stop-color="#ffffff"/>
 <stop offset="1" stop-color="#d5b8a3"/>
 </linearGradient>
-<radialGradient cx="0" cy="0" gradientTransform="matrix(12.731 8.28996 -7.173 12.9407 347.842 61.3189)" gradientUnits="userSpaceOnUse" id="RadialGradient_2" r="1">
+<radialGradient cx="0" cy="0" gradientTransform="matrix(12.731 8.28996 -7.173 12.9407 256.258 55.2385)" gradientUnits="userSpaceOnUse" id="RadialGradient_2" r="1">
 <stop offset="0" stop-color="#e9d15d"/>
 <stop offset="1" stop-color="#b08838"/>
 </radialGradient>
-<linearGradient gradientTransform="matrix(24.4203 64.5533 -64.5533 24.4203 395.044 352.12)" gradientUnits="userSpaceOnUse" id="LinearGradient_19" x1="0" x2="1" y1="0" y2="0">
-<stop offset="0" stop-color="#ebaea9"/>
+<linearGradient gradientTransform="matrix(24.4203 64.5533 -64.5533 24.4203 303.459 346.04)" gradientUnits="userSpaceOnUse" id="LinearGradient_18" x1="0" x2="1" y1="0" y2="0">
+<stop offset="0" stop-color="#ebaea9" stop-opacity="0"/>
 <stop offset="1" stop-color="#ae8c8c"/>
 </linearGradient>
 </defs>
-<clipPath id="ArtboardFrame">
-<rect height="1000" width="800" x="0" y="0"/>
-</clipPath>
-<g clip-path="url(#ArtboardFrame)" id="Layer-1" vectornator:layerName="Layer 1">
-<path d="M120 422.923C120 374.639 203.363 356.256 402.031 356.256C600.698 356.256 679.527 374.639 679.527 422.923C679.527 471.207 598.667 480 400 480C201.333 480 120 471.207 120 422.923Z" fill="url(#LinearGradient)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Oval 2"/>
+<g id="Layer-1" vectornator:layerName="Layer 1">
+<path d="M147.48 919.721C147.48 899.981 261.435 883.979 402.006 883.979C542.576 883.979 656.531 899.981 656.531 919.721C656.531 939.461 542.576 955.463 402.006 955.463C261.435 955.463 147.48 939.461 147.48 919.721Z" fill="none" opacity="1" stroke="#000000" stroke-linecap="butt" stroke-linejoin="round" stroke-opacity="0.64991" stroke-width="8" vectornator:layerName="Oval 4"/>
+<path d="M140 899.459L140 920C140 920 140.314 883.459 400 883.459C659.686 883.459 660 919.769 660 919.769L660 899.459C660 899.459 660.237 866.459 400 866.459C139.763 866.459 140 899.459 140 899.459Z" fill="url(#LinearGradient)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 15"/>
+<path d="M160 900L140 900C140 900 140.628 864 400.314 864C660 864 660 900 660 900L640 900C640 900 640 872.253 400 872.253C160 872.253 160 900 160 900Z" fill="#f0d070" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 17"/>
+<path d="M139.957 426.644L140 900L159.998 899.997L159.978 434.458" fill="#d1aa3c" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 13"/>
+<path d="M147.257 432.994L151.706 900L160 900L159.989 440.39" fill="#e0b745" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 21"/>
+<path d="M152.777 436.2L160 900L159.989 440.39" fill="#eeca67" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 20"/>
+<path d="M159.988 426.912L160.031 900.268L167.971 893.517L168.747 429.141" fill="#6e582c" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 18"/>
 <path d="M120 387.953C120 339.669 201.333 320 400 320C598.667 320 679.527 339.669 679.527 387.953C679.527 436.237 598.667 440 400 440C201.333 440 120 436.237 120 387.953Z" fill="#fff5f1" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Oval 3"/>
-<path d="M120 387.953L120 422.923C120 422.923 120.237 480 400 480C679.763 480 679.527 422.923 679.527 422.923L679.527 387.953C679.527 387.953 679.763 440 400 440C120.237 440 120 387.953 120 387.953Z" fill="url(#LinearGradient_2)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 1"/>
-<path d="M359.567 479.575C359.567 479.575 382.278 639.693 364.793 753.347C350.239 847.949 297.461 957.993 297.461 957.993L298.67 965.615C298.67 965.615 347.308 998.14 399.763 998.14C452.219 998.14 499.466 966.538 499.466 966.538L501.862 957.015C501.862 957.015 449.822 851.417 434.734 753.347C417.249 639.693 440.896 479.565 440.896 479.565L359.567 479.575Z" fill="url(#LinearGradient_3)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 2"/>
-<path d="M298.67 965.615C298.67 965.615 348.764 999.195 399.932 999.988C451.101 1000.78 499.833 966.304 499.833 966.304L501.862 957.015C501.862 957.015 448.705 993.966 400.427 992.03C352.149 990.094 297.461 957.993 297.461 957.993L298.67 965.615Z" fill="#887775" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 3"/>
-<path d="M428.935 698.373C428.935 698.373 424.931 691.381 440.266 777.542C456.943 871.242 501.862 957.015 501.862 957.015C501.862 957.015 494.552 961.869 486.419 966.418C478.286 970.967 475.92 972.021 475.92 972.021C475.92 972.021 459.11 916.01 449.503 875.895C439.724 835.06 428.935 698.373 428.935 698.373Z" fill="url(#LinearGradient_4)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 5"/>
-<path d="M440.896 479.565C440.896 479.565 405.081 678.716 417.991 804.169C431.023 930.811 447.689 983.982 447.689 983.982C447.689 983.982 462.377 978.762 475.92 972.021C489.463 965.279 501.862 957.015 501.862 957.015C501.862 957.015 446.47 851.911 431.833 727.563C418.017 610.187 440.896 479.565 440.896 479.565Z" fill="#8e7b78" fill-opacity="0.234912" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 6"/>
-<path d="M427.877 634.485C427.877 634.485 415.732 724.682 432.5 837.902C448.573 946.432 461.747 978.468 461.747 978.468C461.747 978.468 469.635 974.964 483.179 968.222C496.722 961.48 501.862 957.015 501.862 957.015C501.862 957.015 444.948 852.081 431.833 727.563C426.337 675.387 427.877 634.485 427.877 634.485Z" fill="#8e7b78" fill-opacity="0.234912" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 8"/>
+<path d="M120 387.953L120.064 408.617C120.064 408.617 120.314 457.111 400.078 457.111C679.841 457.111 679.527 406.783 679.527 406.783L679.527 387.953C679.527 387.953 679.763 440 400 440C120.237 440 120 387.953 120 387.953Z" fill="url(#LinearGradient_2)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 1"/>
+<path d="M140 900L140 920C140 920 140.628 952.852 400.314 952.852C660 952.852 660 920 660 920L660 900C660 900 660.473 935.741 400.237 935.741C140 935.741 140 900 140 900Z" fill="url(#LinearGradient_3)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 14"/>
+<path d="M160 900L140 900C140 900 140.628 936 400.314 936C660 936 660 900 660 900L640 900C640 900 640 927.747 400 927.747C160 927.747 160 900 160 900Z" fill="#f0d070" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 16"/>
+<path d="M679.509 388L679.509 406.385C679.509 406.385 679.194 410.17 675.583 414.183C674.123 415.806 672.496 417.707 669.129 419.939C664.608 422.936 658.337 426.118 658.337 426.118C658.337 426.118 665.629 423.02 670.876 413.236C675.412 404.778 668.869 401.71 668.869 401.71C668.869 401.71 676.436 395.037 677.693 392.831C678.949 390.625 679.509 388 679.509 388Z" fill="#7b7878" fill-opacity="0.385965" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 12"/>
+<path d="M679.509 388.291L679.509 406.676C679.509 406.676 678.957 412.437 671.642 418.31C664.327 424.182 662.612 424.122 662.612 424.122C662.612 424.122 670.505 418.973 673.812 410.739C676.564 403.887 672.762 398.143 672.762 398.143C672.762 398.143 677.36 393.943 678.206 392.191C679.053 390.439 679.509 388.291 679.509 388.291Z" fill="#605a59" fill-opacity="0.610588" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 10"/>
+<path d="M139.925 426.628L139.937 428.742L159.989 440.39L168.726 441.807C168.726 441.807 168.755 437.045 168.755 437.045C168.755 437.045 159.916 434.59 152.627 431.963C145.339 429.337 139.925 426.628 139.925 426.628Z" fill="#282828" fill-opacity="0.51779" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 19"/>
+<path d="M120 387.953L120.065 408.626C120.065 408.626 120.317 410.967 122.319 413.645C125.103 417.367 128.297 419.583 128.297 419.583C128.297 419.583 124.509 412.887 123.374 406.39C122.064 398.888 122.189 393.253 122.189 393.253C122.189 393.253 122.276 393.591 121.07 391.416C120.005 389.493 120 387.953 120 387.953Z" fill="#7b7878" fill-opacity="0.385965" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 11"/>
 </g>
 <g id="Layer-3" vectornator:layerName="Layer 3">
-<path d="M434.734 378.811C434.734 378.811 416.818 389.143 399.333 389.143C381.848 389.143 364.793 378.811 364.793 378.811C364.793 378.811 429.041 360.889 460.602 337.238C481.782 321.366 481.51 321.355 481.51 321.355L543.779 325.711C543.779 325.711 517.026 335.293 486.688 350.021C465.376 360.368 434.734 378.811 434.734 378.811Z" fill="#bbb5b4" fill-opacity="0.483821" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 19"/>
-<path d="M420.315 384.203L364.793 378.811C364.793 378.811 413.666 364.538 445.227 340.887C466.407 325.015 470.67 320.988 470.67 320.988L554.438 326.2C554.438 326.2 512.546 342.763 482.208 357.491C460.896 367.838 420.315 384.203 420.315 384.203Z" fill="#bbb5b4" fill-opacity="0.267236" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 24"/>
-<path d="M419.98 383.177L385.678 372.586C385.678 372.586 437.256 362.976 462.05 345.052C478.688 333.024 495.187 322.312 495.187 322.312L525.761 324.451C525.761 324.451 491.178 340.833 467.345 351.994C450.602 359.835 419.98 383.177 419.98 383.177Z" fill="#bbb5b4" fill-opacity="0.530938" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 23"/>
-<path d="M364.793 212.543C364.793 212.543 379.313 270.458 379.313 307.963C379.313 345.468 364.793 378.811 364.793 378.811C364.793 378.811 364.928 389.123 399.333 389.143C435.04 389.163 434.734 378.811 434.734 378.811C434.734 378.811 421.352 345.899 421.352 308.394C421.352 270.889 434.614 213.001 434.614 213.001C434.614 213.001 429.575 228.644 399.763 228.79C369.985 228.937 364.793 212.543 364.793 212.543Z" fill="url(#LinearGradient_5)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 1"/>
-<path d="M364.793 211.305C364.793 201.648 380.45 193.82 399.763 193.82C419.077 193.82 434.734 201.648 434.734 211.305C434.734 220.962 419.076 228.558 399.763 228.79C381.122 229.014 364.793 220.962 364.793 211.305Z" fill="#e8bfbc" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Oval 1"/>
-<path d="M373.693 211.457C373.693 205.558 385.188 200.776 399.367 200.776C413.546 200.776 425.041 205.558 425.041 211.457C425.041 217.355 413.546 222.137 399.367 222.137C385.188 222.137 373.693 217.355 373.693 211.457Z" fill="url(#LinearGradient_6)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Oval 2"/>
-<path d="M389.912 227.375C389.912 227.375 389.651 181.858 381.569 143.843C373.488 105.827 357.036 72.5661 357.036 72.5661" fill="none" opacity="1" stroke="#4d7b54" stroke-linecap="butt" stroke-linejoin="round" stroke-width="2.34353" vectornator:layerName="Curve 2"/>
-<path d="M407.373 226.925C407.373 226.925 406.662 194.244 417.036 151.933C427.41 109.622 444.688 80.6562 444.688 80.6562" fill="none" opacity="1" stroke="#4d7b54" stroke-linecap="butt" stroke-linejoin="round" stroke-width="2.34353" vectornator:layerName="Curve 4"/>
-<path d="M364.793 211.305L373.827 211.051C373.827 211.051 373.306 214.662 378.234 217.358C383.52 220.251 394.447 222.242 399.725 222.242C405.327 222.242 415.742 220.095 420.923 217.133C425.313 214.624 424.965 211.224 424.965 211.224L434.734 211.305C434.734 211.305 434.474 217.483 429.414 221.253C422.999 226.034 410.56 228.661 399.763 228.79C391.764 228.887 379.085 226.84 373.045 223.148C365.01 218.236 364.793 211.305 364.793 211.305Z" fill="#e8bfbc" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Oval 3"/>
-<path d="M446.829 78.9267C446.829 78.9267 440.153 87.5067 443.035 102.306C445.916 117.105 457.276 127.358 457.276 127.358C457.276 127.358 461.245 116.697 460.59 102.159C459.936 87.6223 456.084 80.3237 456.084 80.3237L446.829 78.9267Z" fill="url(#LinearGradient_7)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 6"/>
-<path d="M455.858 81.404C455.858 81.404 465.146 91.2268 475.282 101.56C485.418 111.894 495.365 110.762 495.365 110.762C495.365 110.762 497.474 104.896 489.018 92.7564C480.562 80.6167 462.578 74.1787 462.578 74.1787L455.858 81.404Z" fill="url(#LinearGradient_8)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 7"/>
-<path d="M460.788 75.7528C460.788 75.7528 475.009 77.2217 486.335 71.6238C497.661 66.0259 501.847 58.0538 501.847 58.0538C501.847 58.0538 486.984 53.4887 474.096 56.9386C461.208 60.3884 454.54 67.1607 454.54 67.1607L460.788 75.7528Z" fill="url(#LinearGradient_9)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 8"/>
-<path d="M454.341 71.2004C454.341 71.2004 462.011 61.9627 465.266 49.3349C468.52 36.7071 462.289 27.468 462.289 27.468C462.289 27.468 450.26 31.6037 444.922 41.8232C439.585 52.0426 443.023 69.0334 443.023 69.0334L454.341 71.2004Z" fill="url(#LinearGradient_10)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 9"/>
-<path d="M444.559 67.6633C444.559 67.6633 440.681 62.0639 430.45 53.6769C420.218 45.2899 394.105 50.5356 394.105 50.5356C394.105 50.5356 405.863 54.3746 408.384 59.5523C414.142 71.3786 441.817 74.2421 441.817 74.2421L444.559 67.6633Z" fill="url(#LinearGradient_11)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 10"/>
-<path d="M440.919 70.5932C440.919 70.5932 428.011 79.7765 420.116 88.1809C412.221 96.5852 412.299 118.408 412.299 118.408C412.299 118.408 422.106 107.298 432.308 100.618C442.51 93.9373 446.589 78.8342 446.589 78.8342L440.919 70.5932Z" fill="url(#LinearGradient_12)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 11"/>
-<path d="M439.132 68.2972C440.651 64.5697 447.148 63.6937 453.642 66.3404C460.137 68.9871 464.171 74.1544 462.652 77.8819C461.133 81.6093 454.636 82.4854 448.142 79.8386C441.647 77.1919 437.613 72.0246 439.132 68.2972Z" fill="url(#RadialGradient)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Oval 4"/>
-<path d="M360.277 63.3913C360.277 63.3913 374.119 71.5333 383.667 71.3852C387.916 71.3194 392.192 67.8619 396.1 67.3378C400.974 66.6842 405.04 68.9452 405.04 68.9452C405.04 68.9452 394.022 52.002 384.555 50.0682C375.088 48.1344 360.601 55.064 360.601 55.064L360.277 63.3913Z" fill="url(#LinearGradient_13)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 13"/>
-<path d="M359.985 55.8245C359.985 55.8245 370.224 49.1716 371.603 39.4723C373.699 24.7254 375.867 20 375.867 20C375.867 20 357.117 26.5205 350.09 34.8003C343.062 43.0802 347.758 53.1193 347.758 53.1193L359.985 55.8245Z" fill="url(#LinearGradient_14)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 14"/>
-<path d="M347.559 54.637C347.559 54.637 345.635 45.8289 339.565 38.9453C333.496 32.0617 318.407 25.8309 318.407 25.8309C318.407 25.8309 319.802 42.3501 324.17 51.0842C328.537 59.8183 340.749 62.0388 340.749 62.0388L347.559 54.637Z" fill="url(#LinearGradient_15)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 15"/>
-<path d="M345.496 69.094C345.496 69.094 330.73 83.3239 331.313 92.3309C331.895 101.338 346.784 107.166 346.784 107.166C346.784 107.166 348.691 100.066 349.962 90.8474C351.234 81.6285 353.588 67.5807 353.588 67.5807L345.496 69.094Z" fill="url(#LinearGradient_16)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 17"/>
-<path d="M352.22 68.9085C352.22 68.9085 353.724 84.1346 362.066 93.7367C370.409 103.339 382.187 107.506 382.187 107.506C382.187 107.506 383.33 95.8547 377.449 84.7084C371.569 73.5621 360.369 62.7315 360.369 62.7315L352.22 68.9085Z" fill="url(#LinearGradient_17)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 12"/>
-<path d="M340.263 61.062C340.263 61.062 322.491 62.1486 314.144 67.9539C305.797 73.7592 308.767 88.0666 308.767 88.0666C308.767 88.0666 303.667 83.8679 327.178 80.5371C337.572 79.0646 344.811 69.9032 344.811 69.9032L340.263 61.062Z" fill="url(#LinearGradient_18)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 16"/>
-<path d="M339.609 65.7904C337.832 61.8282 341.579 56.2899 347.979 53.4202C354.378 50.5506 361.006 51.4363 362.783 55.3986C364.56 59.3608 360.812 64.8991 354.413 67.7688C348.013 70.6384 341.385 69.7527 339.609 65.7904Z" fill="url(#RadialGradient_2)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Oval 5"/>
-<path d="M364.793 378.811C364.793 378.811 366.602 387.601 399.333 389.143C431.76 390.67 434.734 378.811 434.734 378.811L424.171 339.728C424.171 339.728 417.171 356.234 402.031 356.256C386.89 356.278 373.806 350.753 373.806 350.753L364.793 378.811Z" fill="url(#LinearGradient_19)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 18"/>
-<path d="M679.527 387.953L679.527 422.923C679.527 422.923 680.073 430.607 676.221 438.658C674.282 442.71 670.491 445.266 667.931 448.105C658.716 458.324 634.813 464.908 634.813 464.908C634.813 464.908 657.551 448.809 662.833 430.456C665.263 422.01 668.025 402.464 668.025 402.464C668.025 402.464 671.652 399.388 675.767 395.003C679.881 390.618 679.527 387.953 679.527 387.953Z" fill="#bfaeac" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 21"/>
-<path d="M679.527 387.953L679.527 422.923C679.527 422.923 681.07 432.868 674.074 441.896C667.078 450.923 651.543 459.032 651.543 459.032C651.543 459.032 665.462 446.896 670.743 428.544C676.364 409.012 679.527 387.953 679.527 387.953Z" fill="#b3a7a6" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 20"/>
-<path d="M120 387.953L120.112 423.779C120.112 423.779 120.027 433.021 124.67 440.604C129.213 448.023 138.981 454.302 138.981 454.302C138.981 454.302 128.81 440.812 126.565 427.245C124.319 413.679 123.905 395.51 123.905 395.51C123.905 395.51 123.442 395.204 122.095 393.113C119.216 388.645 120 387.953 120 387.953Z" fill="#d6cecd" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 22"/>
+<path d="M323.085 383L291.574 383C291.574 383 308.448 368.772 340.009 345.121C361.189 329.249 372.938 320.076 372.938 320.076L457.852 320.641C457.852 320.641 420.961 336.683 390.623 351.411C369.311 361.757 323.085 383 323.085 383Z" fill="#bbb5b4" fill-opacity="0.267236" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 24"/>
+<path d="M323.085 383L291.574 383C291.574 383 328.682 357.447 346.941 345.057C363.831 333.596 383.397 320.081 383.397 320.081L447.255 320.416C447.255 320.416 414.289 337.272 383.247 352.918C352.204 368.563 323.085 383 323.085 383Z" fill="#bbb5b4" fill-opacity="0.483821" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 19"/>
+<path d="M323.085 383L291.574 383C291.574 383 331.533 362.87 356.327 344.946C372.966 332.918 394.006 320.137 394.006 320.137L429.793 320.159L370.358 355.127L323.085 383Z" fill="#bbb5b4" fill-opacity="0.530938" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 23"/>
+<path d="M273.208 206.462C273.208 206.462 272.102 253.086 276.542 296.791C280.983 340.496 291.574 383 291.574 383C291.574 383 300.122 386.196 308 386.196C315.878 386.196 323.085 383 323.085 383C323.085 383 333.532 340.797 338.453 296.866C343.375 252.936 343.029 206.921 343.029 206.921C343.029 206.921 337.99 222.563 308.179 222.71C278.4 222.857 273.208 206.462 273.208 206.462Z" fill="url(#LinearGradient_4)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 1"/>
+<path d="M273.208 205.225C273.208 195.568 288.865 187.74 308.179 187.74C327.492 187.74 343.149 195.568 343.149 205.225C343.149 214.882 327.491 222.478 308.179 222.71C289.537 222.934 273.208 214.882 273.208 205.225Z" fill="#e8bfbc" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Oval 1"/>
+<path d="M282.108 205.376C282.108 199.478 293.603 194.696 307.782 194.696C321.961 194.696 333.456 199.478 333.456 205.376C333.456 211.275 321.961 216.057 307.782 216.057C293.603 216.057 282.108 211.275 282.108 205.376Z" fill="url(#LinearGradient_5)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Oval 2"/>
+<path d="M298.245 216.625C298.245 216.625 298.066 175.777 289.984 137.762C281.903 99.7469 265.451 66.4857 265.451 66.4857" fill="none" opacity="1" stroke="#4d7b54" stroke-linecap="butt" stroke-linejoin="round" stroke-width="2.34353" vectornator:layerName="Curve 2"/>
+<path d="M315.784 218.137C315.784 218.137 315.077 188.163 325.451 145.852C335.825 103.541 353.103 74.5758 353.103 74.5758" fill="none" opacity="1" stroke="#4d7b54" stroke-linecap="butt" stroke-linejoin="round" stroke-width="2.34353" vectornator:layerName="Curve 4"/>
+<path d="M273.208 205.225L282.242 204.97C282.242 204.97 281.721 208.581 286.649 211.278C291.935 214.17 302.862 216.162 308.14 216.162C313.742 216.162 324.157 214.015 329.339 211.053C333.728 208.544 333.38 205.144 333.38 205.144L343.149 205.225C343.149 205.225 342.889 211.402 337.829 215.173C331.414 219.954 318.975 222.58 308.179 222.71C300.179 222.806 287.5 220.76 281.46 217.067C273.425 212.156 273.208 205.225 273.208 205.225Z" fill="#e8bfbc" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Oval 3"/>
+<path d="M355.244 72.8463C355.244 72.8463 348.568 81.4263 351.45 96.2254C354.331 111.024 365.691 121.278 365.691 121.278C365.691 121.278 369.66 110.616 369.006 96.0791C368.351 81.5419 364.499 74.2433 364.499 74.2433L355.244 72.8463Z" fill="url(#LinearGradient_6)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 6"/>
+<path d="M364.273 75.3236C364.273 75.3236 373.561 85.1465 383.697 95.4798C393.833 105.813 403.78 104.681 403.78 104.681C403.78 104.681 405.889 98.8157 397.433 86.676C388.977 74.5363 370.993 68.0983 370.993 68.0983L364.273 75.3236Z" fill="url(#LinearGradient_7)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 7"/>
+<path d="M369.204 69.6725C369.204 69.6725 383.424 71.1414 394.75 65.5435C406.076 59.9456 410.262 51.9735 410.262 51.9735C410.262 51.9735 395.399 47.4083 382.511 50.8582C369.623 54.3081 362.955 61.0803 362.955 61.0803L369.204 69.6725Z" fill="url(#LinearGradient_8)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 8"/>
+<path d="M362.757 65.12C362.757 65.12 370.426 55.8824 373.681 43.2545C376.935 30.6267 370.704 21.3877 370.704 21.3877C370.704 21.3877 358.675 25.5234 353.337 35.7428C348 45.9622 351.438 62.9531 351.438 62.9531L362.757 65.12Z" fill="url(#LinearGradient_9)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 9"/>
+<path d="M352.974 61.583C352.974 61.583 349.096 55.9835 338.865 47.5965C328.633 39.2096 302.52 44.4553 302.52 44.4553C302.52 44.4553 314.278 48.2942 316.799 53.4719C322.557 65.2983 350.232 68.1618 350.232 68.1618L352.974 61.583Z" fill="url(#LinearGradient_10)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 10"/>
+<path d="M349.334 64.5129C349.334 64.5129 336.427 73.6962 328.532 82.1005C320.637 90.5048 320.714 112.327 320.714 112.327C320.714 112.327 330.521 101.218 340.723 94.5373C350.925 87.8569 355.004 72.7539 355.004 72.7539L349.334 64.5129Z" fill="url(#LinearGradient_11)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 11"/>
+<path d="M347.547 62.2168C349.066 58.4894 355.563 57.6133 362.058 60.26C368.552 62.9068 372.586 68.0741 371.067 71.8015C369.548 75.529 363.052 76.405 356.557 73.7583C350.062 71.1115 346.028 65.9443 347.547 62.2168Z" fill="url(#RadialGradient)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Oval 4"/>
+<path d="M268.693 57.311C268.693 57.311 282.534 65.4529 292.082 65.3049C296.331 65.239 300.607 61.7816 304.515 61.2575C309.389 60.6038 313.455 62.8648 313.455 62.8648C313.455 62.8648 302.438 45.9216 292.97 43.9878C283.503 42.054 269.017 48.9837 269.017 48.9837L268.693 57.311Z" fill="url(#LinearGradient_12)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 13"/>
+<path d="M268.4 49.7441C268.4 49.7441 278.639 43.0912 280.018 33.3919C282.114 18.645 284.282 13.9196 284.282 13.9196C284.282 13.9196 265.532 20.4401 258.505 28.72C251.478 36.9998 256.174 47.039 256.174 47.039L268.4 49.7441Z" fill="url(#LinearGradient_13)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 14"/>
+<path d="M255.974 48.5567C255.974 48.5567 254.05 39.7486 247.98 32.865C241.911 25.9813 226.822 19.7506 226.822 19.7506C226.822 19.7506 228.218 36.2698 232.585 45.0038C236.952 53.7379 249.165 55.9584 249.165 55.9584L255.974 48.5567Z" fill="url(#LinearGradient_14)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 15"/>
+<path d="M253.911 63.0137C253.911 63.0137 239.145 77.2436 239.728 86.2506C240.311 95.2576 255.199 101.086 255.199 101.086C255.199 101.086 257.106 93.986 258.378 84.7671C259.649 75.5481 262.003 61.5003 262.003 61.5003L253.911 63.0137Z" fill="url(#LinearGradient_15)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 17"/>
+<path d="M260.635 62.8281C260.635 62.8281 262.139 78.0543 270.482 87.6563C278.825 97.2583 290.602 101.425 290.602 101.425C290.602 101.425 291.745 89.7743 285.865 78.628C279.985 67.4818 268.784 56.6511 268.784 56.6511L260.635 62.8281Z" fill="url(#LinearGradient_16)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 12"/>
+<path d="M248.678 54.9816C248.678 54.9816 230.906 56.0682 222.559 61.8735C214.212 67.6788 217.183 81.9863 217.183 81.9863C217.183 81.9863 212.082 77.7876 235.593 74.4567C245.987 72.9843 253.226 63.8228 253.226 63.8228L248.678 54.9816Z" fill="url(#LinearGradient_17)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 16"/>
+<path d="M248.024 59.7101C246.247 55.7478 249.994 50.2095 256.394 47.3399C262.793 44.4702 269.421 45.356 271.198 49.3182C272.975 53.2804 269.227 58.8188 262.828 61.6884C256.429 64.558 249.8 63.6723 248.024 59.7101Z" fill="url(#RadialGradient_2)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Oval 5"/>
+<path d="M291.574 383C291.574 383 300.02 385.877 308 386.196C315.98 386.515 323.085 383 323.085 383C323.085 383 325.015 375.532 327.619 362.758C330.224 349.985 333.502 331.906 333.502 331.906C333.502 331.906 325.587 350.154 310.446 350.176C295.305 350.197 282.363 338.735 282.363 338.735C282.363 338.735 284.635 351.196 286.938 362.262C289.241 373.328 291.574 383 291.574 383Z" fill="url(#LinearGradient_18)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 18"/>
+<path d="M323.085 383C323.085 383 333.437 341.31 338.453 296.866C342.829 258.09 343.017 208.601 343.017 208.601C343.017 208.601 338.82 254.671 333.777 296.543C328.77 338.122 318.036 384.865 318.036 384.865L323.085 383Z" fill="#a48c8a" fill-opacity="0.565133" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 27"/>
+<path d="M323.085 383C323.085 383 333.437 341.31 338.453 296.866C342.829 258.09 343.029 206.921 343.029 206.921C343.029 206.921 341.731 210.398 340.836 211.865C339.708 213.714 338.739 214.28 338.739 214.28C338.739 214.28 334.399 269.567 330.942 298.275C325.934 339.854 318.036 384.865 318.036 384.865L323.085 383Z" fill="#a48c8a" fill-opacity="0.565133" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 32"/>
+<path d="M323.085 383C323.085 383 333.437 341.31 338.453 296.866C342.829 258.09 342.987 212.163 342.987 212.163C342.987 212.163 341.075 247.214 336.032 289.087C331.024 330.665 320.41 384.098 320.41 384.098L323.085 383Z" fill="#a48c8a" fill-opacity="0.565133" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 26"/>
+<path d="M323.085 383C323.085 383 333.437 341.31 338.453 296.866C342.829 258.09 343.012 215.293 343.012 215.293C343.012 215.293 340.993 254.414 337.349 296.134C333.706 337.854 321.411 383.639 321.411 383.639L323.085 383Z" fill="#a48c8a" fill-opacity="0.565133" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 25"/>
+</g>
+<g id="Layer-2" vectornator:layerName="Layer 2">
+<path d="M383.228 384.633L452.644 347.268C452.644 347.268 466.93 356.533 493.553 364.895C520.176 373.258 559.137 380.719 559.137 380.719L498.295 422.474C498.295 422.474 465.256 415.062 436.489 405.601C407.722 396.141 383.228 384.633 383.228 384.633Z" fill="#797979" fill-opacity="0.713484" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 1"/>
+<path d="M380.928 382.288L447.439 342.017C447.439 342.017 462.211 352.655 489.561 361.745C516.911 370.834 556.838 378.374 556.838 378.374L495.996 420.129C495.996 420.129 459.136 412.586 430.369 403.126C401.602 393.666 380.928 382.288 380.928 382.288Z" fill="#ffffff" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 2"/>
+<path d="M399.502 383.25C399.502 376.316 399.12 384.818 403.428 381.346C405.036 380.05 402.966 374.862 404.939 375.626C407.049 376.443 419.612 369.023 422.455 366.598" fill="none" opacity="1" stroke="#757373" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.2" vectornator:layerName="Curve 3"/>
+<path d="M413.13 390.486C413.13 390.984 413.114 389.485 413.008 388.997C412.824 388.157 412.378 387.327 411.965 386.562C411.825 386.301 411.285 385.579 411.481 385.809C412.115 386.554 414.832 388.852 416.11 388.416C417.646 387.892 416.476 384.882 417.158 384.614C418.028 384.273 419.746 385.928 419.95 385.082C420.135 384.315 418.592 382.886 419.441 382.771C420.567 382.618 424.854 382.903 425.54 381.714C425.977 380.955 423.918 377.791 425.146 377.154C426.235 376.589 426.99 379.289 426.99 376.207" fill="none" opacity="1" stroke="#757373" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.2" vectornator:layerName="Curve 4"/>
+<path d="M431.149 372.244C431.79 371.821 430.892 369.45 431.288 370.076C433.146 373.013 433.492 370.581 435.111 369.695C436.034 369.19 437.134 370.083 437.954 369.162C439.484 367.443 440.078 364.333 441.982 362.891C442.417 362.561 443.329 363.106 443.835 362.981C445.968 362.451 449.216 360.091 450.381 358.488" fill="none" opacity="1" stroke="#757373" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.2" vectornator:layerName="Curve 5"/>
+<path d="M424.896 394.448C424.896 393.837 424.9 393.227 424.896 392.617C424.88 389.756 426.185 393.292 427.486 391.713C429.365 389.434 425.956 384.227 431.012 386.346" fill="none" opacity="1" stroke="#757373" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.2" vectornator:layerName="Curve 6"/>
+<path d="M437.412 382.208C436.6 382.208 434.705 380.879 435.513 380.812C436.84 380.702 439.004 381.626 440.23 380.855C441.996 379.744 440.765 376.624 442.834 376.624" fill="none" opacity="1" stroke="#757373" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.2" vectornator:layerName="Curve 7"/>
+<path d="M449.82 373.647C449.82 374.363 450.093 372.15 449.766 371.5C449.496 370.964 451.62 372.153 451.698 371.567C451.891 370.126 451.461 367.013 452.819 366.012C455.927 363.721 466.284 365.262 466.284 359.909" fill="none" opacity="1" stroke="#757373" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.2" vectornator:layerName="Curve 8"/>
+<path d="M439.611 393.264C439.611 392.816 439.611 392.367 439.611 391.919C439.611 391.559 439.611 391.198 439.611 390.838C439.611 387.057 439.74 391.309 442.011 390.133C443.174 389.531 442.758 386.984 443.413 386.667C443.704 386.527 445.454 389.337 446.421 388.584C446.675 388.386 446.743 387.9 446.766 387.648C447.054 384.48 448.83 384.329 449.626 381.714C449.702 381.465 449.778 381.215 449.855 380.965" fill="none" opacity="1" stroke="#757373" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.2" vectornator:layerName="Curve 9"/>
+<path d="M458.625 378.031C458.625 377.192 458.625 376.352 458.625 375.512C458.625 372.654 459.958 375.272 461.791 374.661C462.351 374.475 462.168 373.099 462.663 373.094C463.23 373.089 463.578 373.918 464.163 373.839C465.08 373.714 464.707 371.263 464.883 370.69C465.027 370.224 467.221 370.145 467.604 370.039C468.8 369.707 469.478 368.675 470.41 367.991" fill="none" opacity="1" stroke="#757373" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.2" vectornator:layerName="Curve 10"/>
+<path d="M447.56 401.372C446.906 401.711 446.072 400.07 446.54 399.532C447.478 398.453 448.506 400.817 449.013 398.273C449.295 396.86 449.866 394.004 451.048 393.435C451.739 393.102 454.602 395.879 455.23 396.402" fill="none" opacity="1" stroke="#757373" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.2" vectornator:layerName="Curve 11"/>
+<path d="M460.755 390.533C460.755 390.086 460.712 389.608 460.536 389.187C459.769 387.344 462.475 389.228 463.076 388.12C463.856 386.681 462.47 383.585 464.044 385.226C464.197 385.386 464.241 383.645 464.325 383.604C465.699 382.92 468.006 383.719 469.572 382.876" fill="none" opacity="1" stroke="#757373" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.2" vectornator:layerName="Curve 12"/>
+<path d="M472.111 377.746C472.111 376.723 472.111 375.701 472.111 374.679C472.111 374.637 472.087 374.515 472.111 374.552C474.398 378.087 475.813 373.512 477.262 372.155C478.469 371.025 480.449 371.095 481.407 369.374" fill="none" opacity="1" stroke="#757373" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.2" vectornator:layerName="Curve 13"/>
 </g>
 </svg>
