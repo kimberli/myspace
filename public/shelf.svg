@@ -1,10 +1,1 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Created with Vectornator (http://vectornator.io/) -->
-<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 1200 375" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink">
-<defs/>
-<g id="Layer-1" vectornator:layerName="Layer 1">
-<path d="M20 303.493L20 333.729L1180 333.729L1180 303.493L20 303.493Z" fill="#ebe0db" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 1"/>
-<path d="M20 303.493L60 243.493L1140 243.493L1180 303.493L20 303.493Z" fill="#faf4f1" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 2"/>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xml:space="preserve" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 1200 375"><g vectornator:layerName="Layer 1"><path vectornator:layerName="Curve 1" fill="#ebe0db" d="M20 303.493v30.236h1160v-30.236H20Z"/><path vectornator:layerName="Curve 2" fill="#faf4f1" d="m20 303.493 40-60h1080l40 60H20Z"/></g></svg>

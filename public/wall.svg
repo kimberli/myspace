@@ -1,15 +1,1 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Created with Vectornator (http://vectornator.io/) -->
-<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 2732 80" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink">
-<defs/>
-<clipPath id="ArtboardFrame">
-<rect height="2048" width="2732" x="0" y="0"/>
-</clipPath>
-<g clip-path="url(#ArtboardFrame)" id="Layer-2" vectornator:layerName="Layer 2">
-<path d="M-0.727016 0L0 78.5934L2731.99 76.4085L2731.76 0" fill="#fffbef" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 1"/>
-<path d="M-0.591235 14.6785L-0.486628 25.9869L2731.84 26.3159L2731.8 14.0815" fill="#cdc9bb" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 3"/>
-<path d="M-0.488858 25.7459L0.163675 34.1411L2731.84 37.0776L2731.8 24.8432" fill="#e5dfcb" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 4"/>
-<path d="M0.687551 54.1052L0.461376 78.593L2732.46 81.7805L2732.05 57.418" fill="#f3efe0" fill-opacity="0.833333" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 25"/>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xml:space="preserve" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 2732 80"><clipPath id="a"><path d="M0 0h2732v2048H0z"/></clipPath><g vectornator:layerName="Layer 2" clip-path="url(#a)"><path vectornator:layerName="Curve 1" fill="#fffbef" d="M-.727 0 0 78.593l2731.99-2.184L2731.76 0"/><path vectornator:layerName="Curve 3" fill="#cdc9bb" d="m-.591 14.678.104 11.309 2732.327.329-.04-12.234"/><path vectornator:layerName="Curve 4" fill="#e5dfcb" d="m-.489 25.746.653 8.395 2731.676 2.937-.04-12.235"/><path vectornator:layerName="Curve 25" fill="#f3efe0" fill-opacity=".833" d="M.688 54.105.46 78.593l2731.999 3.188-.41-24.363"/></g></svg>
