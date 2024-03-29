@@ -38,7 +38,7 @@ const Home: React.FC<HomeProps> = () => {
             imageClass="drop-shadow-[8px_8px_4px_rgba(0,0,0,0.2)]"
           />
           {/* Shelf items */}
-          <div className="absolute flex flex-row items-end justify-center gap-20 bottom-[3.25rem]">
+          <div className="absolute flex flex-row items-end justify-center gap-20 bottom-12 xs:bottom-[3.25rem]">
             <RoomItem
               src="/books.svg"
               className="relative w-[100px] h-[70px]"
