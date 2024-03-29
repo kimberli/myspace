@@ -145,7 +145,7 @@
 </linearGradient>
 </defs>
 <g id="Layer-1" vectornator:layerName="Layer 1">
-<path d="M20 303.493L20 363.493L1180 363.493L1180 303.493L20 303.493Z" fill="#ebe0db" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 1"/>
+<path d="M20 303.493L20 333.729L1180 333.729L1180 303.493L20 303.493Z" fill="#ebe0db" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 1"/>
 <path d="M20 303.493L60 243.493L1140 243.493L1180 303.493L20 303.493Z" fill="#faf4f1" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 2"/>
 <path d="M80 42.1854L101.593 25.2804L100.111 260.681L80 283.075L80 42.1854Z" fill="#658b78" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 3"/>
 <path d="M82.8732 46.8209C82.8732 46.8209 83.4856 48.0069 91.2263 50.4409C100.777 53.4441 112.194 47.6199 112.194 47.6199L123.504 41.9066L137.636 29.8711L101.558 30.9084L82.8732 46.8209Z" fill="url(#LinearGradient)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 4"/>
