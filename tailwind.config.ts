@@ -23,7 +23,6 @@ const config: Config = {
       screens: {
         xxs: "400px",
         xs: "480px",
-        tall: { raw: "(min-height: 700px)" },
       },
     },
   },

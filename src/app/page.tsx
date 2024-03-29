@@ -1,132 +1,88 @@
-import Image from "next/image";
+import RoomItem from "@/components/RoomItem";
 
 interface HomeProps {}
 
 const Home: React.FC<HomeProps> = () => {
   // We use Tailwind responsive utility classes to adjust element positioning when
-  // the screen is too narrow or too short.
+  // the screen is too narrow or too wide.
+  // Keep in mind that responsive classes are mobile-first; "xs" means at a width of xs or higher.
   return (
     <main
-      className={`bg-gradient-to-r from-primary via-primary-light to-primary-dark flex flex-col items-center justify-between p-24 relative h-dvh min-h-[700px] min-w-[320px] overflow-x-hidden`}
+      className={`bg-gradient-to-r from-primary via-primary-light to-primary-dark flex flex-col items-center justify-between p-24 relative h-dvh min-h-[650px] overflow-x-hidden`}
     >
       {/* Wall items consist of the photo array and the bookshelf. */}
-      <div className="absolute flex flex-col tall:gap-4 bottom-56 xxs:bottom-72 xs:bottom-80 w-full">
-        {/* Photos should be inline on short screens and alternating on tall screens */}
+      <div className="absolute flex flex-col bottom-56 xs:bottom-72 w-full">
+        {/* Photos should be inline on wide screens and alternating on narrow screens */}
         <div className="flex flex-col xs:flex-row items-center justify-center gap-6 w-full px-2">
-          <div className="relative right-16 top-64 xs:inset-0 h-[190px] w-[130px]">
-            <Image
-              src="/photo_a.svg"
-              className="drop-shadow-[2px_2px_2px_rgba(0,0,0,0.4)]"
-              alt="Photo A"
-              fill={true}
-              priority
-            />
-          </div>
-          <div className="relative right-16 top-60 xs:inset-0 w-[140px] h-[140px]">
-            <Image
-              src="/photo_b.svg"
-              className="drop-shadow-[2px_2px_2px_rgba(0,0,0,0.4)]"
-              alt="Photo B"
-              fill={true}
-              priority
-            />
-          </div>
-          <div className="relative left-20 bottom-12 xs:inset-0 w-[140px] h-[180px]">
-            <Image
-              src="/photo_c.svg"
-              className="drop-shadow-[2px_2px_2px_rgba(0,0,0,0.4)]"
-              alt="Photo C"
-              fill={true}
-              priority
-            />
-          </div>
+          <RoomItem
+            src="/photo_a.svg"
+            className="relative right-16 top-48 xs:inset-0 h-[150px] w-[100px] xs:h-[180px] xs:w-[120px]"
+            imageClass="drop-shadow-[2px_2px_2px_rgba(0,0,0,0.4)]"
+          />
+          <RoomItem
+            src="/photo_b.svg"
+            className="relative right-16 top-48 xs:inset-0 w-[90px] h-[90px] xs:w-[140px] xs:h-[140px]"
+            imageClass="drop-shadow-[2px_2px_2px_rgba(0,0,0,0.4)]"
+          />
+          <RoomItem
+            src="/photo_c.svg"
+            className="relative left-16 bottom-12 xs:inset-0 w-[112px] h-[144px] xs:w-[140px] xs:h-[180px]"
+            imageClass="drop-shadow-[2px_2px_2px_rgba(0,0,0,0.4)]"
+          />
         </div>
         {/* Bookshelf */}
         <div className="flex flex-col items-center justify-center w-full">
-          <div className="relative w-[300px] xs:w-[320px] h-[150px] xs:h-[160px]">
-            <Image
-              src="/shelf.svg"
-              className="drop-shadow-[8px_8px_4px_rgba(0,0,0,0.2)]"
-              alt="Shelf"
-              fill={true}
-              priority
-            />
-          </div>
-          {/* Shelf items */}
-          <div className="absolute flex flex-row items-end justify-center gap-20 bottom-[3.25rem] w-full">
-            <Image
-              src="/books.svg"
-              className="drop-shadow-[2px_2px_4px_rgba(0,0,0,0.2)]"
-              alt="Books"
-              width={100}
-              height={80}
-              priority
-            />
-            <Image src="/bike.svg" alt="Bike" width={80} height={80} priority />
-          </div>
-        </div>
-      </div>
-      <div className="absolute bottom-20 xs:bottom-24 bottom-24 h-4 xs:h-8 w-full">
-        <Image
-          className="object-cover object-top"
-          src="/wall.svg"
-          alt="Wall"
-          fill={true}
-          priority
-        />
-      </div>
-      <div className="absolute bottom-0 h-20 xs:h-24 w-full">
-        <Image
-          className="object-cover object-top"
-          src="/floor.svg"
-          alt="Floor"
-          fill={true}
-          priority
-        />
-      </div>
-      <div className="absolute bottom-16 flex flex-row items-center justify-center">
-        <div className="relative w-[250px] h-[400px] ml-[625px]">
-          <Image
-            src="/plant.svg"
-            className="drop-shadow-[16px_16px_16px_rgba(0,0,0,0.6)]"
-            alt="Plant"
-            fill={true}
-            object-fit="contain"
-            priority
+          <RoomItem
+            src="/shelf.svg"
+            className="relative w-[300px] xs:w-[320px] h-[150px] xs:h-[160px]"
+            imageClass="drop-shadow-[8px_8px_4px_rgba(0,0,0,0.2)]"
           />
+          {/* Shelf items */}
+          <div className="absolute flex flex-row items-end justify-center gap-20 bottom-[3.25rem]">
+            <RoomItem
+              src="/books.svg"
+              className="relative w-[100px] h-[70px]"
+              imageClass="drop-shadow-[2px_2px_4px_rgba(0,0,0,0.2)]"
+            />
+            <RoomItem src="/bike.svg" className="relative w-[80px] h-[60px]" />
+          </div>
         </div>
+      </div>
+      <RoomItem
+        src="/wall.svg"
+        className="absolute bottom-20 xs:bottom-24 h-4 xs:h-8 w-full"
+        imageClass="object-cover object-top"
+      />
+      <RoomItem
+        src="/floor.svg"
+        className="absolute bottom-0 h-20 xs:h-24 w-full"
+        imageClass="object-cover object-top"
+      />
+      <div className="absolute bottom-16 flex flex-row items-center justify-center">
+        <RoomItem
+          src="/plant.svg"
+          className="relative w-[200px] h-[320px] xs:w-[250px] xs:h-[400px] ml-[450px] xs:ml-[625px]"
+          imageClass="drop-shadow-[16px_16px_16px_rgba(0,0,0,0.6)]"
+        />
       </div>
       <div className="absolute bottom-12 flex flex-row justify-center">
-        <Image
+        <RoomItem
           src="/couch.svg"
-          className="drop-shadow-[24px_24px_20px_rgba(0,0,0,0.8)]"
-          alt="Couch"
-          width={500}
-          height={200}
-          priority
+          className="relative w-[400px] h-[160px] xs:w-[500px] xs:h-[200px]"
+          imageClass="drop-shadow-[24px_24px_20px_rgba(0,0,0,0.8)]"
         />
       </div>
       {/* Move the side table in front of the couch when the screen is too narrow. */}
-      <div className="absolute bottom-6 sm:bottom-14 flex-row">
-        <div className="relative w-[120px] h-[130px] xxs:w-[150px] xxs:h-[160px] xs:w-[180px] xs:h-[200px] mr-[250px] sm:mr-[620px]">
-          <Image
-            src="/table.svg"
-            className="drop-shadow-[8px_8px_8px_rgba(0,0,0,0.2)]"
-            alt="Table"
-            fill={true}
-            object-fit="contain"
-            priority
-          />
-        </div>
-        <div className="absolute top-10 xxs:top-12 xs:top-[3.75rem] left-14 xxs:left-16 xs:left-20 w-[40px] h-[20px] xxs:w-[50px] xxs:h-[25px] xs:w-[60px] xs:h-[30px]">
-          <Image
-            src="/paper.svg"
-            alt="Paper"
-            fill={true}
-            object-fit="contain"
-            priority
-          />
-        </div>
+      <div className="absolute bottom-6 xs:bottom-4 md:bottom-14 flex-row">
+        <RoomItem
+          src="/table.svg"
+          className="relative w-[150px] h-[160px] xs:w-[180px] xs:h-[200px] mr-[200px] xs:mr-[300px] md:mr-[620px]"
+          imageClass="drop-shadow-[8px_8px_8px_rgba(0,0,0,0.2)]"
+        />
+        <RoomItem
+          src="/paper.svg"
+          className="absolute top-12 xs:top-[3.75rem] left-16 xs:left-20 w-[50px] h-[25px] xs:w-[60px] xs:h-[30px]"
+        />
       </div>
     </main>
   );
