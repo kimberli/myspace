@@ -112,9 +112,18 @@ const Home: React.FC<HomeProps> = () => {
       <div className="absolute bottom-6 sm:bottom-14 flex-row">
         <div className="relative w-[120px] h-[130px] xxs:w-[150px] xxs:h-[160px] xs:w-[180px] xs:h-[200px] mr-[250px] sm:mr-[620px]">
           <Image
-            src="/flowers.svg"
+            src="/table.svg"
             className="drop-shadow-[8px_8px_8px_rgba(0,0,0,0.2)]"
-            alt="Flowers"
+            alt="Table"
+            fill={true}
+            object-fit="contain"
+            priority
+          />
+        </div>
+        <div className="absolute top-10 xxs:top-12 xs:top-[3.75rem] left-14 xxs:left-16 xs:left-20 w-[40px] h-[20px] xxs:w-[50px] xxs:h-[25px] xs:w-[60px] xs:h-[30px]">
+          <Image
+            src="/paper.svg"
+            alt="Paper"
             fill={true}
             object-fit="contain"
             priority
