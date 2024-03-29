@@ -10,7 +10,7 @@ const Home: React.FC<HomeProps> = () => {
   // the screen is too narrow or too short.
   return (
     <main
-      className={`bg-gradient-to-r from-primary via-primary-light to-primary-dark flex flex-col items-center justify-between p-24 relative h-screen min-h-[${MIN_HEIGHT}] min-w-[${MIN_WIDTH}] overflow-x-hidden`}
+      className={`bg-gradient-to-r from-primary via-primary-light to-primary-dark flex flex-col items-center justify-between p-24 relative h-svh min-h-[${MIN_HEIGHT}] min-w-[${MIN_WIDTH}] overflow-x-hidden`}
     >
       {/* Wall items consist of the photo array and the bookshelf. */}
       <div className="absolute flex flex-col tall:gap-4 bottom-56 xxs:bottom-72 xs:bottom-80 w-full">
