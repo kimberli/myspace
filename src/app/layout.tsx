@@ -1,4 +1,4 @@
-import { GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { Karla } from "next/font/google";
 import React from "react";
 
@@ -20,6 +20,7 @@ const RootLayout: React.FC<RootLayoutProps> = ({
 }: RootLayoutProps) => {
   return (
     <html lang="en">
+      <GoogleTagManager gtmId="GTM-WN92TN8N" />
       <body className={karla.className}>{children}</body>
       <GoogleAnalytics gaId="G-GT6NFS8BH3" />
     </html>
