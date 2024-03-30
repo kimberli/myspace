@@ -60,25 +60,35 @@ export const Shelf: React.FC = () => (
 );
 
 export const Books: React.FC = () => {
-  const router = useRouter();
   return (
     <RoomItem
       src="/books.svg"
       className="relative w-[100px] h-[70px]"
       imageClass="drop-shadow-[2px_2px_4px_rgba(0,0,0,0.2)]"
-      onClick={() => router.push("/favorites")}
+      onClick={() =>
+        window.open(
+          "https://www.goodreads.com/review/list/66632078?shelf=read&sort=date_read",
+          "_blank",
+          "noopener,noreferrer",
+        )
+      }
       glow
     />
   );
 };
 
 export const Bike: React.FC = () => {
-  const router = useRouter();
   return (
     <RoomItem
       src="/bike.svg"
       className="relative w-[80px] h-[60px]"
-      onClick={() => router.push("/biking")}
+      onClick={() =>
+        window.open(
+          "https://www.strava.com/athletes/32697318",
+          "_blank",
+          "noopener,noreferrer",
+        )
+      }
       glow
     />
   );
