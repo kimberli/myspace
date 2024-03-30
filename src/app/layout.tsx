@@ -8,8 +8,8 @@ import type { Metadata } from "next";
 const karla = Karla({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Kim's space",
-  description: "Explore Kim's space",
+  title: "kim space",
+  description: "explore kim's space",
 };
 
 interface RootLayoutProps extends React.PropsWithChildren {}
