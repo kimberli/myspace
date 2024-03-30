@@ -3,14 +3,16 @@
 import classNames from "classnames";
 import Image from "next/image";
 import React from "react";
-import { useRouter } from "next/navigation";
+
+export const CLICKABLE_ITEM =
+  "cursor-pointer hover:drop-shadow-[0_0_6px_rgba(245,222,171,1)] z-10";
 
 interface RoomItemProps {
   src: string;
   className?: string;
   imageClass?: string;
   base64PlaceholderImage?: string; // Base64-encoded color to show while image is loading.
-  destination?: string;
+  onClick?: () => void;
 }
 
 const RoomItem: React.FC<RoomItemProps> = ({
@@ -18,16 +20,9 @@ const RoomItem: React.FC<RoomItemProps> = ({
   className,
   imageClass,
   base64PlaceholderImage,
-  destination,
+  onClick,
 }) => {
-  const router = useRouter();
-
-  const classes = classNames(
-    className,
-    destination
-      ? "cursor-pointer z-10 hover:drop-shadow-[0_0_8px_rgba(255,220,115,1)]"
-      : "",
-  );
+  const classes = classNames(className, onClick ? CLICKABLE_ITEM : "");
 
   return (
     <div className={classes}>
@@ -38,9 +33,7 @@ const RoomItem: React.FC<RoomItemProps> = ({
         fill={true}
         priority
         placeholder={`data:image/png;base64,${base64PlaceholderImage}` || ""}
-        {...(destination && {
-          onClick: () => router.push(destination),
-        })}
+        onClick={onClick}
       />
     </div>
   );
