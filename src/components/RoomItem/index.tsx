@@ -4,8 +4,11 @@ import classNames from "classnames";
 import Image from "next/image";
 import React from "react";
 
-export const CLICKABLE_ITEM =
-  "cursor-pointer hover:drop-shadow-[0_0_6px_rgba(245,222,171,1)] z-10";
+const GLOW = "hover:drop-shadow-[0_0_6px_rgba(245,222,171,1)]";
+export const PARENT_GLOW =
+  "has-[:hover]:drop-shadow-[0_0_6px_rgba(245,222,171,1)]";
+
+export const CLICKABLE_ITEM = "cursor-pointer z-10";
 
 interface RoomItemProps {
   src: string;
@@ -13,6 +16,7 @@ interface RoomItemProps {
   imageClass?: string;
   base64PlaceholderImage?: string; // Base64-encoded color to show while image is loading.
   onClick?: () => void;
+  glow?: boolean;
 }
 
 const RoomItem: React.FC<RoomItemProps> = ({
@@ -21,8 +25,13 @@ const RoomItem: React.FC<RoomItemProps> = ({
   imageClass,
   base64PlaceholderImage,
   onClick,
+  glow,
 }) => {
-  const classes = classNames(className, onClick ? CLICKABLE_ITEM : "");
+  const classes = classNames(
+    className,
+    onClick && CLICKABLE_ITEM,
+    onClick && glow && GLOW,
+  );
 
   return (
     <div className={classes}>

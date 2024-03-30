@@ -3,7 +3,7 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 
-import RoomItem, { CLICKABLE_ITEM } from "@/components/RoomItem";
+import RoomItem, { PARENT_GLOW } from "@/components/RoomItem";
 
 export const Wall: React.FC<> = () => (
   <RoomItem
@@ -27,23 +27,25 @@ export const Photos: React.FC<> = () => {
   const router = useRouter();
   return (
     <div
-      className={`flex flex-col xs:flex-row items-center justify-center gap-6 w-full px-2 ${CLICKABLE_ITEM}`}
-      onClick={() => router.push("/photos")}
+      className={`flex flex-col xs:flex-row items-center justify-center gap-6 px-2 ${PARENT_GLOW}`}
     >
       <RoomItem
         src="/photo_a.svg"
         className="relative right-16 top-48 xs:inset-0 h-[150px] w-[100px] xs:h-[180px] xs:w-[120px]"
         imageClass="drop-shadow-[2px_2px_2px_rgba(0,0,0,0.4)]"
+        onClick={() => router.push("/photos")}
       />
       <RoomItem
         src="/photo_b.svg"
         className="relative right-16 top-48 xs:inset-0 w-[90px] h-[90px] xs:w-[140px] xs:h-[140px]"
         imageClass="drop-shadow-[2px_2px_2px_rgba(0,0,0,0.4)]"
+        onClick={() => router.push("/photos")}
       />
       <RoomItem
         src="/photo_c.svg"
         className="relative left-16 bottom-12 xs:inset-0 w-[112px] h-[144px] xs:w-[140px] xs:h-[180px]"
         imageClass="drop-shadow-[2px_2px_2px_rgba(0,0,0,0.4)]"
+        onClick={() => router.push("/photos")}
       />
     </div>
   );
@@ -65,6 +67,7 @@ export const Books: React.FC<> = () => {
       className="relative w-[100px] h-[70px]"
       imageClass="drop-shadow-[2px_2px_4px_rgba(0,0,0,0.2)]"
       onClick={() => router.push("/favorites")}
+      glow
     />
   );
 };
@@ -76,6 +79,7 @@ export const Bike: React.FC<> = () => {
       src="/bike.svg"
       className="relative w-[80px] h-[60px]"
       onClick={() => router.push("/biking")}
+      glow
     />
   );
 };
@@ -112,6 +116,7 @@ export const Paper: React.FC<> = () => {
       onClick={() => {
         // TODO(Kim): Implement introduction action
       }}
+      glow
     />
   );
 };
