@@ -2,9 +2,7 @@ import React from "react";
 
 import Room from "@/components/Room";
 
-interface HomeProps {}
-
-const Home: React.FC<HomeProps> = () => {
+const Home: React.FC = () => {
   return (
     <main>
       <Room />

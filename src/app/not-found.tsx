@@ -1,7 +1,7 @@
 import React from "react";
 import { redirect } from "next/navigation";
 
-const NotFound: React.FC<> = ({}) => {
+const NotFound: React.FC = ({}) => {
   redirect("/");
 
   return (

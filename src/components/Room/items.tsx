@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 
 import RoomItem, { PARENT_GLOW } from "@/components/RoomItem";
 
-export const Wall: React.FC<> = () => (
+export const Wall: React.FC = () => (
   <RoomItem
     src="/wall.svg"
     className="absolute bottom-20 xs:bottom-24 h-4 xs:h-8 w-full"
@@ -14,7 +14,7 @@ export const Wall: React.FC<> = () => (
   />
 );
 
-export const Floor: React.FC<> = () => (
+export const Floor: React.FC = () => (
   <RoomItem
     src="/floor.svg"
     className="absolute bottom-0 h-20 xs:h-24 w-full"
@@ -23,7 +23,7 @@ export const Floor: React.FC<> = () => (
   />
 );
 
-export const Photos: React.FC<> = () => {
+export const Photos: React.FC = () => {
   const router = useRouter();
   return (
     <div
@@ -51,7 +51,7 @@ export const Photos: React.FC<> = () => {
   );
 };
 
-export const Shelf: React.FC<> = () => (
+export const Shelf: React.FC = () => (
   <RoomItem
     src="/shelf.svg"
     className="relative w-[300px] xs:w-[320px] h-[150px] xs:h-[160px]"
@@ -59,7 +59,7 @@ export const Shelf: React.FC<> = () => (
   />
 );
 
-export const Books: React.FC<> = () => {
+export const Books: React.FC = () => {
   const router = useRouter();
   return (
     <RoomItem
@@ -72,7 +72,7 @@ export const Books: React.FC<> = () => {
   );
 };
 
-export const Bike: React.FC<> = () => {
+export const Bike: React.FC = () => {
   const router = useRouter();
   return (
     <RoomItem
@@ -84,7 +84,7 @@ export const Bike: React.FC<> = () => {
   );
 };
 
-export const Plant: React.FC<> = () => (
+export const Plant: React.FC = () => (
   <RoomItem
     src="/plant.svg"
     className="relative w-[200px] h-[320px] xs:w-[250px] xs:h-[400px] ml-[450px] xs:ml-[625px]"
@@ -92,7 +92,7 @@ export const Plant: React.FC<> = () => (
   />
 );
 
-export const Couch: React.FC<> = () => (
+export const Couch: React.FC = () => (
   <RoomItem
     src="/couch.svg"
     className="relative w-[400px] h-[160px] xs:w-[500px] xs:h-[200px]"
@@ -100,7 +100,7 @@ export const Couch: React.FC<> = () => (
   />
 );
 
-export const Table: React.FC<> = () => (
+export const Table: React.FC = () => (
   <RoomItem
     src="/table.svg"
     className="relative w-[150px] h-[160px] xs:w-[180px] xs:h-[200px] mr-[200px] xs:mr-[300px] md:mr-[620px]"
@@ -108,7 +108,7 @@ export const Table: React.FC<> = () => (
   />
 );
 
-export const Paper: React.FC<> = () => {
+export const Paper: React.FC = () => {
   return (
     <RoomItem
       src="/paper.svg"
