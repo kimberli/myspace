@@ -5,10 +5,15 @@ interface RoomItemProps {
   src: string;
   className?: string;
   imageClass?: string;
-  cover?: boolean;
+  base64PlaceholderImage?: string; // Base64-encoded color to show while image is loading.
 }
 
-const RoomItem: React.FC<RoomItemProps> = ({ src, className, imageClass }) => {
+const RoomItem: React.FC<RoomItemProps> = ({
+  src,
+  className,
+  imageClass,
+  base64PlaceholderImage,
+}) => {
   return (
     <div className={className}>
       <Image
@@ -17,6 +22,7 @@ const RoomItem: React.FC<RoomItemProps> = ({ src, className, imageClass }) => {
         alt={src.replace(".svg", "").replace("/", "")}
         fill={true}
         priority
+        placeholder={`data:image/png;base64,${base64PlaceholderImage}` || ""}
       />
     </div>
   );
