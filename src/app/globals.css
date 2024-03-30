@@ -10,6 +10,14 @@ body {
   color: rgb(var(--foreground-rgb));
 }
 
+a {
+  color: #827b74;
+}
+
+a:hover {
+  color: #635e59;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
