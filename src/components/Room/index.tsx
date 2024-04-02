@@ -20,7 +20,7 @@ import Modal from "@/components/Modal";
 interface RoomProps {}
 
 const Room: React.FC<RoomProps> = ({}) => {
-  const [showInfoModal, setShowInfoModal] = useState(true);
+  const [showInfoModal, setShowInfoModal] = useState(false);
   // We use Tailwind responsive utility classes to adjust element positioning when
   // the screen is too narrow or too wide.
   // Keep in mind that responsive classes are mobile-first; "xs" means at a width of xs or higher.
