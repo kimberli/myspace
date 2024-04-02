@@ -46,7 +46,7 @@ const Room: React.FC<RoomProps> = ({}) => {
               </a>
               .
             </p>
-            <p className="mb-2 text-right">-Kim</p>
+            <p className="mb-2 text-right">- Kim</p>
           </div>
         </Modal>
       )}
