@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 
 import {
   Bike,
@@ -13,9 +15,12 @@ import {
   Wall,
 } from "./items";
 
+import Modal from "@/components/Modal";
+
 interface RoomProps {}
 
 const Room: React.FC<RoomProps> = ({}) => {
+  const [showInfoModal, setShowInfoModal] = useState(true);
   // We use Tailwind responsive utility classes to adjust element positioning when
   // the screen is too narrow or too wide.
   // Keep in mind that responsive classes are mobile-first; "xs" means at a width of xs or higher.
@@ -23,6 +28,28 @@ const Room: React.FC<RoomProps> = ({}) => {
     <div
       className={`bg-gradient-to-r from-primary via-primary-light to-primary-dark flex flex-col items-center justify-between p-24 relative h-dvh min-h-[650px] overflow-x-hidden`}
     >
+      {showInfoModal && (
+        <Modal title="About" onClose={() => setShowInfoModal(false)}>
+          <div className="mx-4">
+            <p className="mb-2">
+              Welcome to my space! I created this during a period of nomadic
+              traveling, imagining it as my little home on the Internet.
+            </p>
+            <p className="mb-2">
+              Feel free to explore, or just settle in and make yourself
+              comfortable.
+            </p>
+            <p className="mb-2">
+              To learn more about me, visit my personal website at{" "}
+              <a href="https://kimberli.me" target="_blank">
+                kimberli.me
+              </a>
+              .
+            </p>
+            <p className="mb-2 text-right">-Kim</p>
+          </div>
+        </Modal>
+      )}
       <Wall />
       <Floor />
       {/* Wall items consist of the photo array and the bookshelf. */}
@@ -45,7 +72,7 @@ const Room: React.FC<RoomProps> = ({}) => {
       {/* Move the side table in front of the couch when the screen is too narrow. */}
       <div className="absolute bottom-6 xs:bottom-4 md:bottom-14 flex-row">
         <Table />
-        <Paper />
+        <Paper onClick={() => setShowInfoModal(true)} />
       </div>
     </div>
   );

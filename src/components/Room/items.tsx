@@ -118,14 +118,16 @@ export const Table: React.FC = () => (
   />
 );
 
-export const Paper: React.FC = () => {
+interface PaperProps {
+  onClick: () => void;
+}
+
+export const Paper: React.FC<PaperProps> = ({ onClick }) => {
   return (
     <RoomItem
       src="/paper.svg"
       className="absolute top-12 xs:top-[3.75rem] left-16 xs:left-20 w-[50px] h-[25px] xs:w-[60px] xs:h-[30px]"
-      onClick={() => {
-        // TODO(Kim): Implement introduction action
-      }}
+      onClick={onClick}
       glow
     />
   );
