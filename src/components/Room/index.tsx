@@ -40,7 +40,7 @@ const Room: React.FC<RoomProps> = ({}) => {
           <Shelf />
           <div className="absolute flex flex-row items-end justify-center gap-6 bottom-12 xs:bottom-[3.25rem]">
             <Books />
-            <Speaker onClick={() => setShowMusicPlayer(true)} />
+            <Speaker onClick={() => setShowMusicPlayer(!showMusicPlayer)} />
             <Bike />
           </div>
         </div>
@@ -78,7 +78,7 @@ const Room: React.FC<RoomProps> = ({}) => {
           </div>
         </Modal>
       )}
-      <div className="absolute top-4 right-4 w-96 h-10">
+      <div className="absolute top-2 mx-auto xs:right-2 w-[300px] z-40">
         <MusicPlayer show={showMusicPlayer} />
       </div>
     </div>

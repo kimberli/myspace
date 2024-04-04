@@ -6,13 +6,13 @@ interface MusicPlayerProps {
 }
 
 const MusicPlayer: React.FC<MusicPlayerProps> = ({ show }) => {
-  const classes = classNames("z-40", show ? "block" : "hidden");
+  const classes = classNames(show ? "block" : "hidden");
   return (
     <iframe
       className={classes}
       src="https://open.spotify.com/embed/playlist/3zjYkyOKLv6X9tdFTli9bn?utm_source=generator&theme=0"
       width="100%"
-      height="80"
+      height="156"
       frameBorder="0"
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
     ></iframe>
