@@ -5,6 +5,10 @@ import { useRouter } from "next/navigation";
 
 import RoomItem, { PARENT_GLOW } from "@/components/RoomItem";
 
+interface ItemWithActionProps {
+  onClick: () => void;
+}
+
 export const Wall: React.FC = () => (
   <RoomItem
     src="/wall.svg"
@@ -77,15 +81,12 @@ export const Books: React.FC = () => {
   );
 };
 
-export const Speaker: React.FC = () => {
+export const Speaker: React.FC<ItemWithActionProps> = ({ onClick }) => {
   return (
     <RoomItem
       src="/speaker.svg"
       className="relative w-[50px] h-[50px]"
-      onClick={() =>
-        // TODO(Kim): Play music
-        null
-      }
+      onClick={onClick}
       glow
     />
   );
@@ -132,11 +133,9 @@ export const Table: React.FC = () => (
   />
 );
 
-interface PaperProps {
-  onClick: () => void;
-}
-
-export const Paper: React.FC<PaperProps> = ({ onClick }) => {
+export const Paper: React.FC<ItemWithActionProps> = ({
+  onClick,
+}: ItemWithActionProps) => {
   return (
     <RoomItem
       src="/paper.svg"
