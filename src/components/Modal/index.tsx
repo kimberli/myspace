@@ -21,7 +21,7 @@ const Modal: React.FC<ModalProps> = ({
     <>
       <div
         className="absolute bg-neutral-800/50 h-dvh w-full top-0 left-0 z-[100]"
-        onClick={wide ? null : onClose}
+        onClick={wide ? undefined : onClose}
       ></div>
       <div
         className={classNames(
