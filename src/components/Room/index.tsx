@@ -11,6 +11,7 @@ import {
   Photos,
   Plant,
   Shelf,
+  Speaker,
   Table,
   Wall,
 } from "./items";
@@ -57,8 +58,9 @@ const Room: React.FC<RoomProps> = ({}) => {
         <Photos />
         <div className="flex flex-col items-center justify-center w-full">
           <Shelf />
-          <div className="absolute flex flex-row items-end justify-center gap-20 bottom-12 xs:bottom-[3.25rem]">
+          <div className="absolute flex flex-row items-end justify-center gap-6 bottom-12 xs:bottom-[3.25rem]">
             <Books />
+            <Speaker />
             <Bike />
           </div>
         </div>

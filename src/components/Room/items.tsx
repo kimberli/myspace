@@ -63,7 +63,7 @@ export const Books: React.FC = () => {
   return (
     <RoomItem
       src="/books.svg"
-      className="relative w-[100px] h-[70px]"
+      className="relative w-[90px] h-[70px]"
       imageClass="drop-shadow-[2px_2px_4px_rgba(0,0,0,0.2)]"
       onClick={() =>
         window.open(
@@ -71,6 +71,20 @@ export const Books: React.FC = () => {
           "_blank",
           "noopener,noreferrer",
         )
+      }
+      glow
+    />
+  );
+};
+
+export const Speaker: React.FC = () => {
+  return (
+    <RoomItem
+      src="/speaker.svg"
+      className="relative w-[50px] h-[50px]"
+      onClick={() =>
+        // TODO(Kim): Play music
+        null
       }
       glow
     />
