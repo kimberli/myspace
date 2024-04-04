@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
 import {
   Bike,
@@ -16,13 +17,12 @@ import {
   Wall,
 } from "./items";
 
-import Modal from "@/components/Modal";
 import MusicPlayer from "@/components/MusicPlayer";
 
 interface RoomProps {}
 
 const Room: React.FC<RoomProps> = ({}) => {
-  const [showInfoModal, setShowInfoModal] = useState(false);
+  const router = useRouter();
   const [showMusicPlayer, setShowMusicPlayer] = useState(false);
   // We use Tailwind responsive utility classes to adjust element positioning when
   // the screen is too narrow or too wide.
@@ -54,30 +54,8 @@ const Room: React.FC<RoomProps> = ({}) => {
       {/* Move the side table in front of the couch when the screen is too narrow. */}
       <div className="absolute bottom-6 xs:bottom-4 md:bottom-14 flex-row">
         <Table />
-        <Paper onClick={() => setShowInfoModal(true)} />
+        <Paper onClick={() => router.push("/about")} />
       </div>
-      {showInfoModal && (
-        <Modal title="About" onClose={() => setShowInfoModal(false)}>
-          <div className="mx-4">
-            <p className="mb-2">
-              Welcome to my space! I created this during a period of nomadic
-              traveling, imagining it as my little home on the Internet.
-            </p>
-            <p className="mb-2">
-              Feel free to explore, or just settle in and make yourself
-              comfortable.
-            </p>
-            <p className="mb-2">
-              To learn more about me, visit my personal website at{" "}
-              <a href="https://kimberli.me" target="_blank">
-                kimberli.me
-              </a>
-              .
-            </p>
-            <p className="mb-2 text-right">- Kim</p>
-          </div>
-        </Modal>
-      )}
       <div className="absolute top-2 mx-auto xs:right-2 w-[300px] z-40">
         <MusicPlayer show={showMusicPlayer} />
       </div>
