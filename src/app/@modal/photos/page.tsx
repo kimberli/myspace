@@ -10,7 +10,7 @@ const ModalPage: React.FC = () => {
   const onClose = (): void => router.push("/");
 
   return (
-    <Modal title="Photos" onClose={onClose} wide>
+    <Modal title="Photos" onClose={onClose} fullSize>
       <UnderConstruction />
     </Modal>
   );
