@@ -3,6 +3,7 @@
 import classNames from "classnames";
 import Image from "next/image";
 import React from "react";
+import { sendGTMEvent } from "@next/third-parties/google";
 
 const GLOW = "hover:drop-shadow-[0_0_6px_rgba(245,222,171,1)]";
 export const PARENT_GLOW =
@@ -33,16 +34,25 @@ const RoomItem: React.FC<RoomItemProps> = ({
     onClick && glow && GLOW,
   );
 
+  const itemName = src.replace(".svg", "").replace("/", "");
+
+  const trackedOnClick = onClick
+    ? (): void => {
+        sendGTMEvent({ event: "buttonClicked", value: itemName });
+        onClick();
+      }
+    : undefined;
+
   return (
     <div className={classes}>
       <Image
         src={src}
         className={imageClass}
-        alt={src.replace(".svg", "").replace("/", "")}
+        alt={itemName}
         fill={true}
         priority
         placeholder={`data:image/png;base64,${base64PlaceholderImage}` || ""}
-        onClick={onClick}
+        onClick={trackedOnClick}
       />
     </div>
   );
