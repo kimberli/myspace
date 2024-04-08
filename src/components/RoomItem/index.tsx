@@ -38,7 +38,7 @@ const RoomItem: React.FC<RoomItemProps> = ({
 
   const trackedOnClick = onClick
     ? (): void => {
-        sendGTMEvent({ event: "buttonClicked", value: itemName });
+        sendGTMEvent({ event: "Item Clicked", itemClicked: itemName });
         onClick();
       }
     : undefined;
