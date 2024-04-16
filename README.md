@@ -2,7 +2,8 @@
 A fun little personal site.
 
 ## Requirements
-Node 18+ is required.
+Node 18+ for the application.
+Bash 4.4+ to process photos.
 
 ## Development
 ### Getting started
@@ -27,11 +28,11 @@ Art can be created and edited using a few different tools:
 3. Use [remove.bg](remove.bg) to clear the background of generated images, then something like [this vectorizer](https://www.vectorizer.io/) and [this SVG tool](https://jakearchibald.github.io/svgomg/) to convert and minify SVGs.
 
 ### Photos
-Photos are processed using [ExifTool](https://exiftool.org/).
-Install it using the instructions on the page, or via `brew install exiftool` on Mac.
+Photos are processed using [ExifTool](https://exiftool.org/) and [ImageMagick](https://imagemagick.org/script/download.php).
+Install via `brew install exiftool` and `brew install imagemagick` on Mac.
 
-To organize the photo library, add photos to `photos/` then run `script/organize_photos.sh`.
+To organize the photo library, add photos to `photos/` then run `bash script/organize_photos.sh`.
 Only photos with the `.jpg` extension are supported.
 Commit and push the changes to update them in the application.
 
-To check whether all photos are properly organized, run `script/organize_photos.sh -c`.
+To check whether all photos are properly organized, run `bash script/organize_photos.sh -c`.

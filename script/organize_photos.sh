@@ -8,6 +8,7 @@ total_count=0
 success=0
 interactive=0
 check=0
+files=()
 
 function error() {
   local message="$*"
@@ -145,6 +146,26 @@ function get_gps_data() {
   return 0
 }
 
+function compress_file() {
+  local file="$1"
+  local filename=$(basename "${file%.*}")
+  local new_filename="$DIRECTORY/${filename}_small.jpg"
+
+  if [ -f "$new_filename" ]; then
+    return 1
+  elif [[ "$check" == 1 ]]; then
+    warn "$filename does not follow this rule."
+  fi
+
+  if [[ "$check" == 0 ]]; then
+    convert $file -resize 600x600^ $new_filename
+    if [[ $? -ne 0 ]]; then
+      return 2
+    fi
+  fi
+  return 0
+}
+
 function process_files() {
   # Processing functions should return 0 if the file was successfully processed,
   # 1 if it was skipped, and any other value if it failed.
@@ -152,10 +173,11 @@ function process_files() {
   local success_count=0
   local failure_count=0
   local skipped_count=0
+  readarray -d '' files < <(find ${DIRECTORY} -type f -name "*.jpg" ! -name "*_small.jpg" -print0)
 
   info "==== $processing_function ===="
 
-  for file in "${DIRECTORY}"/*.jpg; do
+  for file in "${files[@]}"; do
     "$processing_function" "$file"
     local result=$?
     if [[ $result -eq 0 ]]; then
@@ -214,7 +236,9 @@ if ! jq . "${OUTPUT_FILE}" &> /dev/null; then
   exit 1
 fi
 
-for file in "${DIRECTORY}"/*.jpg; do
+readarray -d '' files < <(find ${DIRECTORY} -type f -name "*.jpg" ! -name "*_small.jpg" -print0)
+
+for file in "${files[@]}"; do
   ((total_count++))
 done
 
@@ -225,4 +249,8 @@ process_files "rename_file"
 
 # Step 2: Get the lat/long data, write it to a JSON, and clear it from the EXIF data.
 process_files "get_gps_data"
+
+# Step 3: Resize to obtain a smaller image.
+process_files "compress_file"
+
 exit $success

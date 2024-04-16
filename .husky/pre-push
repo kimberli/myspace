@@ -6,4 +6,4 @@ declare PHOTOS_CHANGED=$(git show --name-only -r --stat --oneline origin/HEAD..H
 npm run lint
 npm run build
 
-if [[ $PHOTOS_CHANGED ]]; then ${ROOT_DIR}/script/organize_photos.sh -c; fi
+if [[ $PHOTOS_CHANGED ]]; then bash ${ROOT_DIR}/script/organize_photos.sh -c; fi
