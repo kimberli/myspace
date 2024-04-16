@@ -18,8 +18,12 @@ interface GameState {
 function loadGameState(): GameState {
   const storedState = localStorage.getItem("game-state");
   if (storedState) {
-    // TODO(Kim): Handle errors here with invalid game states.
-    return JSON.parse(storedState);
+    try {
+      const state = JSON.parse(storedState);
+      return state;
+    } catch {
+      return { userId: uuidv4(), status: GameStatus.INTRO };
+    }
   }
   return { userId: uuidv4(), status: GameStatus.INTRO };
 }
