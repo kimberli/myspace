@@ -31,6 +31,7 @@ function ok() {
 
 function rename_file() {
   local file="$1"
+  local filename=$(basename "${file%.*}")
   local original_date=$(exiftool -j "$file" | jq -r '.[0].DateTimeOriginal')
 
   if [[ -n "$original_date" ]]; then
@@ -40,6 +41,8 @@ function rename_file() {
     if [ "$file" == "$DIRECTORY/$new_filename" ]; then
       # Skip processing if the file is already named properly.
       return 1
+    elif [[ "$check" == 1 ]]; then
+      warn "$filename does not follow this rule."
     fi
 
     # Handle any filename collisions.
@@ -78,6 +81,8 @@ function get_gps_data() {
     # Data already has been populated for this file, and the EXIF metadata has been stripped,
     # so processing can be skipped.
     return 1
+  elif [[ "$check" == 1 ]]; then
+    warn "$filename does not follow this rule."
   fi
 
   if [ -z "${latitude}" ] || [ -z "${longitude}" ]; then
@@ -177,7 +182,7 @@ function process_files() {
     if [[ "$skipped_count" == "$total_count" ]]; then
       ok "> All $skipped_count files pass this check."
     else
-      error "> $skipped_count files pass this check."
+      error "> $skipped_count/$total_count files pass this check."
       success=1
     fi
   fi
