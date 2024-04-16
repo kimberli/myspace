@@ -2,6 +2,7 @@
 
 ROOT_DIR=$(git rev-parse --show-toplevel)
 DIRECTORY="${ROOT_DIR}/photos"
+OUTPUT_FILE="${ROOT_DIR}/src/lib/photos.json"
 
 function error() {
   local message="$*"
@@ -35,7 +36,7 @@ function rename_file() {
 
     # Do nothing if the file is already named properly.
     if [ "$file" == "$DIRECTORY/$new_filename" ]; then
-      return 0
+      return 1
     fi
 
     # Handle any filename collisions.
@@ -47,32 +48,110 @@ function rename_file() {
     return 0
   else
     warn "Could not extract date from $file"
-    return 1
+    return 2
   fi
 }
 
+function get_gps_data() {
+  local file="$1"
+  local filename=$(basename "${file%.*}")
+
+
+  local latitude=$(jq -r ".[\"${filename}\"].lat // empty" ${OUTPUT_FILE}) 
+  local longitude=$(jq -r ".[\"${filename}\"].lng // empty" ${OUTPUT_FILE})
+
+  if [ -n "${latitude}" ] && [ -n "${longitude}" ]; then
+    # Data already has been populated for this file.
+    return 1
+  fi
+
+  # Read GPS data from EXIF metadata.
+  # Outputs in the format 12.271307 S or 28.239203 E.
+  latitude=$(exiftool -c '%.6f' -j "$file" | jq -r '.[0].GPSLatitude // empty')
+  longitude=$(exiftool -c '%.6f' -j "$file" | jq -r '.[0].GPSLongitude // empty')
+
+  if [[ $? -ne 0 ]]; then
+    error "Failed to retrieve GPS data for $file."
+    return 2
+  fi
+
+
+  if [ -z "${latitude}" ] || [ -z "${longitude}" ]; then
+     warn "Invalid GPS data for $filename."
+     return 2
+  else
+    echo "HI $latitude, $longitude"
+  fi
+
+  # Convert to positive / negative floating point values.
+  local latitude_value=$(echo "$latitude" | grep -oE '^[0-9.]+')
+  local latitude_direction=$(echo "$latitude" | grep -oE '[NS]$')
+
+  if [[ "$latitude_direction" == "S" ]]; then
+    latitude=$(echo "-$latitude_value" | bc)
+  else
+    latitude=$(echo "$latitude_value" | bc)
+  fi
+
+  local longitude_value=$(echo "$longitude" | grep -oE '^[0-9.]+')
+  local longitude_direction=$(echo "$longitude" | grep -oE '[EW]$')
+
+  if [[ "$longitude_direction" == "W" ]]; then
+    longitude=$(echo "-$longitude_value" | bc)
+  else
+    longitude=$(echo "$longitude_value" | bc)
+  fi
+
+  # Write the updated values into the output file.
+  jq ". + {\"${filename}\": {lat: ${latitude}, lng: ${longitude}}}" ${OUTPUT_FILE} > tmp.json && mv tmp.json ${OUTPUT_FILE}
+  if [[ $? -ne 0 ]]; then
+    return 2
+  fi
+
+  return 0
+}
+
 function process_files() {
+  # Processing functions should return 0 if the file was successfully processed,
+  # 1 if it was skipped, and any other value if it failed.
   local processing_function="$1"
   local success_count=0
   local failure_count=0
+  local skipped_count=0
 
-  info "Applying $processing_function..."
+  info "==== Applying $processing_function ===="
 
   for file in "${DIRECTORY}"/*; do
-    result=$("$processing_function" "$file")
+    "$processing_function" "$file"
+    local result=$?
     if [[ $result -eq 0 ]]; then
       ((success_count++))
+    elif [[ $result -eq 1 ]]; then
+      ((skipped_count++))
     else
       ((failure_count++))
     fi
   done
 
-  ok "Finished processing ${success_count} files."
+  ok "> Finished processing ${success_count} files."
   
+  if [[ $skipped_count -ne 0 ]]; then
+    echo "> ${skipped_count} skipped processing."
+  fi
+
   if [[ $failure_count -ne 0 ]]; then
-    error "${failure_count} failed to process."
+    error "> ${failure_count} failed to process."
   fi
 }
+
+if [ ! -f "${OUTPUT_FILE}" ]; then
+  echo "{}" > "${OUTPUT_FILE}" 
+fi
+
+if ! jq . "${OUTPUT_FILE}" &> /dev/null; then
+  error "'${OUTPUT_FILE}' is not valid JSON."
+  exit 1
+fi
 
 for file in "${DIRECTORY}"/*; do
   ((total_count++))
@@ -82,3 +161,6 @@ info "Processing ${total_count} files..."
 
 # Step 1: Rename the files according to their date taken.
 process_files "rename_file"
+
+# Step 2: Get the lat/long data, write it to a JSON, and clear it from the EXIF data.
+process_files "get_gps_data"
