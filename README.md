@@ -31,4 +31,7 @@ Photos are processed using [ExifTool](https://exiftool.org/).
 Install it using the instructions on the page, or via `brew install exiftool` on Mac.
 
 To organize the photo library, add photos to `photos/` then run `script/organize_photos.sh`.
+Only photos with the `.jpg` extension are supported.
 Commit and push the changes to update them in the application.
+
+To check whether all photos are properly organized, run `script/organize_photos.sh -c`.

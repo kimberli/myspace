@@ -7,6 +7,7 @@ OUTPUT_FILE="${ROOT_DIR}/src/lib/photos.json"
 total_count=0
 success=0
 interactive=0
+check=0
 
 function error() {
   local message="$*"
@@ -36,8 +37,8 @@ function rename_file() {
     local safe_date=$(echo "$original_date" | tr -dc '[:alnum:]_.-')
     local new_filename="${safe_date}.$(echo "$file" | rev | cut -d'.' -f1 | rev)"
 
-    # Do nothing if the file is already named properly.
     if [ "$file" == "$DIRECTORY/$new_filename" ]; then
+      # Skip processing if the file is already named properly.
       return 1
     fi
 
@@ -46,7 +47,9 @@ function rename_file() {
       new_filename="${new_filename}_1"
     fi
 
-    mv "$file" "$DIRECTORY/$new_filename"
+    if [[ "$check" == 0 ]]; then
+      mv "$file" "$DIRECTORY/$new_filename"
+    fi
     return 0
   else
     warn "Could not extract date from $file"
@@ -58,22 +61,30 @@ function get_gps_data() {
   local file="$1"
   local filename=$(basename "${file%.*}")
 
-
-  local latitude=$(jq -r ".[\"${filename}\"].lat // empty" ${OUTPUT_FILE}) 
-  local longitude=$(jq -r ".[\"${filename}\"].lng // empty" ${OUTPUT_FILE})
-
-  if [ -n "${latitude}" ] && [ -n "${longitude}" ]; then
-    # Data already has been populated for this file.
-    return 1
-  fi
+  local saved_latitude=$(jq -r ".[\"${filename}\"].lat // empty" ${OUTPUT_FILE}) 
+  local saved_longitude=$(jq -r ".[\"${filename}\"].lng // empty" ${OUTPUT_FILE})
 
   # Read GPS data from EXIF metadata.
   # Outputs in the format 12.271307 S or 28.239203 E.
-  latitude=$(exiftool -c '%.6f' -j "$file" | jq -r '.[0].GPSLatitude // empty')
-  longitude=$(exiftool -c '%.6f' -j "$file" | jq -r '.[0].GPSLongitude // empty')
+  local latitude=$(exiftool -c '%.6f' -j "$file" | jq -r '.[0].GPSLatitude // empty')
+  local longitude=$(exiftool -c '%.6f' -j "$file" | jq -r '.[0].GPSLongitude // empty')
 
-  if [[ $? -ne 0 ]] || [ -z "${latitude}" ] || [ -z "${longitude}" ]; then
-    if [[ "$interactive" == 1 ]]; then
+  if [[ $? -ne 0 ]]; then
+    warn "Error reading GPS data from $file."
+    return 2
+  fi
+
+  if [ -n "${saved_latitude}" ] && [ -n "${saved_longitude}" ]  && [ -z "${latitude}" ] && [ -z "${longitude}" ]; then
+    # Data already has been populated for this file, and the EXIF metadata has been stripped,
+    # so processing can be skipped.
+    return 1
+  fi
+
+  if [ -z "${latitude}" ] || [ -z "${longitude}" ]; then
+    # The file is missing GPS data, which can be manually populated in interactive mode.
+    if [[ "$check" == 1 ]]; then
+      return 2
+    elif [[ "$interactive" == 1 ]]; then
       warn "Invalid GPS data for $filename."
       read -t 5 -n 1 -s -r -p "Press any key to open the file. "
       open "$file"
@@ -93,7 +104,7 @@ function get_gps_data() {
       return 2
     fi
   else
-    # Convert to positive / negative floating point values.
+    # Convert the stored EXIF data to positive / negative floating point values.
     local latitude_value=$(echo "$latitude" | grep -oE '^[0-9.]+')
     local latitude_direction=$(echo "$latitude" | grep -oE '[NS]$')
 
@@ -113,10 +124,17 @@ function get_gps_data() {
     fi
   fi
 
-  # Write the updated values into the output file.
-  jq ". + {\"${filename}\": {lat: ${latitude}, lng: ${longitude}}}" ${OUTPUT_FILE} > tmp.json && mv tmp.json ${OUTPUT_FILE}
-  if [[ $? -ne 0 ]]; then
-    return 2
+  if [[ "$check" == 0 ]]; then
+    # Write the updated values into the output file.
+    jq ". + {\"${filename}\": {lat: ${latitude}, lng: ${longitude}}}" ${OUTPUT_FILE} > tmp.json && mv tmp.json ${OUTPUT_FILE}
+    if [[ $? -ne 0 ]]; then
+      return 2
+    fi
+    # Remove the GPS EXIF data from the file.
+    exiftool -q -gps:all= "$file"
+    if [[ $? -ne 0 ]]; then
+      return 2
+    fi
   fi
 
   return 0
@@ -130,9 +148,9 @@ function process_files() {
   local failure_count=0
   local skipped_count=0
 
-  info "==== Applying $processing_function ===="
+  info "==== $processing_function ===="
 
-  for file in "${DIRECTORY}"/*; do
+  for file in "${DIRECTORY}"/*.jpg; do
     "$processing_function" "$file"
     local result=$?
     if [[ $result -eq 0 ]]; then
@@ -144,26 +162,39 @@ function process_files() {
     fi
   done
 
-  ok "> Finished processing ${success_count} files."
-  
-  if [[ $skipped_count -ne 0 ]]; then
-    echo "> ${skipped_count} skipped processing."
-  fi
+  if [[ "$check" == 0 ]]; then
+    ok "> Finished processing ${success_count} files."
+    
+    if [[ $skipped_count -ne 0 ]]; then
+      echo "> ${skipped_count} skipped processing."
+    fi
 
-  if [[ $failure_count -ne 0 ]]; then
-    error "> ${failure_count} failed to process."
-    success=1
+    if [[ $failure_count -ne 0 ]]; then
+      error "> ${failure_count} failed to process."
+      success=1
+    fi
+  else
+    if [[ "$skipped_count" == "$total_count" ]]; then
+      ok "> All $skipped_count files pass this check."
+    else
+      error "> $skipped_count files pass this check."
+      success=1
+    fi
   fi
 }
 
-while getopts ':ih' opt; do
+while getopts ':cih' opt; do
   case "$opt" in
+    c)
+      echo "Only checking files, not modifying any."
+      check=1
+      ;;
     i)
       echo "Running in interactive mode."
       interactive=1
       ;;
     ?|h)
-      echo "Usage: $(basename $0) [-i]"
+      echo "Usage: $(basename $0) [-i] [-c]"
       exit 1
       ;;
   esac
@@ -178,7 +209,7 @@ if ! jq . "${OUTPUT_FILE}" &> /dev/null; then
   exit 1
 fi
 
-for file in "${DIRECTORY}"/*; do
+for file in "${DIRECTORY}"/*.jpg; do
   ((total_count++))
 done
 
