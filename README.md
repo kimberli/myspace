@@ -1,5 +1,5 @@
 # myspace
-A fun little personal site.
+A fun little personal site, live at (https://curious.kim).
 
 ## Requirements
 Node 18+ for the application.
