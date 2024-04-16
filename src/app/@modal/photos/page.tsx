@@ -1,18 +1,15 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import React from "react";
 
-import Modal from "@/components/Modal";
-import UnderConstruction from "@/components/UnderConstruction";
+import GameStateProvider from "@/context/GameState";
+import Photos from "@/components/Photos";
 
 const ModalPage: React.FC = () => {
-  const router = useRouter();
-  const onClose = (): void => router.push("/");
-
   return (
-    <Modal title="Photos" onClose={onClose} fullSize>
-      <UnderConstruction />
-    </Modal>
+    <GameStateProvider>
+      <Photos />
+    </GameStateProvider>
   );
 };
 
