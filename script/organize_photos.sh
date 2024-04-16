@@ -4,6 +4,10 @@ ROOT_DIR=$(git rev-parse --show-toplevel)
 DIRECTORY="${ROOT_DIR}/photos"
 OUTPUT_FILE="${ROOT_DIR}/src/lib/photos.json"
 
+total_count=0
+success=0
+interactive=0
+
 function error() {
   local message="$*"
   echo -e "\033[31m${message}\033[0m" >&2
@@ -23,8 +27,6 @@ function ok() {
   local message="$*"
   echo -e "\033[32m${message}\033[0m"
 }
-
-total_count=0
 
 function rename_file() {
   local file="$1"
@@ -70,36 +72,45 @@ function get_gps_data() {
   latitude=$(exiftool -c '%.6f' -j "$file" | jq -r '.[0].GPSLatitude // empty')
   longitude=$(exiftool -c '%.6f' -j "$file" | jq -r '.[0].GPSLongitude // empty')
 
-  if [[ $? -ne 0 ]]; then
-    error "Failed to retrieve GPS data for $file."
-    return 2
-  fi
-
-
-  if [ -z "${latitude}" ] || [ -z "${longitude}" ]; then
-     warn "Invalid GPS data for $filename."
-     return 2
+  if [[ $? -ne 0 ]] || [ -z "${latitude}" ] || [ -z "${longitude}" ]; then
+    if [[ "$interactive" == 1 ]]; then
+      warn "Invalid GPS data for $filename."
+      read -t 5 -n 1 -s -r -p "Press any key to open the file. "
+      open "$file"
+      echo "Now enter the intended GPS location for this photo."
+      while true; do
+        read -p "Enter latitude: " latitude
+        latitude=$(echo "scale=6; $latitude" | bc | awk '{printf "%.6f\n", $1}')
+        read -p "Enter longitude: " longitude
+        longitude=$(echo "scale=6; $longitude" | bc | awk '{printf "%.6f\n", $1}')
+	read -p "You entered: (${latitude},${longitude}). Is this correct? (y/N) " yn
+	if [[ "$yn" == "y" ]] || [[ "$yn" == "Y" ]]; then
+          break
+	fi
+      done
+    else
+      warn "Invalid GPS data for $filename. Run with -i to populate manually."
+      return 2
+    fi
   else
-    echo "HI $latitude, $longitude"
-  fi
+    # Convert to positive / negative floating point values.
+    local latitude_value=$(echo "$latitude" | grep -oE '^[0-9.]+')
+    local latitude_direction=$(echo "$latitude" | grep -oE '[NS]$')
 
-  # Convert to positive / negative floating point values.
-  local latitude_value=$(echo "$latitude" | grep -oE '^[0-9.]+')
-  local latitude_direction=$(echo "$latitude" | grep -oE '[NS]$')
+    if [[ "$latitude_direction" == "S" ]]; then
+      latitude=$(echo "-$latitude_value" | bc)
+    else
+      latitude=$(echo "$latitude_value" | bc)
+    fi
 
-  if [[ "$latitude_direction" == "S" ]]; then
-    latitude=$(echo "-$latitude_value" | bc)
-  else
-    latitude=$(echo "$latitude_value" | bc)
-  fi
+    local longitude_value=$(echo "$longitude" | grep -oE '^[0-9.]+')
+    local longitude_direction=$(echo "$longitude" | grep -oE '[EW]$')
 
-  local longitude_value=$(echo "$longitude" | grep -oE '^[0-9.]+')
-  local longitude_direction=$(echo "$longitude" | grep -oE '[EW]$')
-
-  if [[ "$longitude_direction" == "W" ]]; then
-    longitude=$(echo "-$longitude_value" | bc)
-  else
-    longitude=$(echo "$longitude_value" | bc)
+    if [[ "$longitude_direction" == "W" ]]; then
+      longitude=$(echo "-$longitude_value" | bc)
+    else
+      longitude=$(echo "$longitude_value" | bc)
+    fi
   fi
 
   # Write the updated values into the output file.
@@ -141,8 +152,22 @@ function process_files() {
 
   if [[ $failure_count -ne 0 ]]; then
     error "> ${failure_count} failed to process."
+    success=1
   fi
 }
+
+while getopts ':ih' opt; do
+  case "$opt" in
+    i)
+      echo "Running in interactive mode."
+      interactive=1
+      ;;
+    ?|h)
+      echo "Usage: $(basename $0) [-i]"
+      exit 1
+      ;;
+  esac
+done
 
 if [ ! -f "${OUTPUT_FILE}" ]; then
   echo "{}" > "${OUTPUT_FILE}" 
@@ -157,10 +182,11 @@ for file in "${DIRECTORY}"/*; do
   ((total_count++))
 done
 
-info "Processing ${total_count} files..."
+echo "Processing ${total_count} files..."
 
 # Step 1: Rename the files according to their date taken.
 process_files "rename_file"
 
 # Step 2: Get the lat/long data, write it to a JSON, and clear it from the EXIF data.
 process_files "get_gps_data"
+exit $success
