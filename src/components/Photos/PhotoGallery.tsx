@@ -20,12 +20,14 @@ const fetcher = (url: string): Promise<PhotoData> =>
   fetch(url).then((res) => res.json());
 
 const PhotoGallery: React.FC = () => {
+  const [currentImage, setCurrentImage] = useState<string>("");
+  const { setGameStatus } = useContext(GameStateContext);
   const scrollableImagesRef = useRef(null);
+
   const { data, error, isLoading } = useSWR<PhotoData, string, string>(
     "/api/photos",
     fetcher,
   );
-  const [currentImage, setCurrentImage] = useState<string>("");
 
   const changeCurrentImage = (delta: number): void => {
     if (currentImage) {
@@ -47,12 +49,29 @@ const PhotoGallery: React.FC = () => {
   };
 
   useEffect(() => {
+    // Initialize current image to display.
     if (!isLoading) {
       setCurrentImage(Object.keys(data || {})[0]);
     }
   }, [isLoading, data]);
 
-  const { setGameStatus } = useContext(GameStateContext);
+  useEffect(() => {
+    const handleKeyDown = (event): void => {
+      if (event.key === "ArrowLeft") {
+        changeCurrentImage(-1);
+      } else if (event.key === "ArrowRight") {
+        changeCurrentImage(1);
+      }
+    };
+
+    // Attach listener to change current image and remove when unmounted.
+    const listener = handleKeyDown;
+    window.addEventListener("keydown", listener);
+
+    return () => {
+      window.removeEventListener("keydown", listener);
+    };
+  });
 
   let contents;
   if (error) {
@@ -118,7 +137,10 @@ const PhotoGallery: React.FC = () => {
           onClick={() => changeCurrentImage(1)}
           icon={<HiChevronRight />}
         />
-        <Button onClick={() => setGameStatus(GameStatus.INTRO)}>Go back</Button>
+        <Button
+          onClick={() => setGameStatus(GameStatus.INTRO)}
+          text="Go back"
+        />
       </div>
     </div>
   );
