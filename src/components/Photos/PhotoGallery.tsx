@@ -6,6 +6,7 @@ import classNames from "classnames";
 import Image from "next/image";
 import useSWR from "swr";
 
+import GalleryImage, { URL_PREFIX } from "@/components/GalleryImage";
 import { GameStateContext, GameStatus } from "@/context/GameState";
 import Button from "@/components/Button";
 import IconButton from "@/components/IconButton";
@@ -15,7 +16,6 @@ import type { PhotoData } from "@/app/api/photos/route";
 
 const PREVIEW_WIDTH = 80;
 
-const URL_PREFIX = "https://static.curious.kim/photos/";
 const fetcher = (url: string): Promise<PhotoData> =>
   fetch(url).then((res) => res.json());
 
@@ -86,23 +86,10 @@ const PhotoGallery: React.FC = () => {
     contents = (
       <div className="flex flex-col gap-3 select-none items-center sm:items-start">
         <div className="relative w-full aspect-square xs:max-w-[380px] sm:max-w-none sm:w-[320px] sm:h-[320px] md:w-[420px] md:h-[420px]">
-          <a
-            href={`${URL_PREFIX}${currentImage}.jpg`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Image
-              key={`current-${currentImage}`}
-              className="drop-shadow-xl object-contain"
-              src={`${URL_PREFIX}${currentImage}.jpg`}
-              fill={true}
-              sizes="(min-width: 480px) 420px, 300px"
-              alt="TODO"
-              placeholder="blur"
-              quality={100}
-              blurDataURL={`data:image/jpg;base64,${data[currentImage]?.blur}`}
-            />
-          </a>
+          <GalleryImage
+            imageId={currentImage}
+            blurBase64Image={data[currentImage]?.blur}
+          />
         </div>
         <div
           className="flex flex-row gap-1 overflow-x-scroll"
