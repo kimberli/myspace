@@ -19,7 +19,7 @@ const Spinner: React.FC<SpinnerProps> = ({ className, size }: SpinnerProps) => {
     <div role="status" className={className}>
       <svg
         aria-hidden="true"
-        className={`${size} text-gray-200 animate-spin dark:text-gray-600 fill-gray-100`}
+        className={`${size} text-gray-400 animate-spin dark:text-gray-600 fill-gray-100`}
         viewBox="0 0 100 101"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
