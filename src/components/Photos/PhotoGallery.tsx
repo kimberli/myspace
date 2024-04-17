@@ -60,8 +60,10 @@ const PhotoGallery: React.FC = () => {
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent): void => {
       if (event.key === "ArrowLeft") {
+        event.preventDefault();
         changeCurrentImage(-1);
       } else if (event.key === "ArrowRight") {
+        event.preventDefault();
         changeCurrentImage(1);
       }
     };
