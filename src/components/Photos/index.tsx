@@ -33,6 +33,7 @@ const Photos: React.FC = () => {
   return (
     <Modal
       title="Gallery"
+      className="flex flex-col"
       onClose={onClose}
       fullSize={gameState.status !== GameStatus.INTRO}
     >
