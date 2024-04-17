@@ -14,6 +14,7 @@ const RESPONSE_DATA: PhotoData = Object.fromEntries(
   Object.entries(PHOTO_DATA).map(([key, value]) => [key, { blur: value.blur }]),
 );
 
+// TODO(Kim): Paginate this since it's reading a 3 MB file, maybe with swc/infinite?
 export function GET(): NextResponse<PhotoData | ErrorMessage> {
   try {
     return NextResponse.json(RESPONSE_DATA);

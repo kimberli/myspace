@@ -16,7 +16,6 @@ const fetcher = (url: string): Promise<PhotoData> =>
   fetch(url).then((res) => res.json());
 
 const PhotoGallery: React.FC = () => {
-  // TODO(Kim): Paginate this since it's reading a 3 MB file.
   const { data, error, isLoading } = useSWR<PhotoData, string, string>(
     "/api/photos",
     fetcher,
