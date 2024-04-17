@@ -84,8 +84,8 @@ const PhotoGallery: React.FC = () => {
     );
   } else if (data && currentImage) {
     contents = (
-      <div className="flex flex-col gap-3 select-none">
-        <div className="relative w-full aspect-square xs:w-[380px] xs:h-[380px] md:w-[420px] md:h-[420px]">
+      <div className="flex flex-col gap-3 select-none items-center sm:items-start">
+        <div className="relative w-full aspect-square xs:max-w-[380px] sm:max-w-none sm:w-[320px] sm:h-[320px] md:w-[420px] md:h-[420px]">
           <a
             href={`${URL_PREFIX}${currentImage}.jpg`}
             target="_blank"
@@ -96,7 +96,7 @@ const PhotoGallery: React.FC = () => {
               className="drop-shadow-xl object-contain"
               src={`${URL_PREFIX}${currentImage}.jpg`}
               fill={true}
-              sizes="(min-width: 768px) 420px, 300px"
+              sizes="(min-width: 480px) 420px, 300px"
               alt="TODO"
               placeholder="blur"
               quality={100}
