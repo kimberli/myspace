@@ -31,7 +31,7 @@ const Modal: React.FC<ModalProps> = ({
       ></div>
       <div
         className={classNames(
-          "absolute bg-neutral-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded z-[200]",
+          "absolute bg-neutral-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded overflow-y-scroll z-[200]",
           classes,
         )}
       >
