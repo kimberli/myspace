@@ -42,7 +42,7 @@ const Modal: React.FC<ModalProps> = ({
         />
         <div className={classNames("p-6 h-full", className)}>
           <h1 className="mb-4 text-center text-xl">{title}</h1>
-          <div className="p-2 overflow-y-scroll">{children}</div>
+          <div className="h-full p-2 overflow-y-scroll">{children}</div>
         </div>
       </div>
     </>
