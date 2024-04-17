@@ -166,6 +166,37 @@ function compress_file() {
   return 0
 }
 
+function blur_file() {
+  local file="$1"
+  local filename=$(basename "${file%.*}")
+
+  local saved_blur_data=$(jq -r ".[\"${filename}\"].blur // empty" ${OUTPUT_FILE}) 
+
+  if [ -n "${saved_blur_data}" ]; then
+    return 1
+  elif [[ "$check" == 1 ]]; then
+    warn "$filename does not follow this rule."
+  fi
+
+  if [[ "$check" == 0 ]]; then
+    convert $file -resize 10x10 -blur 1x1 temp.jpg
+    if [[ $? -ne 0 ]]; then
+      return 2
+    fi
+    local encoded=$(cat temp.jpg | base64)
+    if [[ $? -ne 0 ]]; then
+      return 2
+    fi
+    jq ".\"${filename}\" |= . + {blur: \"${encoded}\"}" ${OUTPUT_FILE} > tmp.json && mv tmp.json ${OUTPUT_FILE}
+
+    rm temp.jpg
+    if [[ $? -ne 0 ]]; then
+      return 2
+    fi
+  fi
+  return 0
+}
+
 function process_files() {
   # Processing functions should return 0 if the file was successfully processed,
   # 1 if it was skipped, and any other value if it failed.
@@ -252,5 +283,8 @@ process_files "get_gps_data"
 
 # Step 3: Resize to obtain a smaller image.
 process_files "compress_file"
+
+# Step 4: Create a tiny version of this image for display while image is loading.
+process_files "blur_file"
 
 exit $success
