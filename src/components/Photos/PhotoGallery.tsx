@@ -9,34 +9,34 @@ import { GameStateContext, GameStatus } from "@/context/GameState";
 import Button from "@/components/Button";
 import Spinner from "@/components/Spinner";
 
+import type { PhotoData } from "@/app/api/photos/route";
+
 const URL_PREFIX = "https://static.curious.kim/photos/";
-const fetcher = (url): string => fetch(url).then((res) => res.json());
+const fetcher = (url: string): Promise<PhotoData> =>
+  fetch(url).then((res) => res.json());
 
 const PhotoGallery: React.FC = () => {
   // TODO(Kim): Paginate this since it's reading a 3 MB file.
-  const { data, error, isLoading } = useSWR("/api/photos", fetcher);
+  const { data, error, isLoading } = useSWR<PhotoData, string, string>(
+    "/api/photos",
+    fetcher,
+  );
   const [currentImage, setCurrentImage] = useState<string>("");
 
   useEffect(() => {
     if (!isLoading) {
-      setCurrentImage(Object.keys(data)[0]);
+      setCurrentImage(Object.keys(data || {})[0]);
     }
   }, [isLoading, data]);
 
   const { setGameStatus } = useContext(GameStateContext);
 
   let contents;
-  if (isLoading) {
-    contents = (
-      <div className="flex items-center justify-center w-full h-full">
-        <Spinner />
-      </div>
-    );
-  } else if (error) {
+  if (error) {
     contents = (
       <p className="text-center">Error fetching images. Please try again.</p>
     );
-  } else if (currentImage) {
+  } else if (data && currentImage) {
     contents = (
       <div className="flex flex-col gap-4">
         <Image
@@ -68,7 +68,9 @@ const PhotoGallery: React.FC = () => {
     );
   } else {
     contents = (
-      <p className="text-center">No images found. Please try again.</p>
+      <div className="flex items-center justify-center w-full h-full">
+        <Spinner />
+      </div>
     );
   }
 

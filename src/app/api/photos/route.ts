@@ -1,15 +1,21 @@
 import { NextResponse } from "next/server";
 
-import PHOTO_DATA from "src/lib/photos.json";
+import PHOTO_DATA from "@/lib/photos.json";
 
-const RESPONSE_DATA = Object.fromEntries(
+import type { ErrorMessage } from "@/app/api/types";
+
+export type PhotoData = {
+  [key: string]: {
+    blur: string;
+  };
+};
+
+const RESPONSE_DATA: PhotoData = Object.fromEntries(
   Object.entries(PHOTO_DATA).map(([key, value]) => [key, { blur: value.blur }]),
 );
 
-export async function GET(): NextResponse {
+export function GET(): NextResponse<PhotoData | ErrorMessage> {
   try {
-    // Return all keys as an array
-
     return NextResponse.json(RESPONSE_DATA);
   } catch (error) {
     console.error(error);
