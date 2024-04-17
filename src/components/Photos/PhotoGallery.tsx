@@ -86,17 +86,23 @@ const PhotoGallery: React.FC = () => {
     contents = (
       <div className="flex flex-col gap-3 select-none">
         <div className="relative w-full aspect-square xs:w-[380px] xs:h-[380px] md:w-[420px] md:h-[420px]">
-          <Image
-            key={`current-${currentImage}`}
-            className="drop-shadow-xl object-contain"
-            src={`${URL_PREFIX}${currentImage}.jpg`}
-            fill={true}
-            sizes="(min-width: 768px) 420px, 300px"
-            alt="TODO"
-            placeholder="blur"
-            quality={100}
-            blurDataURL={`data:image/jpg;base64,${data[currentImage]?.blur}`}
-          />
+          <a
+            href={`${URL_PREFIX}${currentImage}.jpg`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Image
+              key={`current-${currentImage}`}
+              className="drop-shadow-xl object-contain"
+              src={`${URL_PREFIX}${currentImage}.jpg`}
+              fill={true}
+              sizes="(min-width: 768px) 420px, 300px"
+              alt="TODO"
+              placeholder="blur"
+              quality={100}
+              blurDataURL={`data:image/jpg;base64,${data[currentImage]?.blur}`}
+            />
+          </a>
         </div>
         <div
           className="flex flex-row gap-1 overflow-x-scroll"
