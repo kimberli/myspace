@@ -22,7 +22,7 @@ const fetcher = (url: string): Promise<PhotoData> =>
 const PhotoGallery: React.FC = () => {
   const [currentImage, setCurrentImage] = useState<string>("");
   const { setGameStatus } = useContext(GameStateContext);
-  const scrollableImagesRef = useRef(null);
+  const scrollableImagesRef = useRef<HTMLDivElement>(null);
 
   const { data, error, isLoading } = useSWR<PhotoData, string, string>(
     "/api/photos",
@@ -39,12 +39,14 @@ const PhotoGallery: React.FC = () => {
 
       // Scroll the images list to center on the new current image.
       const scrollableDiv = scrollableImagesRef.current;
-      const totalWidth = scrollableDiv.scrollWidth;
-      const containerWidth = scrollableDiv.parentElement.clientWidth;
-      const newScrollPosition =
-        totalWidth * (newIndex / imageIds.length) +
-        (PREVIEW_WIDTH - containerWidth) / 2;
-      scrollableDiv.scrollTo({ left: newScrollPosition, behavior: "smooth" });
+      if (scrollableDiv && scrollableDiv.parentElement) {
+        const totalWidth = scrollableDiv.scrollWidth;
+        const containerWidth = scrollableDiv.parentElement.clientWidth;
+        const newScrollPosition =
+          totalWidth * (newIndex / imageIds.length) +
+          (PREVIEW_WIDTH - containerWidth) / 2;
+        scrollableDiv.scrollTo({ left: newScrollPosition, behavior: "smooth" });
+      }
     }
   };
 
@@ -56,7 +58,7 @@ const PhotoGallery: React.FC = () => {
   }, [isLoading, data]);
 
   useEffect(() => {
-    const handleKeyDown = (event): void => {
+    const handleKeyDown = (event: KeyboardEvent): void => {
       if (event.key === "ArrowLeft") {
         changeCurrentImage(-1);
       } else if (event.key === "ArrowRight") {
