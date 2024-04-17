@@ -1,9 +1,11 @@
 import classNames from "classnames";
 import React from "react";
+import { sendGTMEvent } from "@next/third-parties/google";
 
 import Spinner from "@/components/Spinner";
 
-interface ButtonProps extends React.PropsWithChildren {
+interface ButtonProps {
+  text: string;
   className?: string;
   disabled?: boolean;
   loading?: boolean;
@@ -12,12 +14,12 @@ interface ButtonProps extends React.PropsWithChildren {
 }
 
 const Button: React.FC<ButtonProps> = ({
+  text,
   className,
   disabled,
   loading,
   onClick,
   outline,
-  children,
 }: ButtonProps) => {
   const defaultClasses =
     "drop-shadow flex items-center justify-center px-2 py-1 rounded select-none";
@@ -27,10 +29,16 @@ const Button: React.FC<ButtonProps> = ({
     outline ? "border border-rose-200 bg-white" : "bg-rose-200",
     className,
   );
+  const trackedOnClick = onClick
+    ? (): void => {
+        sendGTMEvent({ event: "Button Clicked", buttonClicked: text });
+        onClick();
+      }
+    : undefined;
   return (
-    <div className={classes} onClick={disabled ? undefined : onClick}>
+    <div className={classes} onClick={disabled ? undefined : trackedOnClick}>
       {loading && <Spinner className="absolute" />}
-      <div className={classNames(loading && "opacity-0")}>{children}</div>
+      <div className={classNames(loading && "opacity-0")}>{text}</div>
     </div>
   );
 };
