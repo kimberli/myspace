@@ -19,12 +19,15 @@ const GameInfo: React.FC = () => {
         location in the world you think it was taken.
       </p>
       <div className="flex flex-row gap-2 justify-end">
-        <Button onClick={() => setGameStatus(GameStatus.PLAYING)}>
-          Try the challenge
-        </Button>
-        <Button outline onClick={() => setGameStatus(GameStatus.SKIPPED)}>
-          I don&apos;t play games
-        </Button>
+        <Button
+          onClick={() => setGameStatus(GameStatus.PLAYING)}
+          text="Try the challenge"
+        />
+        <Button
+          outline
+          onClick={() => setGameStatus(GameStatus.SKIPPED)}
+          text="I don't play games"
+        />
       </div>
     </div>
   );

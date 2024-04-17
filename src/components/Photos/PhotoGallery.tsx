@@ -44,7 +44,7 @@ const PhotoGallery: React.FC = () => {
       const newScrollPosition =
         totalWidth * (newIndex / imageIds.length) +
         (PREVIEW_WIDTH - containerWidth) / 2;
-      scrollableDiv.scroll({ left: newScrollPosition, behavior: "smooth" });
+      scrollableDiv.scrollTo({ left: newScrollPosition, behavior: "smooth" });
     }
   };
 
