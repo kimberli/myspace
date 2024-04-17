@@ -37,19 +37,19 @@ export const Photos: React.FC = () => {
         src="/photo_a.svg"
         className="relative right-16 top-48 xs:inset-0 h-[150px] w-[100px] xs:h-[180px] xs:w-[120px]"
         imageClass="drop-shadow-[2px_2px_2px_rgba(0,0,0,0.4)]"
-        onClick={() => router.push("/photos")}
+        onClick={() => router.push("/gallery")}
       />
       <RoomItem
         src="/photo_b.svg"
         className="relative right-16 top-48 xs:inset-0 w-[90px] h-[90px] xs:w-[140px] xs:h-[140px]"
         imageClass="drop-shadow-[2px_2px_2px_rgba(0,0,0,0.4)]"
-        onClick={() => router.push("/photos")}
+        onClick={() => router.push("/gallery")}
       />
       <RoomItem
         src="/photo_c.svg"
         className="relative left-16 bottom-12 xs:inset-0 w-[96px] h-[144px] xs:w-[120px] xs:h-[180px]"
         imageClass="drop-shadow-[2px_2px_2px_rgba(0,0,0,0.4)]"
-        onClick={() => router.push("/photos")}
+        onClick={() => router.push("/gallery")}
       />
     </div>
   );

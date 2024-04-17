@@ -32,7 +32,7 @@ const Photos: React.FC = () => {
   }
   return (
     <Modal
-      title="Photos"
+      title="Gallery"
       onClose={onClose}
       fullSize={gameState.status !== GameStatus.INTRO}
     >
