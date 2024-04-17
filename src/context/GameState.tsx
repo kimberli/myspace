@@ -10,9 +10,18 @@ export enum GameStatus {
   FINISHED,
 }
 
+interface Guesses {
+  [imageId: string]: {
+    score: number;
+    latitude: number;
+    longitude: number;
+  };
+}
+
 interface GameState {
-  userId?: string;
-  status?: GameStatus;
+  userId: string;
+  status: GameStatus;
+  completedGuesses: Guesses;
 }
 
 function loadGameState(): GameState {
@@ -22,10 +31,14 @@ function loadGameState(): GameState {
       const state = JSON.parse(storedState);
       return state;
     } catch {
-      return { userId: uuidv4(), status: GameStatus.INTRO };
+      return {
+        userId: uuidv4(),
+        status: GameStatus.INTRO,
+        completedGuesses: {},
+      };
     }
   }
-  return { userId: uuidv4(), status: GameStatus.INTRO };
+  return { userId: uuidv4(), status: GameStatus.INTRO, completedGuesses: {} };
 }
 
 export const GameStateContext = createContext({
@@ -34,7 +47,11 @@ export const GameStateContext = createContext({
 });
 
 const GameStateProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
-  const [gameState, setGameState] = useState<GameState>({});
+  const [gameState, setGameState] = useState<GameState>({
+    userId: "",
+    status: GameStatus.INTRO,
+    completedGuesses: {},
+  });
 
   useEffect(() => {
     const newGameState = loadGameState();
