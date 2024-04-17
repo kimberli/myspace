@@ -158,7 +158,7 @@ function compress_file() {
   fi
 
   if [[ "$check" == 0 ]]; then
-    convert $file -resize 600x600^ $new_filename
+    convert $file -resize 600x600^ -gravity Center -extent 600x600 $new_filename
     if [[ $? -ne 0 ]]; then
       return 2
     fi
