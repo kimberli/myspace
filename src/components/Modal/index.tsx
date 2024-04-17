@@ -5,6 +5,7 @@ import React from "react";
 import IconButton from "@/components/IconButton";
 
 interface ModalProps extends React.PropsWithChildren {
+  className?: string;
   title: string;
   onClose: () => void;
   fullSize?: boolean;
@@ -12,6 +13,7 @@ interface ModalProps extends React.PropsWithChildren {
 
 const Modal: React.FC<ModalProps> = ({
   children,
+  className,
   title,
   onClose,
   fullSize,
@@ -38,7 +40,7 @@ const Modal: React.FC<ModalProps> = ({
           onClick={onClose}
           icon={<HiOutlineXMark />}
         />
-        <div className="p-8 h-full">
+        <div className={classNames("p-8 h-full overflow-y", className)}>
           <h1 className="mb-4 text-center text-xl">{title}</h1>
           {children}
         </div>
