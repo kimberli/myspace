@@ -20,7 +20,7 @@ const Button: React.FC<ButtonProps> = ({
   children,
 }: ButtonProps) => {
   const defaultClasses =
-    "drop-shadow flex items-center justify-center px-2 py-1 rounded";
+    "drop-shadow flex items-center justify-center px-2 py-1 rounded select-none";
   const classes = classNames(
     defaultClasses,
     disabled || loading ? "cursor-default" : "cursor-pointer hover:bg-rose-300",

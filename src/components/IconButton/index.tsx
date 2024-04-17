@@ -16,7 +16,7 @@ const IconButton: React.FC<IconButtonProps> = ({
   onClick,
   outline,
 }: IconButtonProps) => {
-  const defaultClasses = "p-0.5 rounded";
+  const defaultClasses = "flex items-center justify-center p-0.5 rounded";
   const classes = classNames(
     defaultClasses,
     disabled ? "cursor-default" : "cursor-pointer hover:bg-neutral-500/10",

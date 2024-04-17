@@ -40,9 +40,9 @@ const Modal: React.FC<ModalProps> = ({
           onClick={onClose}
           icon={<HiOutlineXMark />}
         />
-        <div className={classNames("p-8 h-full overflow-y", className)}>
+        <div className={classNames("p-6 h-full", className)}>
           <h1 className="mb-4 text-center text-xl">{title}</h1>
-          {children}
+          <div className="p-2 overflow-y-scroll">{children}</div>
         </div>
       </div>
     </>
