@@ -85,12 +85,10 @@ const PhotoGallery: React.FC = () => {
   } else if (data && currentImage) {
     contents = (
       <div className="flex flex-col gap-3 select-none items-center sm:items-start">
-        <div className="relative w-full aspect-square xs:max-w-[380px] sm:max-w-none sm:w-[320px] sm:h-[320px] md:w-[420px] md:h-[420px]">
-          <GalleryImage
-            imageId={currentImage}
-            blurBase64Image={data[currentImage]?.blur}
-          />
-        </div>
+        <GalleryImage
+          imageId={currentImage}
+          blurBase64Image={data[currentImage]?.blur}
+        />
         <div
           className="flex flex-row gap-1 overflow-x-scroll"
           ref={scrollableImagesRef}
@@ -122,7 +120,7 @@ const PhotoGallery: React.FC = () => {
 
   return (
     <div className="flex flex-col gap-2 grow h-full">
-      <div className="w-full h-full">{contents}</div>
+      <div className="w-full h-full grow">{contents}</div>
       <div className="flex flex-row gap-2 justify-end">
         <IconButton
           className="px-2"
