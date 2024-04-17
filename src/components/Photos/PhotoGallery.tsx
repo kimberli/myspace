@@ -38,15 +38,16 @@ const PhotoGallery: React.FC = () => {
   } else if (data && currentImage) {
     contents = (
       <div className="flex flex-col gap-4">
-        <Image
-          key={`current-${currentImage}`}
-          src={`${URL_PREFIX}${currentImage}.jpg`}
-          width={400}
-          height={400}
-          alt="TODO"
-          placeholder="blur"
-          blurDataURL={`data:image/jpg;base64,${data[currentImage]?.blur}`}
-        />
+        <div className="w-[400px] h-[400px]">
+          <Image
+            key={`current-${currentImage}`}
+            src={`${URL_PREFIX}${currentImage}.jpg`}
+            fill={true}
+            alt="TODO"
+            placeholder="blur"
+            blurDataURL={`data:image/jpg;base64,${data[currentImage]?.blur}`}
+          />
+        </div>
         <div className="flex flex-row gap-1 overflow-x-scroll">
           {Object.keys(data).map((imageId) => (
             <Image
