@@ -20,7 +20,7 @@ const GameInfo: React.FC = () => {
       </p>
       <div className="flex flex-row gap-2 justify-end">
         <Button onClick={() => setGameStatus(GameStatus.PLAYING)}>
-          Start playing
+          Try the challenge
         </Button>
         <Button outline onClick={() => setGameStatus(GameStatus.SKIPPED)}>
           I don&apos;t play games
