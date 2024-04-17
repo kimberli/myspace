@@ -134,7 +134,7 @@ const PhotoGallery: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col gap-2 grow">
+    <div className="flex flex-col gap-2 grow h-full">
       <div className="w-full h-full">{contents}</div>
       <div className="flex flex-row gap-2 justify-end">
         <IconButton
