@@ -52,7 +52,12 @@ const Map: React.FC<MapProps> = ({
         longitude: centerLongitude,
         zoom: 0,
       }}
-      style={{ height: "100%", width: "100%", position: "relative" }}
+      style={{
+        height: "100%",
+        width: "100%",
+        position: "relative",
+        minHeight: "200px",
+      }}
       onClick={onClick}
       cursor={clickable ? "pointer" : "auto"}
       mapStyle="mapbox://styles/mapbox/streets-v9"

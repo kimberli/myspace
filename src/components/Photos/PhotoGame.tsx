@@ -41,30 +41,28 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
       (imageId) => !gameState.completedGuesses.hasOwnProperty(imageId),
     )[0];
     contents = (
-      <>
-        <div className="flex flex-col w-min">
-          <GalleryImage
-            imageId={currentImage}
-            blurBase64Image={photoData[currentImage]?.blur}
-          />
-          <p className="mb-1">{photoData[currentImage]?.description}</p>
+      <div className="flex flex-col sm:flex-row gap-2 grow items-center sm:items-start w-full h-full">
+        <GalleryImage
+          imageId={currentImage}
+          blurBase64Image={photoData[currentImage]?.blur}
+          description={photoData[currentImage]?.description}
+        />
+        <div className="w-auto h-full sm:w-full sm:h-auto place-self-stretch">
+          <Map apiKey={mapboxApiKey} clickable />
         </div>
-        <Map apiKey={mapboxApiKey} clickable />
-      </>
+      </div>
     );
   } else {
     contents = (
-      <div className="flex items-center justify-center w-full h-full">
+      <div className="flex grow items-center justify-center w-full h-full">
         <Spinner />
       </div>
     );
   }
 
   return (
-    <div className="flex flex-col gap-2 grow h-full">
-      <div className="flex flex-col sm:flex-row w-full h-full gap-2 grow">
-        {contents}
-      </div>
+    <div className="flex flex-col gap-2 min-h-full">
+      <div className="flex flex-col grow h-full w-full">{contents}</div>
       <div className="flex flex-row gap-2 justify-between">
         <Button
           onClick={() => setGameStatus(GameStatus.INTRO)}
