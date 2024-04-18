@@ -84,11 +84,14 @@ const PhotoGallery: React.FC = () => {
     );
   } else if (data && currentImage) {
     contents = (
-      <div className="flex flex-col gap-3 select-none items-center sm:items-start">
-        <GalleryImage
-          imageId={currentImage}
-          blurBase64Image={data[currentImage]?.blur}
-        />
+      <>
+        <div className="flex flex-col gap-3 select-none items-center">
+          <GalleryImage
+            imageId={currentImage}
+            blurBase64Image={data[currentImage]?.blur}
+          />
+          <p className="p-2">{data[currentImage]?.description}</p>
+        </div>
         <div
           className="flex flex-row gap-1 overflow-x-scroll"
           ref={scrollableImagesRef}
@@ -108,7 +111,7 @@ const PhotoGallery: React.FC = () => {
             />
           ))}
         </div>
-      </div>
+      </>
     );
   } else {
     contents = (
@@ -120,7 +123,9 @@ const PhotoGallery: React.FC = () => {
 
   return (
     <div className="flex flex-col gap-2 grow h-full">
-      <div className="w-full h-full grow">{contents}</div>
+      <div className="flex flex-col gap-2 justify-between w-full h-full grow">
+        {contents}
+      </div>
       <div className="flex flex-row gap-2 justify-between">
         <Button
           onClick={() => setGameStatus(GameStatus.INTRO)}
