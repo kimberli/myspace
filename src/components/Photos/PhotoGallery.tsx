@@ -121,21 +121,24 @@ const PhotoGallery: React.FC = () => {
   return (
     <div className="flex flex-col gap-2 grow h-full">
       <div className="w-full h-full grow">{contents}</div>
-      <div className="flex flex-row gap-2 justify-end">
-        <IconButton
-          className="px-2"
-          onClick={() => changeCurrentImage(-1)}
-          icon={<HiChevronLeft />}
-        />
-        <IconButton
-          className="px-2"
-          onClick={() => changeCurrentImage(1)}
-          icon={<HiChevronRight />}
-        />
+      <div className="flex flex-row gap-2 justify-between">
         <Button
           onClick={() => setGameStatus(GameStatus.INTRO)}
           text="Go back"
+          outline
         />
+        <div className="flex gap-2">
+          <IconButton
+            className="px-2"
+            onClick={() => changeCurrentImage(-1)}
+            icon={<HiChevronLeft />}
+          />
+          <IconButton
+            className="px-2"
+            onClick={() => changeCurrentImage(1)}
+            icon={<HiChevronRight />}
+          />
+        </div>
       </div>
     </div>
   );

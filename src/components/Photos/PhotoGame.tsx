@@ -62,11 +62,12 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
 
   return (
     <div className="flex flex-col gap-2 grow h-full">
-      <div className="w-full h-full grow">{contents}</div>
-      <div className="flex flex-row gap-2 justify-end">
+      <div className="flex flex-row w-full h-full gap-2 grow">{contents}</div>
+      <div className="flex flex-row gap-2 justify-between">
         <Button
           onClick={() => setGameStatus(GameStatus.INTRO)}
           text="Go back"
+          outline
         />
         <div className="flex gap-2">
           <Button onClick={() => {}} text="Submit" />
