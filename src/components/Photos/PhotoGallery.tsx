@@ -90,6 +90,7 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({
           <GalleryImage
             imageId={currentImage}
             blurBase64Image={photoData[currentImage]?.blur}
+            altText={photoData[currentImage]?.label}
           />
           <p className="mb-1 text-sm text-center max-w-[800px]">
             {photoData[currentImage]?.description}
@@ -110,7 +111,7 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({
               width={PREVIEW_WIDTH}
               height={PREVIEW_WIDTH}
               onClick={() => setCurrentImage(imageId)}
-              alt="TODO"
+              alt={photoData[imageId]?.label}
             />
           ))}
         </div>

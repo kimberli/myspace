@@ -7,12 +7,14 @@ interface GalleryImageProps {
   imageId: string;
   blurBase64Image: string;
   description?: string;
+  altText?: string;
 }
 
 const GalleryImage: React.FC<GalleryImageProps> = ({
   imageId,
   blurBase64Image,
   description,
+  altText,
 }: GalleryImageProps) => {
   return (
     <div className="flex flex-col gap-2 w-full xs:max-w-[380px]">
@@ -28,7 +30,7 @@ const GalleryImage: React.FC<GalleryImageProps> = ({
             src={`${URL_PREFIX}${imageId}.jpg`}
             fill={true}
             sizes="(min-width: 400px) 380px, 400x"
-            alt="TODO"
+            alt={altText}
             placeholder="blur"
             quality={100}
             blurDataURL={`data:image/jpg;base64,${blurBase64Image}`}
