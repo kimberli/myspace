@@ -27,7 +27,8 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
 }: PhotoGameProps) => {
   const [currentPin, setCurrentPin] = useState<Pin | null>(null);
   const [correctPin, setCorrectPin] = useState<Pin | null>(null);
-  const { gameState, setGameStatus } = useContext(GameStateContext);
+  const { gameState, setGameStatus, addCompletedGuess } =
+    useContext(GameStateContext);
 
   let currentImage;
   let contents;
@@ -64,7 +65,12 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
         longitude: result.correctLongitude,
         color: CORRECT_PIN_COLOR,
       });
-      // TODO(Kim): Update GameState with guess results.
+      addCompletedGuess(currentImage, {
+        latitude: result.correctLatitude,
+        longitude: result.correctLongitude,
+        score: result.score,
+      });
+      // TODO(Kim): Reset map zoom state when correct answer appears.
     } catch (error) {
       console.error(error);
     }
@@ -81,9 +87,22 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
     gameState.completedGuesses
   ) {
     const imageIds = Object.keys(photoData);
+    // TODO(Kim): Only advance currentImage when user clicks a button.
     currentImage = imageIds.filter(
       (imageId) => !gameState.completedGuesses.hasOwnProperty(imageId),
     )[0];
+    const completedGuess = gameState.completedGuesses[currentImage];
+    const pins = [];
+    if (currentPin) {
+      pins.push(currentPin);
+    }
+    if (completedGuess) {
+      pins.push({
+        latitude: completedGuess.latitude,
+        longitude: completedGuess.longitude,
+        color: CORRECT_PIN_COLOR,
+      });
+    }
     contents = (
       <div className="flex flex-col sm:flex-row gap-2 grow items-center sm:items-start w-full h-full">
         <GalleryImage
@@ -96,8 +115,18 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
             apiKey={mapboxApiKey}
             onClick={clickHandler}
             clickable
-            pins={[currentPin, correctPin].filter((pin) => !!pin)}
+            pins={pins}
           />
+          <div className="relative top-[-80px] m-2 bg-white drop-shadow p-2 z-20">
+            <p className="text-sm">
+              Click a location on the map, then submit your guess.
+            </p>
+            {gameState.completedGuesses[currentImage] && (
+              <p className="text-sky-600">
+                Score: {gameState.completedGuesses[currentImage].score}
+              </p>
+            )}
+          </div>
         </div>
       </div>
     );

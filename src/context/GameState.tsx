@@ -10,12 +10,14 @@ export enum GameStatus {
   FINISHED,
 }
 
+interface Guess {
+  score: number;
+  latitude: number;
+  longitude: number;
+}
+
 interface Guesses {
-  [imageId: string]: {
-    score: number;
-    latitude: number;
-    longitude: number;
-  };
+  [photoId: string]: Guess;
 }
 
 interface GameState {
@@ -44,6 +46,7 @@ function loadGameState(): GameState {
 export const GameStateContext = createContext({
   gameState: {} as GameState,
   setGameStatus: (_gameStatus: GameStatus): void => {},
+  addCompletedGuess: (_guess: Guess): void => {},
 });
 
 const GameStateProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
@@ -70,8 +73,17 @@ const GameStateProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
     setGameState({ ...gameState, status: gameStatus });
   };
 
+  const addCompletedGuess = (photoId: string, guess: Guess): void => {
+    setGameState({
+      ...gameState,
+      completedGuesses: { ...gameState.completedGuesses, [photoId]: guess },
+    });
+  };
+
   return (
-    <GameStateContext.Provider value={{ gameState, setGameStatus }}>
+    <GameStateContext.Provider
+      value={{ gameState, setGameStatus, addCompletedGuess }}
+    >
       {children}
     </GameStateContext.Provider>
   );
