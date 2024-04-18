@@ -47,11 +47,7 @@ export const GameStateContext = createContext({
 });
 
 const GameStateProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
-  const [gameState, setGameState] = useState<GameState>({
-    userId: "",
-    status: GameStatus.INTRO,
-    completedGuesses: {},
-  });
+  const [gameState, setGameState] = useState<GameState>({});
 
   useEffect(() => {
     const newGameState = loadGameState();
