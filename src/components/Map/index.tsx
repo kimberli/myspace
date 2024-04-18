@@ -1,3 +1,4 @@
+import "mapbox-gl/dist/mapbox-gl.css";
 import ReactMapGL, { Marker } from "react-map-gl";
 import { HiMapPin } from "react-icons/hi2";
 import React from "react";
@@ -49,7 +50,7 @@ const Map: React.FC<MapProps> = ({
       initialViewState={{
         latitude: centerLatitude,
         longitude: centerLongitude,
-        zoom: 14,
+        zoom: 0,
       }}
       style={{ height: "100%", width: "100%", position: "relative" }}
       onClick={onClick}

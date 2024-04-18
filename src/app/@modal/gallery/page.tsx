@@ -1,16 +1,17 @@
-"use client";
+"use server";
 
 import React from "react";
 
 import GameStateProvider from "@/context/GameState";
 import Photos from "@/components/Photos";
 
-const ModalPage: React.FC = () => {
+const GalleryModalPage: React.FC = () => {
+  const mapboxApiKey = process.env.MAPBOX_API_KEY;
   return (
     <GameStateProvider>
-      <Photos />
+      <Photos mapboxApiKey={mapboxApiKey} />
     </GameStateProvider>
   );
 };
 
-export default ModalPage;
+export default GalleryModalPage;

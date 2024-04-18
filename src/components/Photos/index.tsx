@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useContext } from "react";
 import { useRouter } from "next/navigation";
 
@@ -8,7 +10,11 @@ import Modal from "@/components/Modal";
 import PhotoGallery from "@/components/Photos/PhotoGallery";
 import PhotoGame from "@/components/Photos/PhotoGame";
 
-const Photos: React.FC = () => {
+interface PhotosProps {
+  mapboxApiKey: string;
+}
+
+const Photos: React.FC<PhotosProps> = ({ mapboxApiKey }: PhotosProps) => {
   const router = useRouter();
   const onClose = (): void => router.push("/");
   const { gameState } = useContext(GameStateContext);
@@ -22,7 +28,7 @@ const Photos: React.FC = () => {
       contents = <PhotoGallery />;
       break;
     case GameStatus.PLAYING:
-      contents = <PhotoGame />;
+      contents = <PhotoGame mapboxApiKey={mapboxApiKey} />;
       break;
     case GameStatus.FINISHED:
       contents = "Finished";

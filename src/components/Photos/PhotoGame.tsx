@@ -4,14 +4,21 @@ import useSWR from "swr";
 import { GameStateContext, GameStatus } from "@/context/GameState";
 import Button from "@/components/Button";
 import GalleryImage from "@/components/GalleryImage";
+import Map from "@/components/Map";
 import Spinner from "@/components/Spinner";
 
 import type { PhotoData } from "@/app/api/photos/route";
 
+interface PhotoGameProps {
+  mapboxApiKey: string;
+}
+
 const fetcher = (url: string): Promise<PhotoData> =>
   fetch(url).then((res) => res.json());
 
-const PhotosGame: React.FC = () => {
+const PhotoGame: React.FC<PhotoGameProps> = ({
+  mapboxApiKey,
+}: PhotoGameProps) => {
   const { gameState, setGameStatus } = useContext(GameStateContext);
 
   const { data, error, isLoading } = useSWR<PhotoData, string, string>(
@@ -37,10 +44,13 @@ const PhotosGame: React.FC = () => {
       (imageId) => !gameState.completedGuesses.hasOwnProperty(imageId),
     )[0];
     contents = (
-      <GalleryImage
-        imageId={currentImage}
-        blurBase64Image={data[currentImage]?.blur}
-      />
+      <>
+        <GalleryImage
+          imageId={currentImage}
+          blurBase64Image={data[currentImage]?.blur}
+        />
+        <Map apiKey={mapboxApiKey} />
+      </>
     );
   } else {
     contents = (
@@ -58,9 +68,12 @@ const PhotosGame: React.FC = () => {
           onClick={() => setGameStatus(GameStatus.INTRO)}
           text="Go back"
         />
+        <div className="flex gap-2">
+          <Button onClick={() => {}} text="Submit" />
+        </div>
       </div>
     </div>
   );
 };
 
-export default PhotosGame;
+export default PhotoGame;
