@@ -226,7 +226,7 @@ function add_description() {
         break
       fi
     done
-    jq ".\"${filename}\" |= . + {label: \"${label}\", description: \"${description}\"}" ${OUTPUT_FILE} > tmp.json && mv tmp.json ${OUTPUT_FILE}
+    jq ".\"${filename}\" |= . + {description: \"${description}\", label: \"${label}\"}" ${OUTPUT_FILE} > tmp.json && mv tmp.json ${OUTPUT_FILE}
 
     if [[ $? -ne 0 ]]; then
       return 2
