@@ -7,6 +7,7 @@ interface IconButtonProps {
   icon: React.ReactNode;
   onClick: () => void;
   outline?: boolean;
+  transparent?: boolean;
 }
 
 const IconButton: React.FC<IconButtonProps> = ({
@@ -15,11 +16,17 @@ const IconButton: React.FC<IconButtonProps> = ({
   icon,
   onClick,
   outline,
+  transparent,
 }: IconButtonProps) => {
   const defaultClasses = "flex items-center justify-center p-0.5 rounded";
   const classes = classNames(
+    !transparent && "bg-rose-200",
     defaultClasses,
-    disabled ? "cursor-default" : "cursor-pointer hover:bg-neutral-500/10",
+    disabled
+      ? "cursor-default"
+      : transparent
+        ? "cursor-pointer hover:bg-neutral-500/10"
+        : "cursor-pointer hover:bg-rose-300",
     outline && "border border-neutral-800",
     className,
   );

@@ -39,6 +39,7 @@ const Modal: React.FC<ModalProps> = ({
           className="fixed top-0 right-0 m-4"
           onClick={onClose}
           icon={<HiOutlineXMark />}
+          transparent
         />
         <div className={classNames("p-6 h-full", className)}>
           <h1 className="mb-4 text-center text-xl">{title}</h1>
