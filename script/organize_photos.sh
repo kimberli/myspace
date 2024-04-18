@@ -197,6 +197,44 @@ function blur_file() {
   return 0
 }
 
+function add_description() {
+  local file="$1"
+  local filename=$(basename "${file%.*}")
+
+  local saved_description=$(jq -r ".[\"${filename}\"].description // empty" ${OUTPUT_FILE}) 
+  local saved_label=$(jq -r ".[\"${filename}\"].label // empty" ${OUTPUT_FILE}) 
+
+  if [ -n "${saved_description}" ] && [ -n "${saved_label}" ]; then
+    return 1
+  elif [[ "$check" == 1 ]]; then
+    warn "$filename does not follow this rule."
+  fi
+
+  if [[ "$check" == 0 ]]; then
+    read -t 5 -n 1 -s -r -p "Press any key to open ${filename}.jpg. "
+    open "$file"
+    echo -e "Now enter a short label and the description to display for the file."
+    while true; do
+      read -p "Enter label: " label
+      read -p "Enter description: " description
+      echo ""
+      echo "You entered:"
+      echo "${label}"
+      echo "${description}"
+      read -p "Is this correct? (y/N) " yn
+      if [[ "$yn" == "y" ]] || [[ "$yn" == "Y" ]]; then
+        break
+      fi
+    done
+    jq ".\"${filename}\" |= . + {label: \"${label}\", description: \"${description}\"}" ${OUTPUT_FILE} > tmp.json && mv tmp.json ${OUTPUT_FILE}
+
+    if [[ $? -ne 0 ]]; then
+      return 2
+    fi
+  fi
+  return 0
+}
+
 function process_files() {
   # Processing functions should return 0 if the file was successfully processed,
   # 1 if it was skipped, and any other value if it failed.
@@ -286,5 +324,8 @@ process_files "compress_file"
 
 # Step 4: Create a tiny version of this image for display while image is loading.
 process_files "blur_file"
+
+# Step 5: Ensure all photos have a label and description.
+process_files "add_description"
 
 exit $success
