@@ -15,8 +15,8 @@ export type Pin = {
 
 type MapProps = {
   apiKey: string;
-  centerLatitude: number;
-  centerLongitude: number;
+  centerLatitude?: number;
+  centerLongitude?: number;
   clickable?: boolean;
   onClick?: (e: MapLayerMouseEvent) => void;
   pins?: Pin[];
