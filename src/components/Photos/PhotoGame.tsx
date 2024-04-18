@@ -42,10 +42,13 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
     )[0];
     contents = (
       <>
-        <GalleryImage
-          imageId={currentImage}
-          blurBase64Image={photoData[currentImage]?.blur}
-        />
+        <div className="flex flex-col w-min">
+          <GalleryImage
+            imageId={currentImage}
+            blurBase64Image={photoData[currentImage]?.blur}
+          />
+          <p className="mb-1">{photoData[currentImage]?.description}</p>
+        </div>
         <Map apiKey={mapboxApiKey} clickable />
       </>
     );

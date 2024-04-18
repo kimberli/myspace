@@ -91,7 +91,7 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({
             imageId={currentImage}
             blurBase64Image={photoData[currentImage]?.blur}
           />
-          <p className="p-2">{photoData[currentImage]?.description}</p>
+          <p className="mb-1">{photoData[currentImage]?.description}</p>
         </div>
         <div
           className="flex flex-row gap-1 overflow-x-scroll"
