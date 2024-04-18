@@ -9,6 +9,9 @@ import Spinner from "@/components/Spinner";
 import type { MouseClickEvent, Pin } from "@/components/Map";
 import type { PhotoData } from "@/app/api/photos/route";
 
+const CURRENT_PIN_COLOR = "#fb7185";
+const CORRECT_PIN_COLOR = "#168755";
+
 interface PhotoGameProps {
   mapboxApiKey: string;
   photoData: PhotoData;
@@ -23,13 +26,48 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
   isLoading,
 }: PhotoGameProps) => {
   const [currentPin, setCurrentPin] = useState<Pin | null>(null);
+  const [correctPin, setCorrectPin] = useState<Pin | null>(null);
   const { gameState, setGameStatus } = useContext(GameStateContext);
 
   let currentImage;
   let contents;
 
   const clickHandler = (e: MouseClickEvent): void => {
-    setCurrentPin({ latitude: e.lngLat.lat, longitude: e.lngLat.lng });
+    setCurrentPin({
+      latitude: e.lngLat.lat,
+      longitude: e.lngLat.lng,
+      color: CURRENT_PIN_COLOR,
+    });
+  };
+
+  const makeGuess = async (): void => {
+    if (!currentPin) {
+      return;
+    }
+    try {
+      const body = {
+        photoId: currentImage,
+        guessLatitude: currentPin.latitude,
+        guessLongitude: currentPin.longitude,
+      };
+      const response = await fetch("/api/photos", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      if (!response.ok) {
+        throw new Error(`${response.status} ${response.statusText}`);
+      }
+      const result = await response.json();
+      setCorrectPin({
+        latitude: result.correctLatitude,
+        longitude: result.correctLongitude,
+        color: CORRECT_PIN_COLOR,
+      });
+      // TODO(Kim): Update GameState with guess results.
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   if (loadingError) {
@@ -58,7 +96,7 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
             apiKey={mapboxApiKey}
             onClick={clickHandler}
             clickable
-            pins={currentPin ? [currentPin] : []}
+            pins={[currentPin, correctPin].filter((pin) => !!pin)}
           />
         </div>
       </div>
@@ -81,7 +119,7 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
           outline
         />
         <div className="flex gap-2">
-          <Button onClick={() => {}} text="Submit" />
+          <Button onClick={makeGuess} text="Submit" />
         </div>
       </div>
     </div>
