@@ -1,6 +1,6 @@
 import "mapbox-gl/dist/mapbox-gl.css";
 import ReactMapGL, { Marker } from "react-map-gl";
-import { HiMapPin } from "react-icons/hi2";
+import { IoPinSharp } from "react-icons/io5";
 import React from "react";
 
 import type { MapLayerMouseEvent } from "react-map-gl";
@@ -40,7 +40,7 @@ const Map: React.FC<MapProps> = ({
       longitude={pin.longitude}
       latitude={pin.latitude}
     >
-      <HiMapPin color={pin.color} />
+      <IoPinSharp size="2em" color={pin.color} />
     </Marker>
   ));
 

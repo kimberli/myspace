@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 
 import { GameStateContext, GameStatus } from "@/context/GameState";
 import Button from "@/components/Button";
@@ -6,6 +6,7 @@ import GalleryImage from "@/components/GalleryImage";
 import Map from "@/components/Map";
 import Spinner from "@/components/Spinner";
 
+import type { MouseClickEvent, Pin } from "@/components/Map";
 import type { PhotoData } from "@/app/api/photos/route";
 
 interface PhotoGameProps {
@@ -21,10 +22,15 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
   loadingError,
   isLoading,
 }: PhotoGameProps) => {
+  const [currentPin, setCurrentPin] = useState<Pin | null>(null);
   const { gameState, setGameStatus } = useContext(GameStateContext);
 
   let currentImage;
   let contents;
+
+  const clickHandler = (e: MouseClickEvent): void => {
+    setCurrentPin({ latitude: e.lngLat.lat, longitude: e.lngLat.lng });
+  };
 
   if (loadingError) {
     contents = (
@@ -48,7 +54,12 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
           description={photoData[currentImage]?.description}
         />
         <div className="w-auto h-full sm:w-full sm:h-auto place-self-stretch">
-          <Map apiKey={mapboxApiKey} clickable />
+          <Map
+            apiKey={mapboxApiKey}
+            onClick={clickHandler}
+            clickable
+            pins={currentPin ? [currentPin] : []}
+          />
         </div>
       </div>
     );
