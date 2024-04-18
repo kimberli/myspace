@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import useSWR from "swr";
 
 import { GameStateContext, GameStatus } from "@/context/GameState";
 import Button from "@/components/Button";
@@ -11,35 +10,33 @@ import type { PhotoData } from "@/app/api/photos/route";
 
 interface PhotoGameProps {
   mapboxApiKey: string;
+  photoData: PhotoData;
+  loadingError: string;
+  isLoading: boolean;
 }
-
-const fetcher = (url: string): Promise<PhotoData> =>
-  fetch(url).then((res) => res.json());
 
 const PhotoGame: React.FC<PhotoGameProps> = ({
   mapboxApiKey,
+  photoData,
+  loadingError,
+  isLoading,
 }: PhotoGameProps) => {
   const { gameState, setGameStatus } = useContext(GameStateContext);
-
-  const { data, error, isLoading } = useSWR<PhotoData, string, string>(
-    "/api/photos",
-    fetcher,
-  );
 
   let currentImage;
   let contents;
 
-  if (error) {
+  if (loadingError) {
     contents = (
       <p className="text-center">Error fetching . Please try again.</p>
     );
   } else if (
     !isLoading &&
-    data &&
-    Object.keys(data).length &&
+    photoData &&
+    Object.keys(photoData).length &&
     gameState.completedGuesses
   ) {
-    const imageIds = Object.keys(data);
+    const imageIds = Object.keys(photoData);
     currentImage = imageIds.filter(
       (imageId) => !gameState.completedGuesses.hasOwnProperty(imageId),
     )[0];
@@ -47,9 +44,9 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
       <>
         <GalleryImage
           imageId={currentImage}
-          blurBase64Image={data[currentImage]?.blur}
+          blurBase64Image={photoData[currentImage]?.blur}
         />
-        <Map apiKey={mapboxApiKey} />
+        <Map apiKey={mapboxApiKey} clickable />
       </>
     );
   } else {
@@ -62,7 +59,9 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
 
   return (
     <div className="flex flex-col gap-2 grow h-full">
-      <div className="flex flex-row w-full h-full gap-2 grow">{contents}</div>
+      <div className="flex flex-col sm:flex-row w-full h-full gap-2 grow">
+        {contents}
+      </div>
       <div className="flex flex-row gap-2 justify-between">
         <Button
           onClick={() => setGameStatus(GameStatus.INTRO)}

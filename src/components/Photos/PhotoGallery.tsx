@@ -4,7 +4,6 @@ import { HiChevronLeft, HiChevronRight } from "react-icons/hi2";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import Image from "next/image";
-import useSWR from "swr";
 
 import GalleryImage, { URL_PREFIX } from "@/components/GalleryImage";
 import { GameStateContext, GameStatus } from "@/context/GameState";
@@ -16,22 +15,24 @@ import type { PhotoData } from "@/app/api/photos/route";
 
 const PREVIEW_WIDTH = 80;
 
-const fetcher = (url: string): Promise<PhotoData> =>
-  fetch(url).then((res) => res.json());
+interface PhotoGalleryProps {
+  photoData: PhotoData;
+  loadingError: string;
+  isLoading: boolean;
+}
 
-const PhotoGallery: React.FC = () => {
+const PhotoGallery: React.FC<PhotoGalleryProps> = ({
+  photoData,
+  loadingError,
+  isLoading,
+}: PhotoGalleryProps) => {
   const [currentImage, setCurrentImage] = useState<string>("");
   const { setGameStatus } = useContext(GameStateContext);
   const scrollableImagesRef = useRef<HTMLDivElement>(null);
 
-  const { data, error, isLoading } = useSWR<PhotoData, string, string>(
-    "/api/photos",
-    fetcher,
-  );
-
   const changeCurrentImage = (delta: number): void => {
     if (currentImage) {
-      const imageIds = Object.keys(data || {});
+      const imageIds = Object.keys(photoData || {});
       const newIndex =
         (imageIds.indexOf(currentImage) + imageIds.length + delta) %
         imageIds.length;
@@ -53,9 +54,9 @@ const PhotoGallery: React.FC = () => {
   useEffect(() => {
     // Initialize current image to display.
     if (!isLoading) {
-      setCurrentImage(Object.keys(data || {})[0]);
+      setCurrentImage(Object.keys(photoData || {})[0]);
     }
-  }, [isLoading, data]);
+  }, [isLoading, photoData]);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent): void => {
@@ -78,25 +79,25 @@ const PhotoGallery: React.FC = () => {
   });
 
   let contents;
-  if (error) {
+  if (loadingError) {
     contents = (
       <p className="text-center">Error fetching images. Please try again.</p>
     );
-  } else if (data && currentImage) {
+  } else if (photoData && currentImage) {
     contents = (
       <>
         <div className="flex flex-col gap-3 select-none items-center">
           <GalleryImage
             imageId={currentImage}
-            blurBase64Image={data[currentImage]?.blur}
+            blurBase64Image={photoData[currentImage]?.blur}
           />
-          <p className="p-2">{data[currentImage]?.description}</p>
+          <p className="p-2">{photoData[currentImage]?.description}</p>
         </div>
         <div
           className="flex flex-row gap-1 overflow-x-scroll"
           ref={scrollableImagesRef}
         >
-          {Object.keys(data).map((imageId) => (
+          {Object.keys(photoData).map((imageId) => (
             <Image
               key={imageId}
               className={classNames(

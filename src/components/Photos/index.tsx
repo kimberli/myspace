@@ -2,6 +2,7 @@
 
 import React, { useContext } from "react";
 import { useRouter } from "next/navigation";
+import useSWR from "swr";
 
 import { GameStateContext, GameStatus } from "@/context/GameState";
 import GameInfo from "@/components/Photos/GameInfo";
@@ -9,6 +10,11 @@ import LoadingOverlay from "@/components/LoadingOverlay";
 import Modal from "@/components/Modal";
 import PhotoGallery from "@/components/Photos/PhotoGallery";
 import PhotoGame from "@/components/Photos/PhotoGame";
+
+import type { PhotoData } from "@/app/api/photos/route";
+
+const fetcher = (url: string): Promise<PhotoData> =>
+  fetch(url).then((res) => res.json());
 
 interface PhotosProps {
   mapboxApiKey: string;
@@ -18,6 +24,12 @@ const Photos: React.FC<PhotosProps> = ({ mapboxApiKey }: PhotosProps) => {
   const router = useRouter();
   const onClose = (): void => router.push("/");
   const { gameState } = useContext(GameStateContext);
+
+  const { data, error, isLoading } = useSWR<PhotoData, string, string>(
+    "/api/photos",
+    fetcher,
+  );
+
   if (gameState.status === undefined) {
     return <LoadingOverlay />;
   }
@@ -25,10 +37,23 @@ const Photos: React.FC<PhotosProps> = ({ mapboxApiKey }: PhotosProps) => {
   let contents;
   switch (gameState.status) {
     case GameStatus.SKIPPED:
-      contents = <PhotoGallery />;
+      contents = (
+        <PhotoGallery
+          photoData={data}
+          loadingError={error}
+          isLoading={isLoading}
+        />
+      );
       break;
     case GameStatus.PLAYING:
-      contents = <PhotoGame mapboxApiKey={mapboxApiKey} />;
+      contents = (
+        <PhotoGame
+          mapboxApiKey={mapboxApiKey}
+          photoData={data}
+          loadingError={error}
+          isLoading={isLoading}
+        />
+      );
       break;
     case GameStatus.FINISHED:
       contents = "Finished";
