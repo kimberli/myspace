@@ -7,7 +7,7 @@ interface GalleryImageProps {
   imageId: string;
   blurBase64Image: string;
   description?: string;
-  altText?: string;
+  altText: string;
 }
 
 const GalleryImage: React.FC<GalleryImageProps> = ({

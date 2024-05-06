@@ -11,13 +11,13 @@ import Button from "@/components/Button";
 import IconButton from "@/components/IconButton";
 import Spinner from "@/components/Spinner";
 
-import type { PhotoData } from "@/app/api/photos/route";
+import type { ResponsePhotoData } from "@/app/api/photos/route";
 
 const PREVIEW_WIDTH = 80;
 
 interface PhotoGalleryProps {
-  photoData: PhotoData;
-  loadingError: string;
+  photoData?: ResponsePhotoData;
+  loadingError?: string;
   isLoading: boolean;
 }
 

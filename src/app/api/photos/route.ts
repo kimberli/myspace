@@ -1,10 +1,20 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 import PHOTO_DATA from "@/lib/photos.json";
 
 import type { ErrorMessage } from "@/app/api/types";
 
-export type PhotoData = {
+type RawPhotoData = {
+  [key: string]: {
+    lat: number;
+    lng: number;
+    blur: string;
+    label: string;
+    description: string;
+  };
+};
+
+export type ResponsePhotoData = {
   [key: string]: {
     blur: string;
     label: string;
@@ -18,15 +28,17 @@ export type GuessResult = {
   score: number;
 };
 
-const RESPONSE_DATA: PhotoData = Object.fromEntries(
-  Object.entries(PHOTO_DATA).map(([key, value]) => [
+const TYPED_PHOTO_DATA = PHOTO_DATA as RawPhotoData;
+
+const RESPONSE_DATA: ResponsePhotoData = Object.fromEntries(
+  Object.entries(TYPED_PHOTO_DATA).map(([key, value]) => [
     key,
     { blur: value.blur, label: value.label, description: value.description },
   ]),
 );
 
 // TODO(Kim): Paginate this since it's reading a 3 MB file, maybe with swc/infinite?
-export function GET(): NextResponse<PhotoData | ErrorMessage> {
+export function GET(): NextResponse<ResponsePhotoData | ErrorMessage> {
   try {
     return NextResponse.json(RESPONSE_DATA);
   } catch (error) {
@@ -40,17 +52,17 @@ export function GET(): NextResponse<PhotoData | ErrorMessage> {
 
 export async function POST(
   req: NextRequest,
-): NextResponse<GuessResult | ErrorMessage> {
+): Promise<NextResponse<GuessResult | ErrorMessage>> {
   try {
     const { photoId, guessLatitude, guessLongitude } = await req.json();
-    if (!PHOTO_DATA.hasOwnProperty(photoId)) {
+    if (!TYPED_PHOTO_DATA.hasOwnProperty(photoId)) {
       return NextResponse.json(
         { message: "Cannot find image ID" },
         { status: 400 },
       );
     }
-    const correctLatitude = PHOTO_DATA[photoId].lat;
-    const correctLongitude = PHOTO_DATA[photoId].lng;
+    const correctLatitude = TYPED_PHOTO_DATA[photoId].lat as number;
+    const correctLongitude = TYPED_PHOTO_DATA[photoId].lng as number;
     // TODO(Kim): Replace this with a real distance calculation.
     const score = Math.sqrt(
       (guessLatitude - correctLatitude) ** 2 +

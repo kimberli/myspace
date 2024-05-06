@@ -26,6 +26,12 @@ interface GameState {
   completedGuesses: Guesses;
 }
 
+const EmptyGameState = {
+  userId: "",
+  status: GameStatus.INTRO,
+  completedGuesses: {},
+};
+
 function loadGameState(): GameState {
   const storedState = localStorage.getItem("game-state");
   if (storedState) {
@@ -46,11 +52,11 @@ function loadGameState(): GameState {
 export const GameStateContext = createContext({
   gameState: {} as GameState,
   setGameStatus: (_gameStatus: GameStatus): void => {},
-  addCompletedGuess: (_guess: Guess): void => {},
+  addCompletedGuess: (_photoId: string, _guess: Guess): void => {},
 });
 
 const GameStateProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
-  const [gameState, setGameState] = useState<GameState>({});
+  const [gameState, setGameState] = useState<GameState>(EmptyGameState);
 
   useEffect(() => {
     const newGameState = loadGameState();

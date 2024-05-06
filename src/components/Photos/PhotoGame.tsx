@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 
 import { GameStateContext, GameStatus } from "@/context/GameState";
 import Button from "@/components/Button";
@@ -6,16 +6,16 @@ import GalleryImage from "@/components/GalleryImage";
 import Map from "@/components/Map";
 import Spinner from "@/components/Spinner";
 
-import type { MouseClickEvent, Pin } from "@/components/Map";
-import type { PhotoData } from "@/app/api/photos/route";
+import type { MapClickEvent, Pin } from "@/components/Map";
+import type { ResponsePhotoData } from "@/app/api/photos/route";
 
 const CURRENT_PIN_COLOR = "#fb7185";
 const CORRECT_PIN_COLOR = "#168755";
 
 interface PhotoGameProps {
   mapboxApiKey: string;
-  photoData: PhotoData;
-  loadingError: string;
+  photoData?: ResponsePhotoData;
+  loadingError?: string;
   isLoading: boolean;
 }
 
@@ -33,16 +33,19 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
   let contents;
   const completedGuess = gameState?.completedGuesses?.[currentImage];
 
-  const advanceCurrentImage = () => {
+  const advanceCurrentImage = useCallback((): void => {
+    if (!photoData) {
+      return;
+    }
     const imageIds = Object.keys(photoData);
     const initialImage = imageIds.filter(
       (imageId) => !gameState.completedGuesses.hasOwnProperty(imageId),
     )[0];
     setCurrentImage(initialImage);
     setCurrentPin(null);
-  };
+  }, [photoData, gameState.completedGuesses]);
 
-  const clickHandler = (e: MouseClickEvent): void => {
+  const clickHandler = (e: MapClickEvent): void => {
     setCurrentPin({
       latitude: e.lngLat.lat,
       longitude: e.lngLat.lng,
@@ -50,7 +53,7 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
     });
   };
 
-  const makeGuess = async (): void => {
+  const makeGuess = async (): Promise<void> => {
     if (!currentPin) {
       return;
     }
@@ -84,7 +87,7 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
     if (!isLoading) {
       advanceCurrentImage();
     }
-  }, [photoData, isLoading]);
+  }, [photoData, isLoading, advanceCurrentImage]);
 
   if (loadingError) {
     contents = (
@@ -111,6 +114,7 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
     contents = (
       <div className="flex flex-col sm:flex-row gap-2 grow items-center sm:items-start w-full h-full">
         <GalleryImage
+          altText={photoData[currentImage]?.label}
           imageId={currentImage}
           blurBase64Image={photoData[currentImage]?.blur}
           description={photoData[currentImage]?.description}

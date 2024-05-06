@@ -11,9 +11,9 @@ import Modal from "@/components/Modal";
 import PhotoGallery from "@/components/Photos/PhotoGallery";
 import PhotoGame from "@/components/Photos/PhotoGame";
 
-import type { PhotoData } from "@/app/api/photos/route";
+import type { ResponsePhotoData } from "@/app/api/photos/route";
 
-const fetcher = (url: string): Promise<PhotoData> =>
+const fetcher = (url: string): Promise<ResponsePhotoData> =>
   fetch(url).then((res) => res.json());
 
 interface PhotosProps {
@@ -25,7 +25,7 @@ const Photos: React.FC<PhotosProps> = ({ mapboxApiKey }: PhotosProps) => {
   const onClose = (): void => router.push("/");
   const { gameState } = useContext(GameStateContext);
 
-  const { data, error, isLoading } = useSWR<PhotoData, string, string>(
+  const { data, error, isLoading } = useSWR<ResponsePhotoData, string, string>(
     "/api/photos",
     fetcher,
   );
