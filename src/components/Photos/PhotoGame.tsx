@@ -1,4 +1,5 @@
 import React, { useCallback, useContext, useEffect, useState } from "react";
+import classNames from "classnames";
 
 import { GameStateContext, GameStatus } from "@/context/GameState";
 import Button from "@/components/Button";
@@ -26,6 +27,7 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
   isLoading,
 }: PhotoGameProps) => {
   const [currentPin, setCurrentPin] = useState<Pin | null>(null);
+  const [hasSubmitted, setHasSubmitted] = useState<boolean>(false);
   const [currentImage, setCurrentImage] = useState<string>("");
   const { gameState, setGameStatus, addCompletedGuess } =
     useContext(GameStateContext);
@@ -34,7 +36,7 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
   const completedGuess = gameState?.completedGuesses?.[currentImage];
 
   const advanceCurrentImage = useCallback((): void => {
-    if (!photoData) {
+    if (!photoData || (currentImage && !hasSubmitted)) {
       return;
     }
     const imageIds = Object.keys(photoData);
@@ -43,7 +45,8 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
     )[0];
     setCurrentImage(initialImage);
     setCurrentPin(null);
-  }, [photoData, gameState.completedGuesses]);
+    setHasSubmitted(false);
+  }, [currentImage, hasSubmitted, photoData, gameState.completedGuesses]);
 
   const clickHandler = (e: MapClickEvent): void => {
     setCurrentPin({
@@ -111,6 +114,17 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
         color: CORRECT_PIN_COLOR,
       });
     }
+    const score = gameState.completedGuesses[currentImage]?.score.toFixed(3);
+    let guessColor;
+    if (score === undefined) {
+      guessColor = "bg-white";
+    } else if (score < 1000) {
+      guessColor = "bg-green-200";
+    } else if (score < 5000) {
+      guessColor = "bg-amber-200";
+    } else {
+      guessColor = "bg-red-200";
+    }
     contents = (
       <div className="flex flex-col sm:flex-row gap-2 grow items-center sm:items-start w-full h-full">
         <GalleryImage
@@ -126,15 +140,17 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
             clickable
             pins={pins}
           />
-          <div className="relative top-[-80px] m-2 bg-white drop-shadow p-2 z-20">
-            <p className="text-sm">
-              Click a location on the map, then submit your guess.
-            </p>
-            {gameState.completedGuesses[currentImage] && (
-              <p className="text-sky-600">
-                Score: {gameState.completedGuesses[currentImage].score}
-              </p>
+          <div
+            className={classNames(
+              "relative top-[-80px] m-2 drop-shadow p-2 z-20",
+              guessColor,
             )}
+          >
+            <p className="text-sm">
+              {gameState.completedGuesses[currentImage]
+                ? `Score: ${gameState.completedGuesses[currentImage].score.toFixed(3)} km`
+                : "Click a location on the map, then submit your guess."}
+            </p>
           </div>
         </div>
       </div>
@@ -158,7 +174,13 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
         />
         <div className="flex gap-2">
           {completedGuess ? (
-            <Button onClick={() => advanceCurrentImage()} text="Next" />
+            <Button
+              onClick={() => {
+                setHasSubmitted(true);
+                advanceCurrentImage();
+              }}
+              text="Next"
+            />
           ) : (
             <Button onClick={makeGuess} disabled={!currentPin} text="Submit" />
           )}
