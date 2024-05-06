@@ -4,6 +4,7 @@ import React, { createContext, useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 export enum GameStatus {
+  UNDEFINED,
   INTRO,
   SKIPPED,
   PLAYING,
@@ -28,7 +29,7 @@ interface GameState {
 
 const EmptyGameState = {
   userId: "",
-  status: GameStatus.INTRO,
+  status: GameStatus.UNDEFINED,
   completedGuesses: {},
 };
 
@@ -66,7 +67,7 @@ const GameStateProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   useEffect(() => {
     const saveState = (): void | (() => void) => {
       // Only serialize the game state if it's already loaded.
-      if (Object.keys(gameState).length > 0) {
+      if (Object.keys(gameState).length > 0 && gameState.userId) {
         localStorage.setItem("game-state", JSON.stringify(gameState));
       }
     };

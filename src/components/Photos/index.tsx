@@ -30,7 +30,11 @@ const Photos: React.FC<PhotosProps> = ({ mapboxApiKey }: PhotosProps) => {
     fetcher,
   );
 
-  if (gameState.status === undefined) {
+  if (
+    !gameState.userId ||
+    !gameState.status ||
+    gameState.status == GameStatus.UNDEFINED
+  ) {
     return <LoadingOverlay />;
   }
 
