@@ -1,10 +1,11 @@
 import React, { useCallback, useContext, useEffect, useState } from "react";
 import classNames from "classnames";
 
-import { GameStateContext, GameStatus } from "@/context/GameState";
 import Button from "@/components/Button";
 import GalleryImage from "@/components/GalleryImage";
+import { GameStateContext } from "@/context/GameState";
 import Map from "@/components/Map";
+import PhotosLayout from "@/components/Photos/PhotosLayout";
 import Spinner from "@/components/Spinner";
 
 import type { MapClickEvent, Pin } from "@/components/Map";
@@ -29,8 +30,7 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
   const [currentPin, setCurrentPin] = useState<Pin | null>(null);
   const [hasSubmitted, setHasSubmitted] = useState<boolean>(false);
   const [currentImage, setCurrentImage] = useState<string>("");
-  const { gameState, setGameStatus, addCompletedGuess } =
-    useContext(GameStateContext);
+  const { gameState, addCompletedGuess } = useContext(GameStateContext);
 
   let contents;
   const completedGuess = gameState?.completedGuesses?.[currentImage];
@@ -127,6 +127,7 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
           imageId={currentImage}
           blurBase64Image={photoData[currentImage]?.blur}
           description={photoData[currentImage]?.description}
+          descriptionClasses="sm:max-h-32 sm:overflow-y-scroll"
         />
         <div className="w-auto h-full sm:w-full sm:h-auto place-self-stretch">
           <Map
@@ -159,29 +160,24 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
   }
 
   return (
-    <div className="flex flex-col gap-2 min-h-full">
-      <div className="flex flex-col grow h-full w-full">{contents}</div>
-      <div className="flex flex-row gap-2 justify-between">
-        <Button
-          onClick={() => setGameStatus(GameStatus.INTRO)}
-          text="Go back"
-          outline
-        />
-        <div className="flex gap-2">
-          {completedGuess ? (
-            <Button
-              onClick={() => {
-                setHasSubmitted(true);
-                advanceCurrentImage();
-              }}
-              text="Next"
-            />
-          ) : (
-            <Button onClick={makeGuess} disabled={!currentPin} text="Submit" />
-          )}
-        </div>
-      </div>
-    </div>
+    <PhotosLayout
+      contents={contents}
+      currentImageIndex={Object.keys(gameState?.completedGuesses || {}).length}
+      photoData={photoData}
+      controls={
+        completedGuess ? (
+          <Button
+            onClick={() => {
+              setHasSubmitted(true);
+              advanceCurrentImage();
+            }}
+            text="Next"
+          />
+        ) : (
+          <Button onClick={makeGuess} disabled={!currentPin} text="Submit" />
+        )
+      }
+    />
   );
 };
 

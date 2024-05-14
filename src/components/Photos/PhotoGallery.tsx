@@ -1,14 +1,13 @@
 "use client";
 
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi2";
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import Image from "next/image";
 
 import GalleryImage, { URL_PREFIX } from "@/components/GalleryImage";
-import { GameStateContext, GameStatus } from "@/context/GameState";
-import Button from "@/components/Button";
 import IconButton from "@/components/IconButton";
+import PhotosLayout from "@/components/Photos/PhotosLayout";
 import Spinner from "@/components/Spinner";
 
 import type { ResponsePhotoData } from "@/app/api/photos/route";
@@ -27,7 +26,6 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({
   isLoading,
 }: PhotoGalleryProps) => {
   const [currentImage, setCurrentImage] = useState<string>("");
-  const { setGameStatus } = useContext(GameStateContext);
   const scrollableImagesRef = useRef<HTMLDivElement>(null);
 
   const changeCurrentImage = (delta: number): void => {
@@ -49,6 +47,14 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({
         scrollableDiv.scrollTo({ left: newScrollPosition, behavior: "smooth" });
       }
     }
+  };
+
+  const getCurrentImageIndex = (): number => {
+    if (currentImage) {
+      const imageIds = Object.keys(photoData || {});
+      return imageIds.indexOf(currentImage);
+    }
+    return 0;
   };
 
   useEffect(() => {
@@ -125,16 +131,12 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({
     );
   }
 
+  // TODO(Kim): Decide whether to display correct photo locations in gallery view.
   return (
-    <div className="flex flex-col gap-2 min-h-full">
-      <div className="flex flex-col grow h-full w-full">{contents}</div>
-      <div className="flex flex-row gap-2 justify-between">
-        <Button
-          onClick={() => setGameStatus(GameStatus.INTRO)}
-          text="Go back"
-          outline
-        />
-        <div className="flex gap-2">
+    <PhotosLayout
+      contents={contents}
+      controls={
+        <>
           <IconButton
             className="px-2"
             onClick={() => changeCurrentImage(-1)}
@@ -145,9 +147,11 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({
             onClick={() => changeCurrentImage(1)}
             icon={<HiChevronRight />}
           />
-        </div>
-      </div>
-    </div>
+        </>
+      }
+      currentImageIndex={getCurrentImageIndex()}
+      photoData={photoData}
+    />
   );
 };
 

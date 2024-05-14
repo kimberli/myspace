@@ -45,7 +45,7 @@ const toRadians = (angle: number): number => {
 const calculateDistance = (
   guessLatitude: number,
   guessLongitude: number,
-  correctLatitude,
+  correctLatitude: number,
   correctLongitude: number,
 ): number => {
   // Estimate the distance between the two points using the Haversine formula.

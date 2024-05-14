@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import Image from "next/image";
 import React from "react";
 
@@ -6,15 +7,17 @@ export const URL_PREFIX = "https://static.curious.kim/photos/";
 interface GalleryImageProps {
   imageId: string;
   blurBase64Image: string;
-  description?: string;
   altText: string;
+  description?: string;
+  descriptionClasses?: string;
 }
 
 const GalleryImage: React.FC<GalleryImageProps> = ({
   imageId,
   blurBase64Image,
-  description,
   altText,
+  description,
+  descriptionClasses,
 }: GalleryImageProps) => {
   return (
     <div className="flex flex-col gap-2 w-full xs:max-w-[380px]">
@@ -37,7 +40,11 @@ const GalleryImage: React.FC<GalleryImageProps> = ({
           />
         </a>
       </div>
-      {description && <p className="mb-1 text-sm grow">{description}</p>}
+      {description && (
+        <p className={classNames("mb-1 text-sm grow", descriptionClasses)}>
+          {description}
+        </p>
+      )}
     </div>
   );
 };

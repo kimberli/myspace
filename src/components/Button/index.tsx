@@ -22,7 +22,7 @@ const Button: React.FC<ButtonProps> = ({
   outline,
 }: ButtonProps) => {
   const defaultClasses =
-    "drop-shadow flex items-center justify-center px-2 py-1 rounded select-none hover:transition-colors duration-300";
+    "drop-shadow flex h-8 items-center justify-center px-2 py-1 rounded select-none hover:transition-colors duration-300";
   const classes = classNames(
     defaultClasses,
     disabled || loading ? "cursor-default" : "cursor-pointer hover:bg-rose-300",

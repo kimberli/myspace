@@ -30,16 +30,15 @@ const Photos: React.FC<PhotosProps> = ({ mapboxApiKey }: PhotosProps) => {
     fetcher,
   );
 
-  if (
-    !gameState.userId ||
-    !gameState.status ||
-    gameState.status == GameStatus.UNDEFINED
-  ) {
+  if (!gameState.userId || !gameState.status) {
     return <LoadingOverlay />;
   }
 
   let contents;
   switch (gameState.status) {
+    case GameStatus.UNDEFINED:
+      contents = <LoadingOverlay />;
+      break;
     case GameStatus.SKIPPED:
       contents = (
         <PhotoGallery
