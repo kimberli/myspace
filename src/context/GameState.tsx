@@ -3,12 +3,12 @@
 import React, { createContext, useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-export enum GameStatus {
-  UNDEFINED,
-  INTRO,
-  SKIPPED,
-  PLAYING,
-  FINISHED,
+export const enum GameStatus {
+  UNDEFINED = 0,
+  INTRO = 1,
+  SKIPPED = 2,
+  PLAYING = 3,
+  FINISHED = 4,
 }
 
 interface Guess {

@@ -36,8 +36,8 @@ const Photos: React.FC<PhotosProps> = ({ mapboxApiKey }: PhotosProps) => {
 
   let contents;
   switch (gameState.status) {
-    case GameStatus.UNDEFINED:
-      contents = <LoadingOverlay />;
+    case GameStatus.INTRO:
+      contents = <GameInfo />;
       break;
     case GameStatus.SKIPPED:
       contents = (
@@ -62,7 +62,7 @@ const Photos: React.FC<PhotosProps> = ({ mapboxApiKey }: PhotosProps) => {
       contents = "Finished";
       break;
     default:
-      contents = <GameInfo />;
+      contents = <LoadingOverlay />;
   }
   return (
     <Modal
