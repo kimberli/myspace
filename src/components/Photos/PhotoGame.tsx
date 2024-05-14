@@ -109,7 +109,7 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
         color: CORRECT_PIN_COLOR,
       });
     }
-    const score = gameState.completedGuesses[currentImage]?.score.toFixed(3);
+    const score = gameState.completedGuesses[currentImage]?.score;
     let guessColor;
     if (score === undefined) {
       guessColor = "bg-white";
@@ -144,7 +144,7 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
           >
             <p className="text-sm">
               {gameState.completedGuesses[currentImage]
-                ? `Score: ${gameState.completedGuesses[currentImage].score.toFixed(3)} km`
+                ? `Score: ${score.toFixed(3)} km`
                 : "Click a location on the map, then submit your guess."}
             </p>
           </div>

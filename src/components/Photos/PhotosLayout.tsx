@@ -10,7 +10,7 @@ interface PhotoProgressProps {
   photoData?: ResponsePhotoData;
 }
 
-const PhotoProgress: React.FC = ({
+const PhotoProgress: React.FC<PhotoProgressProps> = ({
   currentImageIndex,
   photoData,
 }: PhotoProgressProps) => {
