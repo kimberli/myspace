@@ -39,7 +39,7 @@ const PhotosLayout: React.FC<PhotosLayoutProps> = ({
       <div className="flex flex-row gap-2 justify-between">
         <Button
           onClick={() => setGameStatus(GameStatus.INTRO)}
-          text="Return to gallery home"
+          text="Return"
           outline
         />
         <div className="flex gap-2 items-center">

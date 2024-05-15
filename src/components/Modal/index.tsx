@@ -21,7 +21,7 @@ const Modal: React.FC<ModalProps> = ({
   const classes = classNames(
     fullSize
       ? "w-11/12 max-w-[1200px] h-[90dvh]"
-      : "min-w-80 w-1/2 min-h-64 h-auto max-h-[90dvh]",
+      : "min-w-72 w-1/2 min-h-64 h-auto max-h-[90dvh]",
   );
   return (
     <>

@@ -127,7 +127,7 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
           imageId={currentImage}
           blurBase64Image={photoData[currentImage]?.blur}
           description={photoData[currentImage]?.description}
-          descriptionClasses="sm:max-h-32 sm:overflow-y-scroll"
+          className="xs:max-w-[380px]"
         />
         <div className="w-auto h-full sm:w-full sm:h-auto place-self-stretch">
           <Map

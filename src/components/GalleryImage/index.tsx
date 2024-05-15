@@ -8,20 +8,24 @@ interface GalleryImageProps {
   imageId: string;
   blurBase64Image: string;
   altText: string;
+  className?: string;
   description?: string;
-  descriptionClasses?: string;
+  descriptionClassName?: string;
 }
 
 const GalleryImage: React.FC<GalleryImageProps> = ({
   imageId,
   blurBase64Image,
   altText,
+  className,
   description,
-  descriptionClasses,
+  descriptionClassName,
 }: GalleryImageProps) => {
   return (
-    <div className="flex flex-col gap-2 w-full xs:max-w-[380px]">
-      <div className="aspect-square h-auto w-full relative">
+    <div
+      className={classNames("flex flex-col gap-2 w-full relative", className)}
+    >
+      <div className="aspect-square h-auto xs:max-w-[380px] w-full relative">
         <a
           href={`${URL_PREFIX}${imageId}.jpg`}
           target="_blank"
@@ -41,7 +45,7 @@ const GalleryImage: React.FC<GalleryImageProps> = ({
         </a>
       </div>
       {description && (
-        <p className={classNames("mb-1 text-sm grow", descriptionClasses)}>
+        <p className={classNames("mb-1 text-xs", descriptionClassName)}>
           {description}
         </p>
       )}

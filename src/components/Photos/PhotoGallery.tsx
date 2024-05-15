@@ -92,16 +92,14 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({
   } else if (photoData && currentImage) {
     contents = (
       <div className="flex flex-col grow justify-between items-center h-full w-full select-none">
-        <div className="flex flex-col gap-3 grow items-center w-full">
-          <GalleryImage
-            imageId={currentImage}
-            blurBase64Image={photoData[currentImage]?.blur}
-            altText={photoData[currentImage]?.label}
-          />
-          <p className="mb-1 text-sm text-center max-w-[800px]">
-            {photoData[currentImage]?.description}
-          </p>
-        </div>
+        <GalleryImage
+          imageId={currentImage}
+          blurBase64Image={photoData[currentImage]?.blur}
+          altText={photoData[currentImage]?.label}
+          className="items-center"
+          description={photoData[currentImage]?.description}
+          descriptionClassName="text-center max-w-[800px]"
+        />
         <div
           className="flex flex-row gap-1 overflow-x-scroll"
           ref={scrollableImagesRef}

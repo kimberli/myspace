@@ -18,7 +18,7 @@ const GameInfo: React.FC = () => {
         rather than just in a gallery grid. For each photo, identify the
         location in the world you think it was taken.
       </p>
-      <div className="flex flex-row gap-2 justify-end">
+      <div className="flex flex-col md:flex-row gap-2 justify-end">
         <Button
           onClick={() => setGameStatus(GameStatus.PLAYING)}
           text="Try the challenge"
