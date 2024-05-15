@@ -9,6 +9,7 @@ interface ModalProps extends React.PropsWithChildren {
   title: string;
   onClose: () => void;
   fullSize?: boolean;
+  leftControls?: React.ReactNode;
 }
 
 const Modal: React.FC<ModalProps> = ({
@@ -17,6 +18,7 @@ const Modal: React.FC<ModalProps> = ({
   title,
   onClose,
   fullSize,
+  leftControls,
 }: ModalProps) => {
   const classes = classNames(
     fullSize
@@ -35,12 +37,10 @@ const Modal: React.FC<ModalProps> = ({
           classes,
         )}
       >
-        <IconButton
-          className="fixed top-0 right-0 m-4"
-          onClick={onClose}
-          icon={<HiOutlineXMark />}
-          transparent
-        />
+        <div className="fixed left-0 m-2">{leftControls}</div>
+        <div className="fixed right-0 m-2">
+          <IconButton onClick={onClose} icon={<HiOutlineXMark />} transparent />
+        </div>
         <div className={classNames("p-6 h-full", className)}>
           <h1 className="mb-4 text-center text-2xl">{title}</h1>
           <div className="h-full p-2 overflow-y-scroll">{children}</div>

@@ -1,11 +1,13 @@
 "use client";
 
 import React, { useContext } from "react";
+import { HiChevronLeft } from "react-icons/hi2";
 import { useRouter } from "next/navigation";
 import useSWR from "swr";
 
 import { GameStateContext, GameStatus } from "@/context/GameState";
 import GameInfo from "@/components/Photos/GameInfo";
+import IconButton from "@/components/IconButton";
 import LoadingOverlay from "@/components/LoadingOverlay";
 import Modal from "@/components/Modal";
 import PhotoGallery from "@/components/Photos/PhotoGallery";
@@ -23,7 +25,7 @@ interface PhotosProps {
 const Photos: React.FC<PhotosProps> = ({ mapboxApiKey }: PhotosProps) => {
   const router = useRouter();
   const onClose = (): void => router.push("/");
-  const { gameState } = useContext(GameStateContext);
+  const { gameState, setGameStatus } = useContext(GameStateContext);
 
   const { data, error, isLoading } = useSWR<ResponsePhotoData, string, string>(
     "/api/photos",
@@ -64,12 +66,22 @@ const Photos: React.FC<PhotosProps> = ({ mapboxApiKey }: PhotosProps) => {
     default:
       contents = <LoadingOverlay />;
   }
+
+  const leftControls =
+    gameState.status === GameStatus.INTRO ? undefined : (
+      <IconButton
+        onClick={() => setGameStatus(GameStatus.INTRO)}
+        icon={<HiChevronLeft />}
+        transparent
+      />
+    );
   return (
     <Modal
       title="Gallery"
       className="flex flex-col"
       onClose={onClose}
       fullSize={gameState.status !== GameStatus.INTRO}
+      leftControls={leftControls}
     >
       {contents}
     </Modal>

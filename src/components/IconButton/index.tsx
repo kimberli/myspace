@@ -18,7 +18,8 @@ const IconButton: React.FC<IconButtonProps> = ({
   outline,
   transparent,
 }: IconButtonProps) => {
-  const defaultClasses = "flex h-8 items-center justify-center p-0.5 rounded";
+  const defaultClasses =
+    "flex h-8 w-8 items-center justify-center p-0.5 rounded";
   const classes = classNames(
     !transparent && "bg-rose-200",
     defaultClasses,

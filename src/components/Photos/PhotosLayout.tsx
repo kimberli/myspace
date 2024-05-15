@@ -1,7 +1,4 @@
-import React, { useContext } from "react";
-
-import { GameStateContext, GameStatus } from "@/context/GameState";
-import Button from "@/components/Button";
+import React from "react";
 
 import type { ResponsePhotoData } from "@/app/api/photos/route";
 
@@ -32,16 +29,10 @@ const PhotosLayout: React.FC<PhotosLayoutProps> = ({
   currentImageIndex,
   photoData,
 }: PhotosLayoutProps) => {
-  const { setGameStatus } = useContext(GameStateContext);
   return (
     <div className="flex flex-col gap-2 min-h-full">
       <div className="flex flex-col grow h-full w-full">{contents}</div>
-      <div className="flex flex-row gap-2 justify-between">
-        <Button
-          onClick={() => setGameStatus(GameStatus.INTRO)}
-          text="Return"
-          outline
-        />
+      <div className="flex flex-row gap-2 justify-end">
         <div className="flex gap-2 items-center">
           <PhotoProgress
             currentImageIndex={currentImageIndex}
