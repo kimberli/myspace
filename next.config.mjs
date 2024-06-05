@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'static.curious.kim',
+        hostname: process.env.NEXT_PUBLIC_PHOTOS_HOSTNAME,
         pathname: '**',
       },
     ],

@@ -36,3 +36,11 @@ Only photos with the `.jpg` extension are supported.
 Commit and push the changes to update them in the application.
 
 To check whether all photos are properly organized, run `bash script/organize_photos.sh -c`.
+
+## Deployment
+
+Deploy this application using Vercel, and point that application to the primary domain.
+
+Photos are hosted separately using GitHub Pages.
+Set up the Pages repository to point at `https://static.<domain>`.
+Then set the hostname under the `NEXT_PUBLIC_PHOTOS_HOSTNAME` environment variable.

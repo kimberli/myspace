@@ -2,7 +2,7 @@ import classNames from "classnames";
 import Image from "next/image";
 import React from "react";
 
-export const URL_PREFIX = "https://static.curious.kim/photos/";
+export const URL_PREFIX = `https://${process.env.NEXT_PUBLIC_PHOTOS_HOSTNAME}/photos/`;
 
 interface GalleryImageProps {
   imageId: string;
