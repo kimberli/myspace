@@ -73,6 +73,7 @@ const Map: React.FC<MapProps> = ({
       key={`marker-${index}`}
       longitude={pin.longitude}
       latitude={pin.latitude}
+      offset={[0, -11]}
     >
       <IoPinSharp size="2em" color={pin.color} />
     </Marker>
