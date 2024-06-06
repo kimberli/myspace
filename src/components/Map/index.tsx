@@ -14,6 +14,12 @@ export type Pin = {
   color?: string;
 };
 
+type ViewState = {
+  latitude: number;
+  longitude: number;
+  zoom: number;
+};
+
 type MapProps = {
   apiKey: string;
   centerLatitude?: number;
@@ -56,7 +62,7 @@ const Map: React.FC<MapProps> = ({
     return <p>Error: Mapbox API key not set.</p>;
   }
 
-  const setViewState = (viewState: object): void => {
+  const setViewState = (viewState: ViewState): void => {
     setLatitude(viewState.latitude);
     setLongitude(viewState.longitude);
     setZoom(viewState.zoom);
