@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import { GameStateContext, GameStatus } from "@/context/GameState";
 import Button from "@/components/Button";
 
-const GameInfo: React.FC = () => {
+const GalleryInfo: React.FC = () => {
   const { setGameStatus } = useContext(GameStateContext);
 
   return (
@@ -33,4 +33,4 @@ const GameInfo: React.FC = () => {
   );
 };
 
-export default GameInfo;
+export default GalleryInfo;

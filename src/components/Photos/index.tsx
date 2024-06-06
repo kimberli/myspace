@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import useSWR from "swr";
 
 import { GameStateContext, GameStatus } from "@/context/GameState";
-import GameInfo from "@/components/Photos/GameInfo";
+import GalleryInfo from "@/components/Photos/GalleryInfo";
 import IconButton from "@/components/IconButton";
 import LoadingOverlay from "@/components/LoadingOverlay";
 import Modal from "@/components/Modal";
@@ -39,7 +39,7 @@ const Photos: React.FC<PhotosProps> = ({ mapboxApiKey }: PhotosProps) => {
   let contents;
   switch (gameState.status) {
     case GameStatus.INTRO:
-      contents = <GameInfo />;
+      contents = <GalleryInfo />;
       break;
     case GameStatus.SKIPPED:
       contents = (
