@@ -80,7 +80,6 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
         longitude: result.correctLongitude,
         score: result.score,
       });
-      // TODO(Kim): Reset map zoom state when correct answer appears.
     } catch (error) {
       console.error(error);
     }
@@ -131,6 +130,9 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
         <div className="w-auto h-full sm:w-full sm:h-auto place-self-stretch">
           <Map
             apiKey={mapboxApiKey}
+            centerLatitude={completedGuess?.latitude}
+            centerLongitude={completedGuess?.longitude}
+            zoomLevel={hasSubmitted ? 0 : undefined}
             onClick={clickHandler}
             clickable
             pins={pins}
