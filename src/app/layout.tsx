@@ -2,6 +2,8 @@ import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { Karla } from "next/font/google";
 import React from "react";
 
+import { ANALYTICS_MEASUREMENT_ID, TAG_MANAGER_ID } from "@/lib/analytics";
+
 import "./globals.css";
 
 import type { Metadata } from "next";
@@ -23,12 +25,12 @@ const RootLayout: React.FC<RootLayoutProps> = ({
 }: RootLayoutProps) => {
   return (
     <html lang="en">
-      <GoogleTagManager gtmId="GTM-WN92TN8N" />
+      <GoogleTagManager gtmId={TAG_MANAGER_ID} />
       <body className={karla.className}>
         {children}
         {modal}
       </body>
-      <GoogleAnalytics gaId="G-GT6NFS8BH3" />
+      <GoogleAnalytics gaId={ANALYTICS_MEASUREMENT_ID} />
     </html>
   );
 };

@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import React from "react";
-import { sendGTMEvent } from "@next/third-parties/google";
 
+import { AnalyticsEvent, AnalyticsVariable, trackEvent } from "@/lib/analytics";
 import Spinner from "@/components/Spinner";
 
 interface ButtonProps {
@@ -31,7 +31,9 @@ const Button: React.FC<ButtonProps> = ({
   );
   const trackedOnClick = onClick
     ? (): void => {
-        sendGTMEvent({ event: "Button Clicked", buttonClicked: text });
+        trackEvent(AnalyticsEvent.BUTTON_CLICKED, {
+          [AnalyticsVariable.BUTTON_CLICKED]: text,
+        });
         onClick();
       }
     : undefined;

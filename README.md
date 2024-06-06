@@ -44,3 +44,15 @@ Deploy this application using Vercel, and point that application to the primary 
 Photos are hosted separately using GitHub Pages.
 Set up the Pages repository to point at `https://static.<domain>`.
 Then set the hostname under the `NEXT_PUBLIC_PHOTOS_HOSTNAME` environment variable.
+
+## Analytics
+The code includes logic to track user events in Google Analytics and Google Tag Manager.
+
+First, set up Google Analytics.
+Get the Measurement ID for the property and make sure it's set in `src/lib/analytics.ts`.
+
+Then, set up Google Tag Manager. 
+1. Get the workspace's Tag Manager ID and make sure it's set in `src/lib/analytics.ts`.
+2. Set up User-Defined Data Layer Variables for the `AnalyticsVariable` values in `src/lib/analytics.ts`.
+3. Set up Custom Event Triggers based on the `AnalyticsEvent` names in `src/lib/analytics.ts`, applying custom conditions if needed. 
+4. Finally, set up Google Analytics GA4 Event Tags on the Triggers defined above. Include Event Parameters to send over variable values for tracking as well.

@@ -1,7 +1,7 @@
 import React, { useCallback, useContext, useEffect, useState } from "react";
 import classNames from "classnames";
-import { sendGTMEvent } from "@next/third-parties/google";
 
+import { AnalyticsEvent, AnalyticsVariable, trackEvent } from "@/lib/analytics";
 import Button from "@/components/Button";
 import GalleryImage from "@/components/GalleryImage";
 import { GameStateContext } from "@/context/GameState";
@@ -85,10 +85,13 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
         longitude: result.correctLongitude,
         score: result.score,
       });
-      sendGTMEvent({
-        event: "Guessed Photo",
-        guessPhoto: currentImage,
-        guessScore: result.score,
+      trackEvent(AnalyticsEvent.GUESSED_PHOTO, {
+        [AnalyticsVariable.GUESS_PHOTO]: currentImage,
+        [AnalyticsVariable.GUESS_SCORE]: result.score,
+        [AnalyticsVariable.NUMBER_GUESSES]: Object.keys(
+          gameState.completedGuesses,
+        ).length,
+        [AnalyticsVariable.USER_ID]: gameState.userId,
       });
     } catch (error) {
       console.error(error);
@@ -191,10 +194,10 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
 
     const averageScore = scores.reduce((a, b) => a + b, 0) / scores.length;
     const totalScore = scores.reduce((a, b) => a + b, 0);
-    sendGTMEvent({
-      event: "Game Over",
-      finalScore: totalScore,
-      numberGuesses: scores.length,
+    trackEvent(AnalyticsEvent.GAME_OVER, {
+      [AnalyticsVariable.FINAL_SCORE]: totalScore,
+      [AnalyticsVariable.NUMBER_GUESSES]: scores.length,
+      [AnalyticsVariable.USER_ID]: gameState.userId,
     });
 
     contents = (

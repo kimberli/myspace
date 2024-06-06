@@ -3,7 +3,8 @@
 import classNames from "classnames";
 import Image from "next/image";
 import React from "react";
-import { sendGTMEvent } from "@next/third-parties/google";
+
+import { AnalyticsEvent, AnalyticsVariable, trackEvent } from "@/lib/analytics";
 
 const GLOW = "hover:drop-shadow-[0_0_6px_rgba(245,222,171,1)]";
 export const PARENT_GLOW =
@@ -38,7 +39,9 @@ const RoomItem: React.FC<RoomItemProps> = ({
 
   const trackedOnClick = onClick
     ? (): void => {
-        sendGTMEvent({ event: "Item Clicked", itemClicked: itemName });
+        trackEvent(AnalyticsEvent.ITEM_CLICKED, {
+          [AnalyticsVariable.ITEM_CLICKED]: itemName,
+        });
         onClick();
       }
     : undefined;
