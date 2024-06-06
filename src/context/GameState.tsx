@@ -3,6 +3,10 @@
 import React, { createContext, useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
+import type { GuessResult } from "@/src/app/api/photos/route";
+
+export const PHOTOS_PER_ROUND = 6;
+
 export const enum GameStatus {
   UNDEFINED = 0,
   INTRO = 1,
@@ -11,24 +15,20 @@ export const enum GameStatus {
   FINISHED = 4,
 }
 
-interface Guess {
-  score: number;
-  latitude: number;
-  longitude: number;
-}
-
 interface Guesses {
-  [photoId: string]: Guess;
+  [photoId: string]: GuessResult;
 }
 
 interface GameState {
   userId: string;
+  currentRound: number;
   status: GameStatus;
   completedGuesses: Guesses;
 }
 
 const EmptyGameState = {
   userId: "",
+  currentRound: 0,
   status: GameStatus.UNDEFINED,
   completedGuesses: {},
 };
@@ -37,23 +37,33 @@ function loadGameState(): GameState {
   const storedState = localStorage.getItem("game-state");
   if (storedState) {
     try {
-      const state = JSON.parse(storedState);
+      const state = { currentRound: 0, ...JSON.parse(storedState) };
       return state;
     } catch {
       return {
         userId: uuidv4(),
+        currentRound: 0,
         status: GameStatus.INTRO,
         completedGuesses: {},
       };
     }
   }
-  return { userId: uuidv4(), status: GameStatus.INTRO, completedGuesses: {} };
+  return {
+    userId: uuidv4(),
+    currentRound: 0,
+    status: GameStatus.INTRO,
+    completedGuesses: {},
+  };
 }
 
 export const GameStateContext = createContext({
   gameState: {} as GameState,
   setGameStatus: (_gameStatus: GameStatus): void => {},
-  addCompletedGuess: (_photoId: string, _guess: Guess): void => {},
+  addCompletedGuess: (_photoId: string, _guess: GuessResult): void => {},
+  getCurrentGuessIndex: (): number => 0,
+  incrementCurrentRound: (): void => {},
+  getGuessesFromCurrentRound: (): Guesses => {},
+  clearGameState: (): void => {},
 });
 
 const GameStateProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
@@ -80,16 +90,54 @@ const GameStateProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
     setGameState({ ...gameState, status: gameStatus });
   };
 
-  const addCompletedGuess = (photoId: string, guess: Guess): void => {
+  const addCompletedGuess = (photoId: string, guess: GuessResult): void => {
     setGameState({
       ...gameState,
       completedGuesses: { ...gameState.completedGuesses, [photoId]: guess },
     });
   };
 
+  const getCurrentGuessIndex = (): number => {
+    return Object.keys(gameState.completedGuesses).length;
+  };
+
+  const incrementCurrentRound = (): void => {
+    setGameState((prevState) => ({
+      ...prevState,
+      currentRound: prevState.currentRound + 1,
+    }));
+  };
+
+  const getGuessesFromCurrentRound = (): Guesses => {
+    const roundStartIndex = gameState.currentRound * PHOTOS_PER_ROUND;
+    const photosInRound = Object.keys(gameState.completedGuesses).slice(
+      roundStartIndex,
+      roundStartIndex + PHOTOS_PER_ROUND,
+    );
+    return photosInRound.reduce(
+      (acc, photoId) => ({
+        ...acc,
+        [photoId]: gameState.completedGuesses[photoId],
+      }),
+      {},
+    );
+  };
+
+  const clearGameState = (): void => {
+    setGameState(EmptyGameState);
+  };
+
   return (
     <GameStateContext.Provider
-      value={{ gameState, setGameStatus, addCompletedGuess }}
+      value={{
+        gameState,
+        setGameStatus,
+        addCompletedGuess,
+        getCurrentGuessIndex,
+        incrementCurrentRound,
+        getGuessesFromCurrentRound,
+        clearGameState,
+      }}
     >
       {children}
     </GameStateContext.Provider>

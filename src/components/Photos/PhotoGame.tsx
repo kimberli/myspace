@@ -1,17 +1,15 @@
 import React, { useCallback, useContext, useEffect, useState } from "react";
 
 import { AnalyticsEvent, AnalyticsVariable, trackEvent } from "@/lib/analytics";
+import GameGuess, { CURRENT_PIN_COLOR } from "@/components/Photos/GameGuess";
+import { GameStateContext, PHOTOS_PER_ROUND } from "@/context/GameState";
 import Button from "@/components/Button";
-import GameGuess from "@/components/Photos/GameGuess";
-import { GameStateContext } from "@/context/GameState";
 import GameSummary from "@/components/Photos/GameSummary";
 import PhotosLayout from "@/components/Photos/PhotosLayout";
 import Spinner from "@/components/Spinner";
 
 import type { MapClickEvent, Pin } from "@/components/Map";
 import type { ResponsePhotoData } from "@/app/api/photos/route";
-
-const CURRENT_PIN_COLOR = "#fb7185";
 
 interface PhotoGameProps {
   mapboxApiKey: string;
@@ -29,7 +27,13 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
   const [currentPin, setCurrentPin] = useState<Pin | undefined>(undefined);
   const [hasSubmitted, setHasSubmitted] = useState<boolean>(false);
   const [currentImage, setCurrentImage] = useState<string>("");
-  const { gameState, addCompletedGuess } = useContext(GameStateContext);
+  const {
+    gameState,
+    addCompletedGuess,
+    getCurrentGuessIndex,
+    incrementCurrentRound,
+    clearGame,
+  } = useContext(GameStateContext);
 
   let contents: React.ReactNode;
   let controls: React.ReactNode;
@@ -82,13 +86,12 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
         latitude: result.correctLatitude,
         longitude: result.correctLongitude,
         score: result.score,
+        scoreQuality: result.scoreQuality,
       });
       trackEvent(AnalyticsEvent.GUESSED_PHOTO, {
         [AnalyticsVariable.GUESS_PHOTO]: currentImage,
         [AnalyticsVariable.GUESS_SCORE]: result.score,
-        [AnalyticsVariable.NUMBER_GUESSES]: Object.keys(
-          gameState.completedGuesses,
-        ).length,
+        [AnalyticsVariable.NUMBER_GUESSES]: getCurrentGuessIndex(),
         [AnalyticsVariable.USER_ID]: gameState.userId,
       });
     } catch (error) {
@@ -97,10 +100,22 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
   };
 
   const isGameOver = (): boolean => {
+    if (!photoData) {
+      return false;
+    }
+    const totalPhotos = Object.keys(photoData).length;
+    return PHOTOS_PER_ROUND * gameState.currentRound >= totalPhotos;
+  };
+
+  const atEndOfRound = (): boolean => {
+    const currentGuessIndex = getCurrentGuessIndex();
+    if (currentGuessIndex === 0) {
+      return false;
+    }
+    const intendedRound = currentGuessIndex / PHOTOS_PER_ROUND;
     return (
-      !!photoData &&
-      Object.keys(photoData).length ===
-        Object.keys(gameState.completedGuesses).length
+      intendedRound !== gameState.currentRound &&
+      currentGuessIndex % PHOTOS_PER_ROUND === 0
     );
   };
 
@@ -114,6 +129,26 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
     contents = (
       <p className="text-center">Error fetching data. Please try again.</p>
     );
+  } else if (isGameOver()) {
+    contents = <GameSummary photoData={photoData} gameOver />;
+    controls = (
+      <Button
+        onClick={() => {
+          clearGame();
+        }}
+        text="Start over"
+      />
+    );
+  } else if (!completedGuess && atEndOfRound()) {
+    contents = <GameSummary photoData={photoData} />;
+    controls = (
+      <Button
+        onClick={() => {
+          incrementCurrentRound();
+        }}
+        text="Continue"
+      />
+    );
   } else if (!isLoading && photoData && currentImage && gameState.userId) {
     contents = (
       <GameGuess
@@ -125,8 +160,21 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
         clickHandler={clickHandler}
       />
     );
-  } else if (isGameOver()) {
-    contents = <GameSummary photoData={photoData} />;
+    if (completedGuess) {
+      controls = (
+        <Button
+          onClick={() => {
+            setHasSubmitted(true);
+            advanceCurrentImage();
+          }}
+          text="Next"
+        />
+      );
+    } else {
+      controls = (
+        <Button onClick={makeGuess} disabled={!currentPin} text="Submit" />
+      );
+    }
   } else {
     contents = (
       <div className="flex grow items-center justify-center w-full h-full">
@@ -135,28 +183,12 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
     );
   }
 
-  if (completedGuess) {
-    controls = (
-      <Button
-        onClick={() => {
-          setHasSubmitted(true);
-          advanceCurrentImage();
-        }}
-        text="Next"
-      />
-    );
-  } else if (!isGameOver()) {
-    controls = (
-      <Button onClick={makeGuess} disabled={!currentPin} text="Submit" />
-    );
-  }
-
   return (
     <PhotosLayout
       contents={contents}
-      currentImageIndex={Object.keys(gameState?.completedGuesses || {}).length}
-      photoData={photoData}
       controls={controls}
+      currentImageIndex={getCurrentGuessIndex()}
+      photoData={photoData}
     />
   );
 };

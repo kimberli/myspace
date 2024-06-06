@@ -1,54 +1,63 @@
 import React, { useContext, useEffect } from "react";
 
 import { AnalyticsEvent, AnalyticsVariable, trackEvent } from "@/lib/analytics";
+import { GameStateContext, PHOTOS_PER_ROUND } from "@/context/GameState";
+import Button from "@/components/Button";
+import Code from "@/components/Code";
 import GalleryImage from "@/components/GalleryImage";
-import { GameStateContext } from "@/context/GameState";
+import Spinner from "@/components/Spinner";
 
+import type { Guesses } from "@/context/GameState";
 import type { ResponsePhotoData } from "@/app/api/photos/route";
 
 interface GameSummaryProps {
+  gameOver?: boolean;
   photoData?: ResponsePhotoData;
 }
 
 const GameSummary: React.FC<GameSummaryProps> = ({
+  gameOver,
   photoData,
 }: GameSummaryProps) => {
-  const { gameState } = useContext(GameStateContext);
+  const { gameState, getGuessesFromCurrentRound } =
+    useContext(GameStateContext);
 
-  const scores = Object.values(gameState.completedGuesses).map(
-    (guess) => guess.score,
-  );
+  let guesses: Guesses;
+  if (gameOver) {
+    guesses = gameState.completedGuesses;
+  } else {
+    guesses = getGuessesFromCurrentRound();
+  }
 
-  const minGuess = Object.entries(gameState.completedGuesses).reduce((a, b) =>
-    a[1].score < b[1].score ? a : b,
-  );
-  const minGuessImage = minGuess[0];
-  const maxGuess = Object.entries(gameState.completedGuesses).reduce((a, b) =>
-    a[1].score > b[1].score ? a : b,
-  );
-  const maxGuessImage = maxGuess[0];
+  const scores = Object.values(guesses).map((guess) => guess.score);
 
   const averageScore = scores.reduce((a, b) => a + b, 0) / scores.length;
   const totalScore = scores.reduce((a, b) => a + b, 0);
 
   useEffect(() => {
-    trackEvent(AnalyticsEvent.GAME_OVER, {
+    const eventName = gameOver
+      ? AnalyticsEvent.GAME_OVER
+      : AnalyticsEvent.ROUND_OVER;
+    trackEvent(eventName, {
       [AnalyticsVariable.FINAL_SCORE]: totalScore,
       [AnalyticsVariable.NUMBER_GUESSES]: scores.length,
       [AnalyticsVariable.USER_ID]: gameState.userId,
     });
-  }, [gameState.userId, scores.length, totalScore]);
+  }, [gameOver, gameState.userId, scores.length, totalScore]);
 
-  return (
-    <div className="divide-y flex flex-col gap-2">
-      <div>
-        <p className="text-center">Game over!</p>
-        <p className="text-center">
-          Average score: {averageScore.toFixed(2)} km
-        </p>
-        <p className="text-center">Total score: {totalScore.toFixed(2)} km</p>
-      </div>
-      {!!photoData && (
+  let details: React.ReactNode;
+  if (!gameOver) {
+    if (photoData) {
+      const minGuess = Object.entries(guesses).reduce((a, b) =>
+        a[1].score < b[1].score ? a : b,
+      );
+      const minGuessImage = minGuess[0];
+      const maxGuess = Object.entries(guesses).reduce((a, b) =>
+        a[1].score > b[1].score ? a : b,
+      );
+      const maxGuessImage = maxGuess[0];
+
+      details = (
         <div className="flex flex-col xs:flex-row justify-evenly gap-2 pt-2">
           <div>
             <p className="text-center text-sm">
@@ -75,7 +84,56 @@ const GameSummary: React.FC<GameSummaryProps> = ({
             />
           </div>
         </div>
-      )}
+      );
+    } else {
+      details = (
+        <div className="flex grow items-center justify-center w-full h-full">
+          <Spinner />
+        </div>
+      );
+    }
+  } else {
+    const roundScores: number[] = [];
+    const totalRounds = Object.keys(photoData).length / PHOTOS_PER_ROUND;
+    for (let round = 0; round < totalRounds; round++) {
+      const roundScore = scores
+        .filter(
+          (score, index) => Math.floor(index / PHOTOS_PER_ROUND) === round,
+        )
+        .reduce((a, b) => a + b, 0);
+      roundScores.push(roundScore);
+    }
+    details = (
+      <div className="flex flex-col items-center justify-center gap-2">
+        <Code className="text-sm text-zinc-500 mt-2">
+          {roundScores.map(
+            (score, index) => `Round ${index + 1}: ${score.toFixed(2)} km\n`,
+          )}
+        </Code>
+        <Button
+          onClick={() =>
+            navigator.clipboard.writeText("Copy this text to clipboard")
+          }
+          text="Share results"
+        />
+      </div>
+    );
+  }
+
+  return (
+    <div className="divide-y flex flex-col gap-2">
+      <div>
+        <p className="text-center">
+          {gameOver ? "Game over!" : `Round ${gameState.currentRound + 1}`}
+        </p>
+        <p className="text-center text-sm">
+          Average score: {averageScore.toFixed(2)} km
+        </p>
+        <p className="text-center text-sm">
+          Total score: {totalScore.toFixed(2)} km
+        </p>
+      </div>
+      {details}
     </div>
   );
 };

@@ -4,6 +4,7 @@ import classNames from "classnames";
 import GalleryImage from "@/components/GalleryImage";
 import { GameStateContext } from "@/context/GameState";
 import Map from "@/components/Map";
+import { ScoreQuality } from "@/app/api/photos/route";
 
 import type { MapClickEvent, Pin } from "@/components/Map";
 import type { ResponsePhotoData } from "@/app/api/photos/route";
@@ -32,6 +33,7 @@ const GameGuess: React.FC<GameGuessProps> = ({
 
   const completedGuess = gameState?.completedGuesses?.[currentImage];
   const score = completedGuess?.score;
+  const scoreQuality = completedGuess?.scoreQuality;
 
   const pins = [];
   if (currentPin) {
@@ -45,20 +47,22 @@ const GameGuess: React.FC<GameGuessProps> = ({
     });
   }
 
-  let guessColor: string;
+  let guessColor: string = "bg-white";
   let guessText: string = "";
 
-  if (score === undefined) {
-    guessColor = "bg-white";
-  } else if (score < 1000) {
-    guessColor = "bg-emerald-100";
-    guessText = "Good job!";
-  } else if (score < 5000) {
-    guessColor = "bg-amber-100";
-    guessText = "Not bad.";
-  } else {
-    guessColor = "bg-red-100";
-    guessText = "Better luck next time.";
+  switch (scoreQuality) {
+    case ScoreQuality.GOOD:
+      guessColor = "bg-emerald-100";
+      guessText = "Good job!";
+      break;
+    case ScoreQuality.OK:
+      guessColor = "bg-amber-100";
+      guessText = "Not bad.";
+      break;
+    case ScoreQuality.POOR:
+      guessColor = "bg-red-100";
+      guessText = "Better luck next time.";
+      break;
   }
 
   return (

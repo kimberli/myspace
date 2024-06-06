@@ -14,6 +14,13 @@ type RawPhotoData = {
   };
 };
 
+export enum ScoreQuality {
+  UNDEFINED,
+  POOR,
+  OK,
+  GOOD,
+}
+
 export type ResponsePhotoData = {
   [key: string]: {
     blur: string;
@@ -26,6 +33,7 @@ export type GuessResult = {
   correctLatitude: number;
   correctLongitude: number;
   score: number;
+  scoreQuality: ScoreQuality;
 };
 
 const EARTH_RADIUS_KM = 6371;
@@ -101,10 +109,19 @@ export async function POST(
       correctLatitude,
       correctLongitude,
     );
+    let scoreQuality;
+    if (score < 1000) {
+      scoreQuality = ScoreQuality.GOOD;
+    } else if (score < 5000) {
+      scoreQuality = ScoreQuality.OK;
+    } else {
+      scoreQuality = ScoreQuality.POOR;
+    }
     const guessResult = {
       correctLatitude,
       correctLongitude,
       score,
+      scoreQuality,
     };
     return NextResponse.json(guessResult);
   } catch (error) {

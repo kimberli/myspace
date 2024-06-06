@@ -8,6 +8,7 @@ export enum AnalyticsEvent {
   ITEM_CLICKED = "Item Clicked",
   GUESSED_PHOTO = "Guessed Photo",
   GAME_OVER = "Game Over",
+  ROUND_OVER = "Finished Round",
 }
 
 export enum AnalyticsVariable {
@@ -24,7 +25,6 @@ export const trackEvent = (
   eventName: string,
   variables?: Record<string, string | number>,
 ): void => {
-  console.log("sending tracking event", eventName, variables);
   sendGTMEvent({
     event: eventName,
     ...variables,
