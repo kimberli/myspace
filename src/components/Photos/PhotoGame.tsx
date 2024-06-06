@@ -121,7 +121,7 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
     }
     const score = gameState.completedGuesses[currentImage]?.score;
     let guessColor: string;
-    let guessText: string;
+    let guessText: string = "";
     if (score === undefined) {
       guessColor = "bg-white";
     } else if (score < 1000) {
