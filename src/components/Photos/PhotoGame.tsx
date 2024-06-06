@@ -97,7 +97,7 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
 
   const isGameOver = (): boolean => {
     return (
-      !photoData ||
+      !!photoData &&
       Object.keys(photoData).length ===
         Object.keys(gameState.completedGuesses).length
     );
@@ -191,7 +191,11 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
 
     const averageScore = scores.reduce((a, b) => a + b, 0) / scores.length;
     const totalScore = scores.reduce((a, b) => a + b, 0);
-    sendGTMEvent({ event: "Game Over", finalScore: totalScore });
+    sendGTMEvent({
+      event: "Game Over",
+      finalScore: totalScore,
+      numberGuesses: scores.length,
+    });
 
     contents = (
       <div className="divide-y flex flex-col gap-2">
