@@ -49,6 +49,9 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
   }, [currentImage, hasSubmitted, photoData, gameState.completedGuesses]);
 
   const clickHandler = (e: MapClickEvent): void => {
+    if (completedGuess) {
+      return;
+    }
     setCurrentPin({
       latitude: e.lngLat.lat,
       longitude: e.lngLat.lng,
