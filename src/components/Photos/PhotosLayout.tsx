@@ -11,6 +11,10 @@ const PhotoProgress: React.FC<PhotoProgressProps> = ({
   currentImageIndex,
   photoData,
 }: PhotoProgressProps) => {
+  const totalImages = Object.keys(photoData || {}).length;
+  if (currentImageIndex === totalImages) {
+    return null;
+  }
   return photoData ? (
     <span>{`${currentImageIndex + 1} / ${Object.keys(photoData).length}`}</span>
   ) : null;
