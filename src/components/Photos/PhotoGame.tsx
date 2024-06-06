@@ -108,15 +108,19 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
       });
     }
     const score = gameState.completedGuesses[currentImage]?.score;
-    let guessColor;
+    let guessColor: string;
+    let guessText: string;
     if (score === undefined) {
       guessColor = "bg-white";
     } else if (score < 1000) {
-      guessColor = "bg-green-200";
+      guessColor = "bg-emerald-100";
+      guessText = "Good job!";
     } else if (score < 5000) {
-      guessColor = "bg-amber-200";
+      guessColor = "bg-amber-100";
+      guessText = "Not bad.";
     } else {
-      guessColor = "bg-red-200";
+      guessColor = "bg-red-100";
+      guessText = "Better luck next time.";
     }
     contents = (
       <div className="flex flex-col sm:flex-row gap-2 grow items-center sm:items-start w-full h-full">
@@ -127,7 +131,7 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
           description={photoData[currentImage]?.description}
           className="xs:max-w-[380px]"
         />
-        <div className="w-auto h-full sm:w-full sm:h-auto place-self-stretch">
+        <div className="relative w-auto h-full sm:w-full sm:h-auto place-self-stretch">
           <Map
             apiKey={mapboxApiKey}
             centerLatitude={completedGuess?.latitude}
@@ -139,7 +143,7 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
           />
           <div
             className={classNames(
-              "relative top-[-80px] m-2 drop-shadow p-2 z-20",
+              "absolute top-0 m-2 drop-shadow-xl p-2 z-20",
               guessColor,
             )}
           >
@@ -148,6 +152,7 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
                 ? `Score: ${score.toFixed(3)} km`
                 : "Click a location on the map, then submit your guess."}
             </p>
+            <p className="text-sm">{guessText}</p>
           </div>
         </div>
       </div>
