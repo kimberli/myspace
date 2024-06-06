@@ -95,7 +95,6 @@ export async function POST(
     }
     const correctLatitude = TYPED_PHOTO_DATA[photoId].lat as number;
     const correctLongitude = TYPED_PHOTO_DATA[photoId].lng as number;
-    // TODO(Kim): Replace this with a real distance calculation.
     const score = calculateDistance(
       guessLatitude,
       guessLongitude,

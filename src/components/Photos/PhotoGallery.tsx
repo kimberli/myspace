@@ -129,7 +129,6 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({
     );
   }
 
-  // TODO(Kim): Decide whether to display correct photo locations in gallery view.
   return (
     <PhotosLayout
       contents={contents}

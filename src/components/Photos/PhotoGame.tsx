@@ -97,7 +97,6 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
       <p className="text-center">Error fetching . Please try again.</p>
     );
   } else if (!isLoading && photoData && currentImage && gameState.userId) {
-    // TODO(Kim): Only advance currentImage when user clicks a button.
     const pins = [];
     if (currentPin) {
       pins.push(currentPin);
