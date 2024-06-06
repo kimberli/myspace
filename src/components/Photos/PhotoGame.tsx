@@ -1,5 +1,6 @@
 import React, { useCallback, useContext, useEffect, useState } from "react";
 import classNames from "classnames";
+import { sendGTMEvent } from "@next/third-parties/google";
 
 import Button from "@/components/Button";
 import GalleryImage from "@/components/GalleryImage";
@@ -83,6 +84,11 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
         latitude: result.correctLatitude,
         longitude: result.correctLongitude,
         score: result.score,
+      });
+      sendGTMEvent({
+        event: "Guessed Photo",
+        guessPhoto: currentImage,
+        guessScore: result.score,
       });
     } catch (error) {
       console.error(error);
@@ -185,6 +191,7 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
 
     const averageScore = scores.reduce((a, b) => a + b, 0) / scores.length;
     const totalScore = scores.reduce((a, b) => a + b, 0);
+    sendGTMEvent({ event: "Game Over", finalScore: totalScore });
 
     contents = (
       <div className="divide-y flex flex-col gap-2">
