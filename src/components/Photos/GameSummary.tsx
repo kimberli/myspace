@@ -58,29 +58,27 @@ const GameSummary: React.FC<GameSummaryProps> = ({
       const maxGuessImage = maxGuess[0];
 
       details = (
-        <div className="flex flex-col xs:flex-row justify-evenly gap-2 pt-2">
+        <div className="flex flex-col sm:flex-row justify-evenly gap-2 py-2">
           <div>
-            <p className="text-center text-sm">
+            <p className="italic text-center text-sm">
               Best guess: {minGuess[1].score.toFixed(3)} km
             </p>
             <GalleryImage
               altText={photoData[minGuessImage]?.label}
               imageId={minGuessImage}
               blurBase64Image={photoData[minGuessImage]?.blur}
-              description={photoData[minGuessImage]?.description}
-              className="xs:max-w-[320px]"
+              className="m-auto max-w-[320px] sm:w-[260px] md:w-[320px]"
             />
           </div>
           <div>
-            <p className="text-center text-sm">
+            <p className="italic text-center text-sm">
               Worst guess: {maxGuess[1].score.toFixed(3)} km
             </p>
             <GalleryImage
               altText={photoData[maxGuessImage]?.label}
               imageId={maxGuessImage}
               blurBase64Image={photoData[maxGuessImage]?.blur}
-              description={photoData[maxGuessImage]?.description}
-              className="xs:max-w-[320px]"
+              className="m-auto max-w-[320px] sm:w-[260px] md:w-[320px]"
             />
           </div>
         </div>
