@@ -51,6 +51,10 @@ const GameGuess: React.FC<GameGuessProps> = ({
   let guessText: string = "";
 
   switch (scoreQuality) {
+    case ScoreQuality.GREAT:
+      guessColor = "bg-emerald-200";
+      guessText = "Amazing!";
+      break;
     case ScoreQuality.GOOD:
       guessColor = "bg-emerald-100";
       guessText = "Good job!";

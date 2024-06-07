@@ -37,6 +37,9 @@ const PhotoProgress: React.FC<PhotoProgressProps> = ({
           const guess = guesses[i];
           let color: string;
           switch (guess?.scoreQuality) {
+            case ScoreQuality.GREAT:
+              color = "text-emerald-400";
+              break;
             case ScoreQuality.GOOD:
               color = "text-emerald-200";
               break;

@@ -19,6 +19,7 @@ export enum ScoreQuality {
   POOR,
   OK,
   GOOD,
+  GREAT,
 }
 
 export type ResponsePhotoData = {
@@ -110,7 +111,9 @@ export async function POST(
       correctLongitude,
     );
     let scoreQuality;
-    if (score < 1000) {
+    if (score < 50) {
+      scoreQuality = ScoreQuality.GREAT;
+    } else if (score < 1000) {
       scoreQuality = ScoreQuality.GOOD;
     } else if (score < 5000) {
       scoreQuality = ScoreQuality.OK;
