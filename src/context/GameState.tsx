@@ -124,7 +124,11 @@ const GameStateProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   };
 
   const clearGameState = (): void => {
-    setGameState(EmptyGameState);
+    setGameState((prevState) => ({
+      ...prevState,
+      currentRound: 0,
+      completedGuesses: {},
+    }));
   };
 
   return (

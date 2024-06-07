@@ -32,7 +32,7 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
     addCompletedGuess,
     getCurrentGuessIndex,
     incrementCurrentRound,
-    clearGame,
+    clearGameState,
   } = useContext(GameStateContext);
 
   let contents: React.ReactNode;
@@ -134,7 +134,7 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
     controls = (
       <Button
         onClick={() => {
-          clearGame();
+          clearGameState();
         }}
         text="Start over"
       />
