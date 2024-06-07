@@ -5,7 +5,7 @@ import { GameStateContext, PHOTOS_PER_ROUND } from "@/context/GameState";
 import Code from "@/components/Code";
 import CopyButton from "@/components/CopyButton";
 import GalleryImage from "@/components/GalleryImage";
-import { ScoreThreshold } from "@/app/api/photos/route";
+import { ScoreThreshold } from "@/lib/game";
 import Spinner from "@/components/Spinner";
 
 import type { Guesses } from "@/context/GameState";
@@ -93,7 +93,7 @@ const GameSummary: React.FC<GameSummaryProps> = ({
     }
   } else {
     const roundScores: number[] = [];
-    const totalRounds = Object.keys(photoData).length / PHOTOS_PER_ROUND;
+    const totalRounds = Object.keys(photoData || {}).length / PHOTOS_PER_ROUND;
     for (let round = 0; round < totalRounds; round++) {
       const roundScore = scores
         .filter(

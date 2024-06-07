@@ -4,7 +4,7 @@ import classNames from "classnames";
 import GalleryImage from "@/components/GalleryImage";
 import { GameStateContext } from "@/context/GameState";
 import Map from "@/components/Map";
-import { ScoreQuality } from "@/app/api/photos/route";
+import { ScoreQuality } from "@/lib/game";
 
 import type { MapClickEvent, Pin } from "@/components/Map";
 import type { ResponsePhotoData } from "@/app/api/photos/route";
@@ -41,8 +41,8 @@ const GameGuess: React.FC<GameGuessProps> = ({
   }
   if (completedGuess) {
     pins.push({
-      latitude: completedGuess.latitude,
-      longitude: completedGuess.longitude,
+      latitude: completedGuess.correctLatitude,
+      longitude: completedGuess.correctLongitude,
       color: CORRECT_PIN_COLOR,
     });
   }
@@ -81,8 +81,8 @@ const GameGuess: React.FC<GameGuessProps> = ({
       <div className="relative w-auto h-full sm:w-full sm:h-auto place-self-stretch">
         <Map
           apiKey={mapboxApiKey}
-          centerLatitude={completedGuess?.latitude}
-          centerLongitude={completedGuess?.longitude}
+          centerLatitude={completedGuess?.correctLatitude}
+          centerLongitude={completedGuess?.correctLongitude}
           zoomLevel={hasSubmitted ? 0 : undefined}
           onClick={clickHandler}
           clickable

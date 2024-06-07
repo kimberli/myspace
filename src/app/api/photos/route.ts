@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
+import { ScoreQuality, ScoreThreshold } from "@/lib/game";
 import PHOTO_DATA from "@/lib/photos.json";
 
 import type { ErrorMessage } from "@/app/api/types";
@@ -13,21 +14,6 @@ type RawPhotoData = {
     description: string;
   };
 };
-
-export enum ScoreQuality {
-  UNDEFINED,
-  POOR,
-  OK,
-  GOOD,
-  GREAT,
-}
-
-export enum ScoreThreshold {
-  UNDEFINED = 0,
-  GREAT = 50,
-  GOOD = 1000,
-  OK = 5000,
-}
 
 export type ResponsePhotoData = {
   [key: string]: {

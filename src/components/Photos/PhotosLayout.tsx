@@ -6,7 +6,7 @@ import {
   GameStatus,
   PHOTOS_PER_ROUND,
 } from "@/context/GameState";
-import { ScoreQuality } from "@/app/api/photos/route";
+import { ScoreQuality } from "@/lib/game";
 
 import type { ResponsePhotoData } from "@/app/api/photos/route";
 

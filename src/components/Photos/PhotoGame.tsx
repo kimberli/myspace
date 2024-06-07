@@ -82,12 +82,7 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
         throw new Error(`${response.status} ${response.statusText}`);
       }
       const result = await response.json();
-      addCompletedGuess(currentImage, {
-        latitude: result.correctLatitude,
-        longitude: result.correctLongitude,
-        score: result.score,
-        scoreQuality: result.scoreQuality,
-      });
+      addCompletedGuess(currentImage, result);
       trackEvent(AnalyticsEvent.GUESSED_PHOTO, {
         [AnalyticsVariable.GUESS_PHOTO]: currentImage,
         [AnalyticsVariable.GUESS_SCORE]: result.score,

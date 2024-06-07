@@ -3,7 +3,7 @@
 import React, { createContext, useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-import type { GuessResult } from "@/src/app/api/photos/route";
+import type { GuessResult } from "@/app/api/photos/route";
 
 export const PHOTOS_PER_ROUND = 6;
 
@@ -15,7 +15,7 @@ export const enum GameStatus {
   FINISHED = 4,
 }
 
-interface Guesses {
+export interface Guesses {
   [photoId: string]: GuessResult;
 }
 
@@ -62,7 +62,7 @@ export const GameStateContext = createContext({
   addCompletedGuess: (_photoId: string, _guess: GuessResult): void => {},
   getCurrentGuessIndex: (): number => 0,
   incrementCurrentRound: (): void => {},
-  getGuessesFromCurrentRound: (): Guesses => {},
+  getGuessesFromCurrentRound: (): Guesses => ({}),
   clearGameState: (): void => {},
 });
 
