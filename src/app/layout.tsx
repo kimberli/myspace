@@ -11,6 +11,7 @@ import type { Metadata } from "next";
 const karla = Karla({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://curious.kim"),
   title: "kim space",
   description: "explore kim's space",
 };
