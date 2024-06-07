@@ -2,9 +2,10 @@ import React, { useContext, useEffect } from "react";
 
 import { AnalyticsEvent, AnalyticsVariable, trackEvent } from "@/lib/analytics";
 import { GameStateContext, PHOTOS_PER_ROUND } from "@/context/GameState";
-import Button from "@/components/Button";
 import Code from "@/components/Code";
+import CopyButton from "@/components/CopyButton";
 import GalleryImage from "@/components/GalleryImage";
+import { ScoreThreshold } from "@/app/api/photos/route";
 import Spinner from "@/components/Spinner";
 
 import type { Guesses } from "@/context/GameState";
@@ -101,6 +102,19 @@ const GameSummary: React.FC<GameSummaryProps> = ({
         .reduce((a, b) => a + b, 0);
       roundScores.push(roundScore);
     }
+    let shareText = `I scored ${totalScore.toFixed(2)} km on Kim's photo guessing game!\n`;
+    roundScores.forEach((score) => {
+      if (score < ScoreThreshold.GREAT * PHOTOS_PER_ROUND) {
+        shareText += "💚 ";
+      } else if (score < ScoreThreshold.GOOD * PHOTOS_PER_ROUND) {
+        shareText += "🟢 ";
+      } else if (score < ScoreThreshold.OK * PHOTOS_PER_ROUND) {
+        shareText += "🟡 ";
+      } else {
+        shareText += "🔴 ";
+      }
+    });
+    shareText += "\n\nGive it a try at https://curious.kim/gallery.";
     details = (
       <div className="flex flex-col items-center justify-center gap-2">
         <Code className="text-sm text-zinc-500 mt-2">
@@ -108,12 +122,7 @@ const GameSummary: React.FC<GameSummaryProps> = ({
             (score, index) => `Round ${index + 1}: ${score.toFixed(2)} km\n`,
           )}
         </Code>
-        <Button
-          onClick={() =>
-            navigator.clipboard.writeText("Copy this text to clipboard")
-          }
-          text="Share results"
-        />
+        <CopyButton buttonText="Share results" textToCopy={shareText} />
       </div>
     );
   }

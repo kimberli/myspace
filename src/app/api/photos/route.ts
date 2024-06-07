@@ -22,6 +22,13 @@ export enum ScoreQuality {
   GREAT,
 }
 
+export enum ScoreThreshold {
+  UNDEFINED = 0,
+  GREAT = 50,
+  GOOD = 1000,
+  OK = 5000,
+}
+
 export type ResponsePhotoData = {
   [key: string]: {
     blur: string;
@@ -111,11 +118,11 @@ export async function POST(
       correctLongitude,
     );
     let scoreQuality;
-    if (score < 50) {
+    if (score < ScoreThreshold.GREAT) {
       scoreQuality = ScoreQuality.GREAT;
-    } else if (score < 1000) {
+    } else if (score < ScoreThreshold.GOOD) {
       scoreQuality = ScoreQuality.GOOD;
-    } else if (score < 5000) {
+    } else if (score < ScoreThreshold.OK) {
       scoreQuality = ScoreQuality.OK;
     } else {
       scoreQuality = ScoreQuality.POOR;
