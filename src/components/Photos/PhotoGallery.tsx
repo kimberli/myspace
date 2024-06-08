@@ -100,6 +100,7 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({
           description={photoData[currentImage]?.description}
           descriptionClassName="text-center max-w-[800px]"
           location={photoData[currentImage]?.location}
+          showLocationOnHover
         />
         <div
           className="flex flex-row gap-1 overflow-x-scroll"

@@ -96,6 +96,11 @@ const GameGuess: React.FC<GameGuessProps> = ({
         >
           <p className="text-sm">
             {gameState.completedGuesses[currentImage]
+              ? photoData[currentImage]?.location
+              : ""}
+          </p>
+          <p className="text-sm">
+            {gameState.completedGuesses[currentImage]
               ? `Score: ${score.toFixed(3)} km`
               : "Click a location on the map, then submit your guess."}
           </p>

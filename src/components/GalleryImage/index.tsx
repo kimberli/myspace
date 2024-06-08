@@ -12,6 +12,7 @@ interface GalleryImageProps {
   description?: string;
   descriptionClassName?: string;
   location?: string;
+  showLocationOnHover?: boolean;
 }
 
 const GalleryImage: React.FC<GalleryImageProps> = ({
@@ -22,6 +23,7 @@ const GalleryImage: React.FC<GalleryImageProps> = ({
   description,
   descriptionClassName,
   location,
+  showLocationOnHover,
 }: GalleryImageProps) => {
   return (
     <div
@@ -46,7 +48,12 @@ const GalleryImage: React.FC<GalleryImageProps> = ({
           />
         </a>
         {location && (
-          <span className="absolute bottom-0 right-0 bg-zinc-800 bg-opacity-80 text-white text-xs px-2 py-1 opacity-0 group-hover:opacity-100 transition-all duration-150 ease-in-out">
+          <span
+            className={classNames(
+              "absolute bottom-0 right-0 bg-zinc-800 bg-opacity-80 text-white text-xs px-2 py-1 transition-all duration-150 ease-in-out",
+              showLocationOnHover ? "opacity-0 group-hover:opacity-100" : "",
+            )}
+          >
             {location}
           </span>
         )}

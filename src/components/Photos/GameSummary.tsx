@@ -68,6 +68,7 @@ const GameSummary: React.FC<GameSummaryProps> = ({
               altText={photoData[minGuessImage]?.label}
               imageId={minGuessImage}
               blurBase64Image={photoData[minGuessImage]?.blur}
+              location={photoData[minGuessImage]?.location}
               className="m-auto max-w-[320px] sm:w-[260px] md:w-[320px]"
             />
           </div>
@@ -79,6 +80,7 @@ const GameSummary: React.FC<GameSummaryProps> = ({
               altText={photoData[maxGuessImage]?.label}
               imageId={maxGuessImage}
               blurBase64Image={photoData[maxGuessImage]?.blur}
+              location={photoData[maxGuessImage]?.location}
               className="m-auto max-w-[320px] sm:w-[260px] md:w-[320px]"
             />
           </div>
