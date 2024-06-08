@@ -20,6 +20,7 @@ export type ResponsePhotoData = {
     blur: string;
     label: string;
     description: string;
+    location: string;
   };
 };
 
@@ -36,7 +37,12 @@ const TYPED_PHOTO_DATA = PHOTO_DATA as RawPhotoData;
 const RESPONSE_DATA: ResponsePhotoData = Object.fromEntries(
   Object.entries(TYPED_PHOTO_DATA).map(([key, value]) => [
     key,
-    { blur: value.blur, label: value.label, description: value.description },
+    {
+      blur: value.blur,
+      label: value.label,
+      description: value.description,
+      location: value.location,
+    },
   ]),
 );
 
