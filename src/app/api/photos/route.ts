@@ -12,6 +12,7 @@ type RawPhotoData = {
     blur: string;
     label: string;
     description: string;
+    location: string;
   };
 };
 
