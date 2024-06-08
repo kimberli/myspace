@@ -16,9 +16,11 @@ $ npm install
 $ npm run prepare
 ```
 3. Populate `.env.local` with the appropriate env variables (see `.env.template` for reference).
-4. Set up a local development database.
-5. Start the development server.
-6. Navigate to the application in your browser at (https://localhost:3000).
+4. Start the development server.
+```bash
+$ npm run dev
+```
+5. Navigate to the application in your browser at (https://localhost:3000).
 
 ### Art
 Art can be created and edited using a few different tools:
