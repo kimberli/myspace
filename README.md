@@ -15,7 +15,7 @@ $ npm install
 ```bash
 $ npm run prepare
 ```
-3. Populate `.env.local` with the appropriate env variables.
+3. Populate `.env.local` with the appropriate env variables (see `.env.template` for reference).
 4. Set up a local development database.
 5. Start the development server.
 6. Navigate to the application in your browser at (https://localhost:3000).
