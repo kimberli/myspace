@@ -33,7 +33,7 @@ const Modal: React.FC<ModalProps> = ({
       ></div>
       <div
         className={classNames(
-          "absolute bg-neutral-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded overflow-y-scroll z-[200]",
+          "absolute bg-neutral-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded overflow-y-auto z-[200]",
           classes,
         )}
       >
@@ -43,7 +43,7 @@ const Modal: React.FC<ModalProps> = ({
         </div>
         <div className={classNames("p-6 h-full", className)}>
           <h1 className="mb-4 text-center text-2xl">{title}</h1>
-          <div className="h-full p-2 overflow-y-scroll">{children}</div>
+          <div className="h-full p-2 overflow-y-auto">{children}</div>
         </div>
       </div>
     </>
