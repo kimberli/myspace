@@ -29,17 +29,20 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({
   const [currentImage, setCurrentImage] = useState<string>("");
   const scrollableImagesRef = useRef<HTMLDivElement>(null);
 
+  const setCurrentImageAndTrack = (imageId: string): void => {
+    setCurrentImage(imageId);
+    trackEvent(AnalyticsEvent.CHANGE_PHOTO, {
+      [AnalyticsVariable.PHOTO_ID]: imageId,
+    });
+  };
+
   const changeCurrentImage = (delta: number): void => {
     if (currentImage) {
       const imageIds = Object.keys(photoData || {});
       const newIndex =
         (imageIds.indexOf(currentImage) + imageIds.length + delta) %
         imageIds.length;
-      const imageId = imageIds[newIndex];
-      setCurrentImage(imageId);
-      trackEvent(AnalyticsEvent.CHANGE_PHOTO, {
-        [AnalyticsVariable.PHOTO_ID]: imageId,
-      });
+      setCurrentImageAndTrack(imageIds[newIndex]);
 
       // Scroll the images list to center on the new current image.
       const scrollableDiv = scrollableImagesRef.current;
@@ -121,7 +124,7 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({
               src={`${URL_PREFIX}${imageId}_small.jpg`}
               width={PREVIEW_WIDTH}
               height={PREVIEW_WIDTH}
-              onClick={() => setCurrentImage(imageId)}
+              onClick={() => setCurrentImageAndTrack(imageId)}
               alt={photoData[imageId]?.label}
             />
           ))}
