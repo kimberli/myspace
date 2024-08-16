@@ -84,7 +84,7 @@ const PhotoGame: React.FC<PhotoGameProps> = ({
       const result = await response.json();
       addCompletedGuess(currentImage, result);
       trackEvent(AnalyticsEvent.GUESSED_PHOTO, {
-        [AnalyticsVariable.GUESS_PHOTO]: currentImage,
+        [AnalyticsVariable.PHOTO_ID]: currentImage,
         [AnalyticsVariable.GUESS_SCORE]: result.score,
         [AnalyticsVariable.NUMBER_GUESSES]: getCurrentGuessIndex(),
         [AnalyticsVariable.USER_ID]: gameState.userId,

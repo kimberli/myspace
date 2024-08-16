@@ -9,13 +9,14 @@ export enum AnalyticsEvent {
   GUESSED_PHOTO = "Guessed Photo",
   GAME_OVER = "Game Over",
   ROUND_OVER = "Finished Round",
+  CHANGE_PHOTO = "Change Photo",
 }
 
 export enum AnalyticsVariable {
   BUTTON_CLICKED = "buttonClicked",
   ITEM_CLICKED = "itemClicked",
   FINAL_SCORE = "finalScore",
-  GUESS_PHOTO = "guessPhoto",
+  PHOTO_ID = "photoId",
   GUESS_SCORE = "guessScore",
   NUMBER_GUESSES = "numberGuesses",
   USER_ID = "userID",

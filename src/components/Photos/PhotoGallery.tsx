@@ -5,6 +5,7 @@ import React, { useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import Image from "next/image";
 
+import { AnalyticsEvent, AnalyticsVariable, trackEvent } from "@/lib/analytics";
 import GalleryImage, { URL_PREFIX } from "@/components/GalleryImage";
 import IconButton from "@/components/IconButton";
 import PhotosLayout from "@/components/Photos/PhotosLayout";
@@ -34,7 +35,11 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({
       const newIndex =
         (imageIds.indexOf(currentImage) + imageIds.length + delta) %
         imageIds.length;
-      setCurrentImage(imageIds[newIndex]);
+      const imageId = imageIds[newIndex];
+      setCurrentImage(imageId);
+      trackEvent(AnalyticsEvent.CHANGE_PHOTO, {
+        [AnalyticsVariable.PHOTO_ID]: imageId,
+      });
 
       // Scroll the images list to center on the new current image.
       const scrollableDiv = scrollableImagesRef.current;
